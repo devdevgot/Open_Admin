@@ -1,0 +1,256 @@
+Design a luxury real estate homepage for “Aviera Living” 
+strictly aligned with the official brand identity and company profile.
+
+The website must reflect:
+• Legal precision
+• Transparency
+• Boutique luxury
+• Founder-led expertise
+• Trust over transaction volume
+
+The feeling must be calm, refined, editorial, and confident — never flashy.
+
+==================================================
+BRAND COLOR SYSTEM (STRICT)
+==================================================
+
+Main Colors:
+• Cacao — #3D2716 (Primary brand base)
+• Forest Green — #424D38
+• Stone — #D8BFAE
+
+Secondary Colors:
+• Terra Cotta — #995134
+• Sand — #917C63
+• Pearl — #FAF8F5
+
+Usage Rules:
+• Background base: Pearl or Stone
+• Hero overlay: Cacao (80% opacity)
+• Section contrast blocks: Forest Green
+• Buttons: Cacao background / Pearl text
+• Accent hover: Terra Cotta
+• Avoid bright gold gradients (brand is earthy, not flashy)
+
+==================================================
+TYPOGRAPHY SYSTEM (MANDATORY)
+==================================================
+
+HEADINGS:
+• Le Jour Serif
+• Symphony (for large display titles & hero)
+
+Style:
+• Large editorial spacing
+• High contrast serif elegance
+• Uppercase for navigation
+• Slight letter spacing
+
+BODY TEXT:
+• Inria Serif
+• Used for:
+  - Paragraphs
+  - Descriptions
+  - Modal links
+  - Social captions
+  - Buttons
+  - UI text
+
+Typography tone:
+Calm. Legal. Assured. Refined.
+
+==================================================
+HEADER (MINIMAL, PREMIUM)
+==================================================
+
+LEFT:
+• AVIERA LIVING logo
+• Serif typography
+• Cacao color
+
+CENTER (ONLY 4 NAV ITEMS):
+• BUY
+• SELL
+• RENT
+• ABOUT US
+
+All uppercase
+Wide spacing
+No dropdowns in header.
+
+RIGHT:
+• Small text: CONTACT
+• Button: GET IN TOUCH (Cacao background, Pearl text)
+
+Behavior:
+• Transparent over hero
+• On scroll → solid Pearl background
+• Text becomes Cacao
+• Smooth fade transition
+
+==================================================
+FULLSCREEN MODAL MEGA MENU
+==================================================
+
+Each nav item opens a full-screen modal.
+
+Modal background:
+• Pearl or Forest Green
+• Typography in Cacao
+
+Grid layout:
+3 columns
+Wide margins
+Minimalist text links
+
+BUY modal:
+Apartments for Sale
+Villas for Sale
+Townhouses
+Penthouses
+Luxury Residences
+
+Off-Plan Projects
+Investment Opportunities
+Waterfront Living
+Branded Developments
+
+Areas:
+Downtown Dubai
+Dubai Marina
+Palm Jumeirah
+Business Bay
+Dubai Hills Estate
+
+SELL modal:
+List Your Property
+Book Valuation
+Selling Process
+Why Aviera Living
+Recently Sold
+
+RENT modal:
+Apartments for Rent
+Villas for Rent
+Short-Term Stays
+Landlord Services
+Rental Guide
+
+ABOUT modal:
+Our Founder
+Our Story
+Our Agents
+Brand Purpose
+Mission & Vision
+Core Values
+Client Experience Promise
+Why It Matters to Investors
+
+All content structured based on company profile sections.
+
+==================================================
+HERO SECTION
+==================================================
+
+Background:
+Dubai skyline with warm brown overlay tone.
+
+Overlay:
+Cacao gradient.
+
+Headline (Symphony font):
+“Luxury Real Estate, 
+Redefined by Trust.”
+
+Subheadline (Inria Serif):
+“Transparency. Legal Precision. Boutique Guidance.”
+
+Primary Button:
+Explore Properties
+
+Secondary:
+Speak With An Advisor
+
+Minimal search bar:
+Location
+Property Type
+Budget
+
+==================================================
+HOMEPAGE SECTIONS (BASED ON PROFILE)
+==================================================
+
+1. FOUNDER MESSAGE
+Use image + speech from profile.
+Tone must reflect legal credibility and leadership.
+
+2. OUR SERVICES
+Structured exactly from profile:
+• Sales & Acquisition
+• Investment Advisory
+• High-Yield & Off-Plan
+• Luxury Curation
+• End-to-End Management
+• Legal & Due Diligence
+• Golden Visa Assistance
+• Portfolio Review
+• Property Management
+• Secure Investment Guidance
+
+Layout:
+Editorial 2-column with warm imagery.
+
+3. BRAND PURPOSE
+Section with Forest Green background.
+
+4. MISSION & VISION
+Split section layout.
+Symphony headings.
+Inria body text.
+
+5. CORE VALUES
+Minimal grid.
+Typography-led design.
+No heavy icons.
+
+6. OUR AGENTS
+Luxury portrait grid.
+Soft beige backgrounds.
+Names in Le Jour Serif.
+Languages in Inria Serif.
+
+7. CLIENT EXPERIENCE PROMISE
+Large editorial typography section.
+
+8. WHY IT MATTERS TO INVESTORS
+Neutral background.
+Calm spacing.
+Institutional credibility tone.
+
+==================================================
+DESIGN STYLE RULES
+==================================================
+
+• No excessive animation
+• Slow fade transitions only
+• Elegant spacing (8pt grid)
+• Generous margins
+• No aggressive shadows
+• Clean layout hierarchy
+• Editorial luxury aesthetic
+
+==================================================
+MOBILE VERSION
+==================================================
+
+• Hamburger menu
+• Accordion style submenus
+• Same serif hierarchy
+• Fullscreen modal becomes vertical list
+• Large touch spacing
+
+Deliver design in Figma:
+• Auto layout
+• Typography styles defined
+• Color tokens defined
+• Component system ready for dev
