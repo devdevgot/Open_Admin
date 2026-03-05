@@ -2,25 +2,23 @@ export default function Footer() {
   return (
     <footer className="bg-[#3D2716] text-[#FAF8F5] pt-24 pb-12 border-t border-[#FAF8F5]/10">
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-20">
           {/* Brand */}
-          <div className="lg:col-span-1">
+          <div className="lg:col-span-1 border-b border-[#FAF8F5]/10 pb-12 sm:border-0 sm:pb-0">
             <h2 className="font-lejour text-2xl tracking-widest uppercase mb-6">Aviera Living</h2>
             <p className="font-inria text-[#FAF8F5]/70 text-sm leading-relaxed mb-8 max-w-xs">
               Luxury Real Estate, Redefined by Trust. Legal Precision. Boutique Guidance.
             </p>
-            <div className="flex space-x-4">
-              {/* Social Placeholders */}
-              <a href="#" className="text-[#FAF8F5]/70 hover:text-[#D8BFAE] transition-colors">IN</a>
-              <a href="#" className="text-[#FAF8F5]/70 hover:text-[#D8BFAE] transition-colors">FB</a>
-              <a href="#" className="text-[#FAF8F5]/70 hover:text-[#D8BFAE] transition-colors">X</a>
+            <div className="flex space-x-6">
+              <a href="#" className="text-[#FAF8F5]/70 hover:text-[#D8BFAE] transition-colors font-lejour tracking-widest text-xs">INSTAGRAM</a>
+              <a href="#" className="text-[#FAF8F5]/70 hover:text-[#D8BFAE] transition-colors font-lejour tracking-widest text-xs">LINKEDIN</a>
             </div>
           </div>
           
           {/* Navigation */}
-          <div>
-            <h3 className="font-lejour text-[#D8BFAE] uppercase tracking-widest text-xs mb-6">Explore</h3>
-            <ul className="space-y-4 font-inria text-[#FAF8F5]/80">
+          <div className="border-b border-[#FAF8F5]/10 pb-8 sm:border-0 sm:pb-0">
+            <h3 className="font-lejour text-[#D8BFAE] uppercase tracking-[0.2em] text-[10px] mb-6">Explore</h3>
+            <ul className="space-y-4 font-inria text-[#FAF8F5]/80 text-sm">
               <li><a href="#" className="hover:text-[#FAF8F5] transition-colors">Buy Properties</a></li>
               <li><a href="#" className="hover:text-[#FAF8F5] transition-colors">Sell Your Property</a></li>
               <li><a href="#" className="hover:text-[#FAF8F5] transition-colors">Rentals</a></li>
@@ -29,9 +27,9 @@ export default function Footer() {
           </div>
           
           {/* Company */}
-          <div>
-            <h3 className="font-lejour text-[#D8BFAE] uppercase tracking-widest text-xs mb-6">Company</h3>
-            <ul className="space-y-4 font-inria text-[#FAF8F5]/80">
+          <div className="border-b border-[#FAF8F5]/10 pb-8 sm:border-0 sm:pb-0">
+            <h3 className="font-lejour text-[#D8BFAE] uppercase tracking-[0.2em] text-[10px] mb-6">Company</h3>
+            <ul className="space-y-4 font-inria text-[#FAF8F5]/80 text-sm">
               <li><a href="#" className="hover:text-[#FAF8F5] transition-colors">About Us</a></li>
               <li><a href="#" className="hover:text-[#FAF8F5] transition-colors">Our Team</a></li>
               <li><a href="#" className="hover:text-[#FAF8F5] transition-colors">Careers</a></li>
@@ -40,8 +38,8 @@ export default function Footer() {
           </div>
           
           {/* Contact */}
-          <div>
-            <h3 className="font-lejour text-[#D8BFAE] uppercase tracking-widest text-xs mb-6">Contact</h3>
+          <div className="pb-8 sm:pb-0">
+            <h3 className="font-lejour text-[#D8BFAE] uppercase tracking-[0.2em] text-[10px] mb-6">Contact</h3>
             <ul className="space-y-4 font-inria text-[#FAF8F5]/80 text-sm">
               <li>Level 42, ICD Brookfield Place</li>
               <li>Dubai International Financial Centre</li>

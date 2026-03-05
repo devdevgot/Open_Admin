@@ -86,8 +86,12 @@ export default function Navbar() {
 
           {/* Mobile Menu Toggle */}
           <div className="lg:hidden flex items-center">
-            <button onClick={() => setActiveMenu(activeMenu === "MOBILE" ? null : "MOBILE")}>
-              {activeMenu === "MOBILE" ? <X size={24} /> : <Menu size={24} />}
+            <button 
+              onClick={() => setActiveMenu(activeMenu === "MOBILE" ? null : "MOBILE")}
+              className="p-2 -mr-2"
+              aria-label="Toggle menu"
+            >
+              {activeMenu === "MOBILE" ? <X size={28} strokeWidth={1.5} /> : <Menu size={28} strokeWidth={1.5} />}
             </button>
           </div>
         </div>
@@ -96,7 +100,7 @@ export default function Navbar() {
       {/* Fullscreen Mega Menu (Desktop) */}
       <div
         className={cn(
-          "fixed inset-0 top-[72px] z-40 bg-[#FAF8F5] text-[#3D2716] transition-all duration-500 ease-in-out",
+          "fixed inset-0 top-[72px] z-40 bg-[#FAF8F5] text-[#3D2716] transition-all duration-500 ease-in-out hidden lg:block",
           activeMenu && activeMenu !== "MOBILE" ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
         )}
       >
@@ -127,32 +131,50 @@ export default function Navbar() {
       {/* Mobile Menu */}
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-[#FAF8F5] text-[#3D2716] transition-all duration-500 lg:hidden overflow-y-auto pt-24",
-          activeMenu === "MOBILE" ? "opacity-100 visible" : "opacity-0 invisible pointer-events-none"
+          "fixed inset-0 z-40 bg-[#FAF8F5] text-[#3D2716] transition-all duration-500 lg:hidden overflow-y-auto",
+          activeMenu === "MOBILE" ? "translate-x-0" : "translate-x-full"
         )}
       >
-        <div className="px-6 py-8 space-y-8">
-          {navItems.map((item) => (
-            <div key={item.name} className="border-b border-[#D8BFAE]/30 pb-6">
-              <h3 className="font-lejour text-2xl tracking-widest mb-6">{item.name}</h3>
-              {Object.entries(item.categories).map(([category, links]) => (
-                <div key={category} className="mb-6 last:mb-0">
-                  <h4 className="font-lejour text-sm text-[#917C63] mb-4 uppercase tracking-wider">{category}</h4>
-                  <ul className="space-y-3 pl-4 border-l border-[#D8BFAE]/30">
-                    {links.map((link) => (
-                        <li key={link}>
-                          <a href="#" className="font-inria text-lg hover:text-[#995134]">
-                            {link}
-                          </a>
-                        </li>
-                    ))}
-                  </ul>
+        <div className="flex flex-col h-full pt-24 px-8 pb-12">
+          <div className="flex-1 space-y-10">
+            {navItems.map((item) => (
+              <div key={item.name} className="group">
+                <button 
+                  className="w-full flex justify-between items-center py-2 border-b border-[#D8BFAE]/20 text-left"
+                  onClick={(e) => {
+                    const next = e.currentTarget.nextElementSibling;
+                    if (next) next.classList.toggle('hidden');
+                  }}
+                >
+                  <span className="font-lejour text-3xl tracking-widest">{item.name}</span>
+                  <span className="text-[#917C63]">+</span>
+                </button>
+                <div className="hidden mt-6 space-y-8 pl-4 animate-in fade-in slide-in-from-top-2">
+                  {Object.entries(item.categories).map(([category, links]) => (
+                    <div key={category}>
+                      <h4 className="font-lejour text-xs text-[#917C63] mb-4 uppercase tracking-widest">{category}</h4>
+                      <ul className="space-y-4">
+                        {links.map((link) => (
+                            <li key={link}>
+                              <a href="#" className="font-inria text-xl text-[#3D2716]/80 active:text-[#995134]">
+                                {link}
+                              </a>
+                            </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
+            ))}
+          </div>
+          
+          <div className="mt-12 space-y-6 pt-8 border-t border-[#D8BFAE]/30">
+            <div className="flex flex-col space-y-2">
+              <span className="font-lejour text-[10px] text-[#917C63] uppercase tracking-[0.2em]">Contact</span>
+              <a href="tel:+97140000000" className="font-inria text-lg">+971 4 000 0000</a>
             </div>
-          ))}
-          <div className="pt-4">
-            <button className="w-full bg-[#3D2716] text-[#FAF8F5] font-inria uppercase tracking-wider py-4 hover:bg-[#995134] transition-colors">
+            <button className="w-full bg-[#3D2716] text-[#FAF8F5] font-inria uppercase tracking-widest py-5 text-sm active:bg-[#995134] transition-colors">
               Get in Touch
             </button>
           </div>
