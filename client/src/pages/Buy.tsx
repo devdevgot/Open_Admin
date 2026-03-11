@@ -194,9 +194,11 @@ export default function Buy() {
 
                 {/* CTA Buttons */}
                 <div className="flex gap-4 pt-6">
-                  <button className="flex-1 bg-[#3D2716] text-[#FAF8F5] py-3 font-inria text-sm uppercase tracking-widest hover:bg-[#995134] transition-colors">
-                    View Details
-                  </button>
+                  <Link href={`/property/${property.id}`}>
+                    <a className="flex-1 bg-[#3D2716] text-[#FAF8F5] py-3 font-inria text-sm uppercase tracking-widest hover:bg-[#995134] transition-colors text-center block">
+                      View Details
+                    </a>
+                  </Link>
                   <button className="flex-1 border border-[#3D2716] text-[#3D2716] py-3 font-inria text-sm uppercase tracking-widest hover:bg-[#3D2716] hover:text-[#FAF8F5] transition-colors">
                     Schedule Tour
                   </button>
