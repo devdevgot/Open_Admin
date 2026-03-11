@@ -13,7 +13,7 @@ export default function Hero() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto flex flex-col items-center pt-20 pb-40 md:pt-0 md:pb-0">
+      <div className="relative z-10 text-center px-6 max-w-5xl mx-auto flex flex-col items-center pt-20 pb-56 md:pt-0 md:pb-48 lg:pb-40">
         <h1 className="font-symphony text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-[#FAF8F5] mb-6 leading-[1.2] md:leading-[1.1] animate-in slide-in-from-bottom-8 fade-in duration-1000">
           Luxury Real Estate,<br className="hidden md:block" />
           Redefined by Trust.
