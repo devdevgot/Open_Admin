@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useSearch } from "wouter";
-import { Heart, MapPin, BedDouble, Bath, Maximize } from "lucide-react";
+import { Heart, MapPin, BedDouble, Bath, Maximize, SlidersHorizontal, X } from "lucide-react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -15,6 +15,9 @@ export default function Buy() {
 
   const [selectedType, setSelectedType] = useState<string>(urlType || "All");
   const [selectedLocation, setSelectedLocation] = useState<string>(urlLocation || "All");
+  const [filtersOpen, setFiltersOpen] = useState(true);
+  const [scrolledPastHero, setScrolledPastHero] = useState(false);
+  const heroRef = useRef<HTMLElement>(null);
   const queryClient = useQueryClient();
 
   useEffect(() => {
@@ -23,6 +26,17 @@ export default function Buy() {
     if (urlLocation) setSelectedLocation(urlLocation);
     else setSelectedLocation("All");
   }, [urlType, urlLocation]);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const heroBottom = heroRef.current?.getBoundingClientRect().bottom ?? 0;
+      const past = heroBottom < 80;
+      setScrolledPastHero(past);
+      if (past && filtersOpen) setFiltersOpen(false);
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   const { data: allProperties = [], isLoading } = useQuery<Property[]>({
     queryKey: ["/api/properties"],
@@ -88,7 +102,7 @@ export default function Buy() {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative h-[50vh] min-h-[400px] flex items-end overflow-hidden">
+      <section ref={heroRef} className="relative h-[50vh] min-h-[400px] flex items-end overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url(https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1920&h=1080&fit=crop)" }}
@@ -119,50 +133,87 @@ export default function Buy() {
 
       {/* Filters */}
       <div className="border-b border-[#D8BFAE]/30 bg-white sticky top-20 z-40 shadow-sm">
-        <div className="container mx-auto px-6 lg:px-12 py-5">
-          <div className="flex flex-col md:flex-row md:items-center gap-6">
-            <div className="flex flex-wrap gap-2">
-              <span className="font-lejour text-[10px] text-[#917C63] uppercase tracking-[0.2em] self-center mr-2">Type</span>
-              {["All", "Villa", "Penthouse", "Apartment"].map((type) => (
-                <button
-                  key={type}
-                  onClick={() => {
-                    setSelectedType(type);
-                    setSelectedLocation("All");
-                  }}
-                  data-testid={`button-filter-type-${type.toLowerCase()}`}
-                  className={`px-5 py-2 font-inria text-xs uppercase tracking-widest transition-all ${
-                    selectedType === type
-                      ? "bg-[#3D2716] text-[#FAF8F5]"
-                      : "text-[#3D2716] border border-[#D8BFAE]/50 hover:border-[#3D2716]"
-                  }`}
-                >
-                  {type}
-                </button>
-              ))}
-            </div>
+        <div className="container mx-auto px-6 lg:px-12">
+          {/* Collapsed bar — icon + active filter summary */}
+          <div
+            className={`flex items-center justify-between transition-all duration-300 ${filtersOpen ? "py-0 h-0 overflow-hidden opacity-0" : "py-3"}`}
+          >
+            <button
+              onClick={() => setFiltersOpen(true)}
+              className="flex items-center gap-3 hover:text-[#995134] transition-colors"
+              data-testid="button-open-filters"
+            >
+              <SlidersHorizontal size={18} className="text-[#3D2716]" />
+              <span className="font-lejour text-xs text-[#3D2716] uppercase tracking-[0.2em]">Filters</span>
+              {(selectedType !== "All" || selectedLocation !== "All") && (
+                <span className="bg-[#995134] text-[#FAF8F5] text-[10px] font-inria px-2 py-0.5 uppercase tracking-wider">
+                  {[selectedType !== "All" ? selectedType : null, selectedLocation !== "All" ? selectedLocation : null].filter(Boolean).join(" · ")}
+                </span>
+              )}
+            </button>
+            <p className="font-inria text-xs text-[#917C63]">
+              {filteredProperties.length} {filteredProperties.length === 1 ? "property" : "properties"}
+            </p>
+          </div>
 
-            <div className="hidden md:block w-px h-8 bg-[#D8BFAE]/30"></div>
-
-            {locations.length > 1 && (
-              <div className="flex flex-wrap gap-2">
-                <span className="font-lejour text-[10px] text-[#917C63] uppercase tracking-[0.2em] self-center mr-2">Area</span>
-                {locations.map((loc) => (
+          {/* Expanded filters */}
+          <div
+            className={`transition-all duration-300 ease-in-out overflow-hidden ${filtersOpen ? "max-h-40 opacity-100 py-5" : "max-h-0 opacity-0 py-0"}`}
+          >
+            <div className="flex flex-col md:flex-row md:items-center gap-6">
+              <div className="flex flex-wrap gap-2 flex-1">
+                <span className="font-lejour text-[10px] text-[#917C63] uppercase tracking-[0.2em] self-center mr-2">Type</span>
+                {["All", "Villa", "Penthouse", "Apartment"].map((type) => (
                   <button
-                    key={loc}
-                    onClick={() => setSelectedLocation(loc)}
-                    data-testid={`button-filter-location-${loc.toLowerCase().replace(/\s/g, "-")}`}
-                    className={`px-4 py-2 font-inria text-xs uppercase tracking-widest transition-all ${
-                      selectedLocation === loc
-                        ? "bg-[#424D38] text-[#FAF8F5]"
-                        : "text-[#3D2716] border border-[#D8BFAE]/50 hover:border-[#424D38]"
+                    key={type}
+                    onClick={() => {
+                      setSelectedType(type);
+                      setSelectedLocation("All");
+                    }}
+                    data-testid={`button-filter-type-${type.toLowerCase()}`}
+                    className={`px-5 py-2 font-inria text-xs uppercase tracking-widest transition-all ${
+                      selectedType === type
+                        ? "bg-[#3D2716] text-[#FAF8F5]"
+                        : "text-[#3D2716] border border-[#D8BFAE]/50 hover:border-[#3D2716]"
                     }`}
                   >
-                    {loc}
+                    {type}
                   </button>
                 ))}
+
+                <div className="hidden md:block w-px h-8 bg-[#D8BFAE]/30 mx-2"></div>
+
+                {locations.length > 1 && (
+                  <>
+                    <span className="font-lejour text-[10px] text-[#917C63] uppercase tracking-[0.2em] self-center mr-2">Area</span>
+                    {locations.map((loc) => (
+                      <button
+                        key={loc}
+                        onClick={() => setSelectedLocation(loc)}
+                        data-testid={`button-filter-location-${loc.toLowerCase().replace(/\s/g, "-")}`}
+                        className={`px-4 py-2 font-inria text-xs uppercase tracking-widest transition-all ${
+                          selectedLocation === loc
+                            ? "bg-[#424D38] text-[#FAF8F5]"
+                            : "text-[#3D2716] border border-[#D8BFAE]/50 hover:border-[#424D38]"
+                        }`}
+                      >
+                        {loc}
+                      </button>
+                    ))}
+                  </>
+                )}
               </div>
-            )}
+
+              {scrolledPastHero && (
+                <button
+                  onClick={() => setFiltersOpen(false)}
+                  className="self-start md:self-center p-2 text-[#917C63] hover:text-[#3D2716] transition-colors"
+                  data-testid="button-close-filters"
+                >
+                  <X size={18} />
+                </button>
+              )}
+            </div>
           </div>
         </div>
       </div>
