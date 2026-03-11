@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link, useSearch } from "wouter";
-import { Heart, MapPin } from "lucide-react";
+import { Heart, MapPin, BedDouble, Bath, Maximize } from "lucide-react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -86,34 +86,43 @@ export default function Buy() {
   return (
     <div className="min-h-screen bg-[#FAF8F5]">
       <Navbar />
-      <div className="pt-32 pb-16 bg-gradient-to-b from-[#3D2716]/5 to-transparent">
-        <div className="container mx-auto px-6 lg:px-12">
-          <Link href="/" className="text-sm font-inria text-[#917C63] uppercase tracking-widest hover:text-[#3D2716] transition-colors mb-6 inline-block" data-testid="link-back-home">
-              ← Back to Home
+
+      {/* Hero */}
+      <section className="relative h-[50vh] min-h-[400px] flex items-end overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url(https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1920&h=1080&fit=crop)" }}
+        >
+          <div className="absolute inset-0 bg-gradient-to-t from-[#3D2716] via-[#3D2716]/60 to-transparent"></div>
+        </div>
+        <div className="relative z-10 container mx-auto px-6 lg:px-12 pb-12">
+          <Link href="/" className="text-sm font-inria text-[#D8BFAE] uppercase tracking-widest hover:text-[#FAF8F5] transition-colors mb-6 inline-block" data-testid="link-back-home">
+            ← Back to Home
           </Link>
-          <h1 className="font-symphony text-5xl md:text-7xl text-[#3D2716] mb-4" data-testid="text-page-title">
+          <h1 className="font-symphony text-5xl md:text-7xl text-[#FAF8F5] mb-3" data-testid="text-page-title">
             Exceptional Properties
           </h1>
-          <p className="font-inria text-xl text-[#3D2716]/70 max-w-2xl">
+          <p className="font-inria text-lg text-[#FAF8F5]/70 max-w-2xl">
             Curated luxury residences across Dubai's most prestigious locations.
           </p>
           {activeFilterLabel() && (
-            <div className="mt-6 flex items-center gap-3">
-              <span className="font-inria text-sm text-[#917C63] uppercase tracking-wider">Showing:</span>
-              <span className="font-lejour text-sm text-[#3D2716] uppercase tracking-widest">{activeFilterLabel()}</span>
-              <Link href="/buy" className="font-inria text-xs text-[#995134] uppercase tracking-wider hover:text-[#3D2716] ml-2" data-testid="link-clear-filters">
-                  Clear All ×
+            <div className="mt-4 flex items-center gap-3">
+              <span className="font-inria text-sm text-[#D8BFAE] uppercase tracking-wider">Showing:</span>
+              <span className="font-lejour text-sm text-[#FAF8F5] uppercase tracking-widest">{activeFilterLabel()}</span>
+              <Link href="/buy" className="font-inria text-xs text-[#995134] uppercase tracking-wider hover:text-[#FAF8F5] ml-2" data-testid="link-clear-filters">
+                Clear ×
               </Link>
             </div>
           )}
         </div>
-      </div>
+      </section>
 
-      <div className="border-b border-[#D8BFAE]/30 bg-white sticky top-20 z-40">
-        <div className="container mx-auto px-6 lg:px-12 py-6">
+      {/* Filters */}
+      <div className="border-b border-[#D8BFAE]/30 bg-white sticky top-20 z-40 shadow-sm">
+        <div className="container mx-auto px-6 lg:px-12 py-5">
           <div className="flex flex-col md:flex-row md:items-center gap-6">
-            <div className="flex flex-wrap gap-3">
-              <span className="font-lejour text-xs text-[#917C63] uppercase tracking-widest self-center mr-2">Type:</span>
+            <div className="flex flex-wrap gap-2">
+              <span className="font-lejour text-[10px] text-[#917C63] uppercase tracking-[0.2em] self-center mr-2">Type</span>
               {["All", "Villa", "Penthouse", "Apartment"].map((type) => (
                 <button
                   key={type}
@@ -122,10 +131,10 @@ export default function Buy() {
                     setSelectedLocation("All");
                   }}
                   data-testid={`button-filter-type-${type.toLowerCase()}`}
-                  className={`px-6 py-2 font-inria text-sm uppercase tracking-widest transition-all ${
+                  className={`px-5 py-2 font-inria text-xs uppercase tracking-widest transition-all ${
                     selectedType === type
                       ? "bg-[#3D2716] text-[#FAF8F5]"
-                      : "bg-transparent text-[#3D2716] border border-[#D8BFAE] hover:border-[#3D2716]"
+                      : "text-[#3D2716] border border-[#D8BFAE]/50 hover:border-[#3D2716]"
                   }`}
                 >
                   {type}
@@ -133,18 +142,20 @@ export default function Buy() {
               ))}
             </div>
 
+            <div className="hidden md:block w-px h-8 bg-[#D8BFAE]/30"></div>
+
             {locations.length > 1 && (
-              <div className="flex flex-wrap gap-3">
-                <span className="font-lejour text-xs text-[#917C63] uppercase tracking-widest self-center mr-2">Area:</span>
+              <div className="flex flex-wrap gap-2">
+                <span className="font-lejour text-[10px] text-[#917C63] uppercase tracking-[0.2em] self-center mr-2">Area</span>
                 {locations.map((loc) => (
                   <button
                     key={loc}
                     onClick={() => setSelectedLocation(loc)}
                     data-testid={`button-filter-location-${loc.toLowerCase().replace(/\s/g, "-")}`}
-                    className={`px-5 py-2 font-inria text-xs uppercase tracking-widest transition-all ${
+                    className={`px-4 py-2 font-inria text-xs uppercase tracking-widest transition-all ${
                       selectedLocation === loc
                         ? "bg-[#424D38] text-[#FAF8F5]"
-                        : "bg-transparent text-[#3D2716] border border-[#D8BFAE] hover:border-[#424D38]"
+                        : "text-[#3D2716] border border-[#D8BFAE]/50 hover:border-[#424D38]"
                     }`}
                   >
                     {loc}
@@ -156,42 +167,51 @@ export default function Buy() {
         </div>
       </div>
 
-      <div className="container mx-auto px-6 lg:px-12 py-20">
+      {/* Properties Grid */}
+      <div className="container mx-auto px-6 lg:px-12 py-16">
         {isLoading ? (
           <div className="text-center py-20">
+            <div className="inline-block w-8 h-8 border-2 border-[#D8BFAE] border-t-[#3D2716] animate-spin mb-4"></div>
             <p className="font-inria text-[#917C63] text-lg">Loading properties...</p>
           </div>
         ) : filteredProperties.length === 0 ? (
           <div className="text-center py-20">
-            <p className="font-inria text-[#917C63] text-lg mb-4">No properties found for this filter.</p>
-            <Link href="/buy" className="font-inria text-[#995134] uppercase tracking-widest hover:text-[#3D2716]" data-testid="link-view-all">
-                View All Properties
+            <p className="font-symphony text-3xl text-[#3D2716] mb-4">No Properties Found</p>
+            <p className="font-inria text-[#917C63] mb-8">Try adjusting your filters to see more results.</p>
+            <Link href="/buy" className="bg-[#3D2716] text-[#FAF8F5] px-8 py-3 font-inria text-sm uppercase tracking-widest hover:bg-[#995134] transition-colors" data-testid="link-view-all">
+              View All Properties
             </Link>
           </div>
         ) : (
           <>
-            <p className="font-inria text-sm text-[#917C63] mb-10" data-testid="text-results-count">
-              {filteredProperties.length} {filteredProperties.length === 1 ? "property" : "properties"} found
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            <div className="flex justify-between items-center mb-10">
+              <p className="font-inria text-sm text-[#917C63]" data-testid="text-results-count">
+                {filteredProperties.length} {filteredProperties.length === 1 ? "property" : "properties"} available
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
               {filteredProperties.map((property) => (
-                <div key={property.id} className="group cursor-pointer" data-testid={`card-property-${property.id}`}>
-                  <div className="relative overflow-hidden bg-[#D8BFAE]/20 aspect-[4/3] mb-6">
-                    <img
-                      src={property.images[0]}
-                      alt={property.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
+                <div key={property.id} className="group" data-testid={`card-property-${property.id}`}>
+                  {/* Image */}
+                  <div className="relative overflow-hidden bg-[#D8BFAE]/20 aspect-[4/3] mb-5">
+                    <Link href={`/property/${property.id}`}>
+                      <img
+                        src={property.images[0]}
+                        alt={property.title}
+                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                      />
+                    </Link>
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
                         toggleFavoriteMutation.mutate(property.id);
                       }}
                       data-testid={`button-favorite-${property.id}`}
-                      className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm p-3 hover:bg-white transition-colors"
+                      className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm w-10 h-10 flex items-center justify-center hover:bg-white transition-colors"
                     >
                       <Heart
-                        size={20}
+                        size={18}
                         className={
                           favoritedIds.includes(property.id)
                             ? "fill-[#995134] text-[#995134]"
@@ -199,43 +219,48 @@ export default function Buy() {
                         }
                       />
                     </button>
-                    <div className="absolute top-4 left-4 bg-[#3D2716] text-[#FAF8F5] px-4 py-2 font-inria text-xs uppercase tracking-widest">
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#3D2716]/80 to-transparent p-5 pt-12">
+                      <p className="font-symphony text-3xl text-[#FAF8F5]" data-testid={`text-price-${property.id}`}>
+                        {property.price}
+                      </p>
+                    </div>
+                    <div className="absolute top-4 left-4 bg-[#3D2716]/90 text-[#FAF8F5] px-3 py-1.5 font-inria text-[10px] uppercase tracking-widest">
                       {property.type}
                     </div>
                   </div>
 
-                  <div className="space-y-4 group-hover:opacity-90 transition-opacity">
-                    <h3 className="font-symphony text-3xl text-[#3D2716]" data-testid={`text-price-${property.id}`}>
-                      {property.price}
+                  {/* Content */}
+                  <div className="space-y-3">
+                    <h3 className="font-lejour text-lg text-[#3D2716] leading-tight uppercase tracking-wider">
+                      <Link href={`/property/${property.id}`} className="hover:text-[#995134] transition-colors">
+                        {property.title}
+                      </Link>
                     </h3>
-                    <h4 className="font-lejour text-xl text-[#3D2716] leading-tight">
-                      {property.title}
-                    </h4>
-                    <div className="flex items-center space-x-2 text-[#917C63]">
-                      <MapPin size={16} />
+                    <div className="flex items-center space-x-1.5 text-[#917C63]">
+                      <MapPin size={14} />
                       <span className="font-inria text-sm">{property.location}</span>
                     </div>
 
-                    <div className="grid grid-cols-3 gap-4 pt-4 border-t border-[#D8BFAE]/30">
-                      <div>
-                        <p className="font-lejour text-[#917C63] uppercase text-xs tracking-widest mb-1">Beds</p>
-                        <p className="font-symphony text-2xl text-[#3D2716]">{property.beds}</p>
+                    <div className="flex items-center gap-5 pt-3 border-t border-[#D8BFAE]/20">
+                      <div className="flex items-center gap-1.5">
+                        <BedDouble size={15} className="text-[#917C63]" />
+                        <span className="font-inria text-sm text-[#3D2716]">{property.beds} Beds</span>
                       </div>
-                      <div>
-                        <p className="font-lejour text-[#917C63] uppercase text-xs tracking-widest mb-1">Baths</p>
-                        <p className="font-symphony text-2xl text-[#3D2716]">{property.baths}</p>
+                      <div className="flex items-center gap-1.5">
+                        <Bath size={15} className="text-[#917C63]" />
+                        <span className="font-inria text-sm text-[#3D2716]">{property.baths} Baths</span>
                       </div>
-                      <div>
-                        <p className="font-lejour text-[#917C63] uppercase text-xs tracking-widest mb-1">Area</p>
-                        <p className="font-inria text-sm text-[#3D2716]">{property.area}</p>
+                      <div className="flex items-center gap-1.5">
+                        <Maximize size={15} className="text-[#917C63]" />
+                        <span className="font-inria text-sm text-[#3D2716]">{property.area}</span>
                       </div>
                     </div>
 
-                    <div className="flex gap-4 pt-6">
-                      <Link href={`/property/${property.id}`} className="flex-1 bg-[#3D2716] text-[#FAF8F5] py-3 font-inria text-sm uppercase tracking-widest hover:bg-[#995134] transition-colors text-center block" data-testid={`link-view-details-${property.id}`}>
-                          View Details
+                    <div className="flex gap-3 pt-4">
+                      <Link href={`/property/${property.id}`} className="flex-1 bg-[#3D2716] text-[#FAF8F5] py-3 font-inria text-xs uppercase tracking-widest hover:bg-[#995134] transition-colors text-center" data-testid={`link-view-details-${property.id}`}>
+                        View Details
                       </Link>
-                      <button className="flex-1 border border-[#3D2716] text-[#3D2716] py-3 font-inria text-sm uppercase tracking-widest hover:bg-[#3D2716] hover:text-[#FAF8F5] transition-colors" data-testid={`button-schedule-tour-${property.id}`}>
+                      <button className="flex-1 border border-[#3D2716] text-[#3D2716] py-3 font-inria text-xs uppercase tracking-widest hover:bg-[#3D2716] hover:text-[#FAF8F5] transition-colors" data-testid={`button-schedule-tour-${property.id}`}>
                         Schedule Tour
                       </button>
                     </div>
@@ -247,20 +272,35 @@ export default function Buy() {
         )}
       </div>
 
-      <section className="py-20 bg-[#3D2716] text-[#FAF8F5]">
-        <div className="container mx-auto px-6 lg:px-12 text-center">
-          <h2 className="font-symphony text-4xl md:text-5xl mb-6">
-            Need Expert Guidance?
-          </h2>
-          <p className="font-inria text-lg text-[#FAF8F5]/80 mb-12 max-w-2xl mx-auto">
-            Our advisors are ready to discuss your investment objectives and
-            identify opportunities aligned with your strategy.
-          </p>
-          <button className="bg-[#995134] text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-schedule-consultation">
-            Schedule Consultation
-          </button>
+      {/* CTA */}
+      <section className="py-24 bg-[#3D2716] text-[#FAF8F5]">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="font-lejour text-xs text-[#D8BFAE] uppercase tracking-[0.3em] mb-4">Private Advisory</p>
+              <h2 className="font-symphony text-4xl md:text-5xl mb-6">
+                Can't Find What<br />You're Looking For?
+              </h2>
+              <p className="font-inria text-lg text-[#FAF8F5]/70 mb-10 leading-relaxed">
+                Our advisors have access to exclusive off-market properties and pre-launch projects not listed publicly. Share your criteria and let us find your perfect investment.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button className="bg-[#995134] text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-schedule-consultation">
+                  Schedule Consultation
+                </button>
+                <a href="tel:+97140000000" className="border border-[#FAF8F5]/30 text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center">
+                  Call Us Directly
+                </a>
+              </div>
+            </div>
+            <div className="hidden lg:block text-right">
+              <p className="font-symphony text-8xl text-[#FAF8F5]/5">200+</p>
+              <p className="font-inria text-[#FAF8F5]/40 uppercase tracking-widest text-sm -mt-4">Properties in Portfolio</p>
+            </div>
+          </div>
         </div>
       </section>
+
       <Footer />
     </div>
   );
