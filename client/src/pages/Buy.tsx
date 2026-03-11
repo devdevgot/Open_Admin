@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "wouter";
 import { Heart, MapPin } from "lucide-react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 const properties = [
   {
@@ -87,6 +89,7 @@ export default function Buy() {
 
   return (
     <div className="min-h-screen bg-[#FAF8F5]">
+      <Navbar />
       {/* Header */}
       <div className="pt-32 pb-16 bg-gradient-to-b from-[#3D2716]/5 to-transparent">
         <div className="container mx-auto px-6 lg:px-12">
@@ -218,6 +221,7 @@ export default function Buy() {
           </button>
         </div>
       </section>
+      <Footer />
     </div>
   );
 }
