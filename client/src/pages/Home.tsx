@@ -16,14 +16,14 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
-        <FounderMessage />
-        <Services />
-        <BrandPurpose />
-        <MissionVision />
-        <CoreValues />
-        <Agents />
-        <ClientExperience />
-        <WhyItMatters />
+        <div id="founder"><FounderMessage /></div>
+        <div id="services"><Services /></div>
+        <div id="brand-purpose"><BrandPurpose /></div>
+        <div id="mission-vision"><MissionVision /></div>
+        <div id="core-values"><CoreValues /></div>
+        <div id="agents"><Agents /></div>
+        <div id="client-experience"><ClientExperience /></div>
+        <div id="why-it-matters"><WhyItMatters /></div>
       </main>
       <Footer />
     </div>

@@ -1,43 +1,122 @@
 import { useState, useEffect } from "react";
-import { Link } from "wouter";
+import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 
-const navItems = [
+type NavLink = {
+  label: string;
+  href: string;
+};
+
+type NavCategory = {
+  title: string;
+  links: NavLink[];
+};
+
+type NavItem = {
+  name: string;
+  categories: NavCategory[];
+};
+
+const navItems: NavItem[] = [
   {
     name: "BUY",
-    categories: {
-      "Property Types": ["Apartments for Sale", "Villas for Sale", "Townhouses", "Penthouses", "Luxury Residences"],
-      "Collections": ["Off-Plan Projects", "Investment Opportunities", "Waterfront Living", "Branded Developments"],
-      "Areas": ["Downtown Dubai", "Dubai Marina", "Palm Jumeirah", "Business Bay", "Dubai Hills Estate"]
-    }
+    categories: [
+      {
+        title: "Property Types",
+        links: [
+          { label: "Apartments for Sale", href: "/buy?type=Apartment" },
+          { label: "Villas for Sale", href: "/buy?type=Villa" },
+          { label: "Townhouses", href: "/buy?type=Townhouse" },
+          { label: "Penthouses", href: "/buy?type=Penthouse" },
+          { label: "All Properties", href: "/buy" },
+        ],
+      },
+      {
+        title: "Collections",
+        links: [
+          { label: "Off-Plan Projects", href: "/buy?collection=off-plan" },
+          { label: "Investment Opportunities", href: "/buy?collection=investment" },
+          { label: "Waterfront Living", href: "/buy?collection=waterfront" },
+          { label: "Branded Developments", href: "/buy?collection=branded" },
+        ],
+      },
+      {
+        title: "Areas",
+        links: [
+          { label: "Downtown Dubai", href: "/buy?location=Downtown+Dubai" },
+          { label: "Dubai Marina", href: "/buy?location=Dubai+Marina" },
+          { label: "Palm Jumeirah", href: "/buy?location=Palm+Jumeirah" },
+          { label: "Business Bay", href: "/buy?location=Business+Bay" },
+          { label: "Emirates Hills", href: "/buy?location=Emirates+Hills" },
+        ],
+      },
+    ],
   },
   {
     name: "SELL",
-    categories: {
-      "Services": ["List Your Property", "Book Valuation", "Selling Process", "Why Aviera Living", "Recently Sold"]
-    }
+    categories: [
+      {
+        title: "Services",
+        links: [
+          { label: "List Your Property", href: "/sell" },
+          { label: "Book Valuation", href: "/sell" },
+          { label: "Selling Process", href: "/sell" },
+          { label: "Why Aviera Living", href: "/#brand-purpose" },
+          { label: "Recently Sold", href: "/buy" },
+        ],
+      },
+    ],
   },
   {
     name: "RENT",
-    categories: {
-      "Properties": ["Apartments for Rent", "Villas for Rent", "Short-Term Stays"],
-      "Services": ["Landlord Services", "Rental Guide"]
-    }
+    categories: [
+      {
+        title: "Properties",
+        links: [
+          { label: "Apartments for Rent", href: "/rent" },
+          { label: "Villas for Rent", href: "/rent" },
+          { label: "Short-Term Stays", href: "/rent" },
+        ],
+      },
+      {
+        title: "Services",
+        links: [
+          { label: "Landlord Services", href: "/rent" },
+          { label: "Rental Guide", href: "/rent" },
+        ],
+      },
+    ],
   },
   {
     name: "ABOUT US",
-    categories: {
-      "Company": ["Our Founder", "Our Story", "Our Agents", "Brand Purpose"],
-      "Values": ["Mission & Vision", "Core Values", "Client Experience Promise", "Why It Matters to Investors"]
-    }
-  }
+    categories: [
+      {
+        title: "Company",
+        links: [
+          { label: "Our Founder", href: "/#founder" },
+          { label: "Our Story", href: "/#brand-purpose" },
+          { label: "Our Agents", href: "/#agents" },
+          { label: "Brand Purpose", href: "/#brand-purpose" },
+        ],
+      },
+      {
+        title: "Values",
+        links: [
+          { label: "Mission & Vision", href: "/#mission-vision" },
+          { label: "Core Values", href: "/#core-values" },
+          { label: "Client Experience Promise", href: "/#client-experience" },
+          { label: "Why It Matters to Investors", href: "/#why-it-matters" },
+        ],
+      },
+    ],
+  },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [, setLocation] = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -46,6 +125,29 @@ export default function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const handleLinkClick = (href: string) => {
+    setActiveMenu(null);
+
+    if (href.startsWith("/#")) {
+      const sectionId = href.substring(2);
+      if (window.location.pathname === "/") {
+        const el = document.getElementById(sectionId);
+        if (el) {
+          el.scrollIntoView({ behavior: "smooth" });
+          return;
+        }
+      }
+      setLocation("/");
+      setTimeout(() => {
+        const el = document.getElementById(sectionId);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      }, 300);
+    } else {
+      setLocation(href);
+      window.scrollTo({ top: 0 });
+    }
+  };
 
   return (
     <>
@@ -56,19 +158,18 @@ export default function Navbar() {
         )}
       >
         <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center">
-          {/* Logo */}
-          <Link href="/">
-            <a className="font-lejour text-2xl tracking-widest uppercase">
+          <Link href="/" className="font-lejour text-2xl tracking-widest uppercase">
               Aviera Living
-            </a>
           </Link>
 
-          {/* Desktop Nav */}
           <div className="hidden lg:flex items-center space-x-12">
             {navItems.map((item) => (
               <button
                 key={item.name}
-                className="font-lejour text-sm tracking-[0.2em] uppercase hover:text-[#995134] transition-colors"
+                className={cn(
+                  "font-lejour text-sm tracking-[0.2em] uppercase hover:text-[#995134] transition-colors",
+                  activeMenu === item.name && "text-[#995134]"
+                )}
                 onClick={() => setActiveMenu(activeMenu === item.name ? null : item.name)}
               >
                 {item.name}
@@ -76,15 +177,13 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Right Actions */}
           <div className="hidden lg:flex items-center space-x-8">
-            <span className="font-inria text-sm uppercase tracking-wider">Contact</span>
+            <span className="font-inria text-sm uppercase tracking-wider cursor-pointer hover:text-[#995134] transition-colors">Contact</span>
             <button className="bg-[#3D2716] text-[#FAF8F5] font-inria uppercase tracking-wider text-xs px-8 py-3 hover:bg-[#995134] transition-colors">
               Get in Touch
             </button>
           </div>
 
-          {/* Mobile Menu Toggle */}
           <div className="lg:hidden flex items-center">
             <button 
               onClick={() => setActiveMenu(activeMenu === "MOBILE" ? null : "MOBILE")}
@@ -108,16 +207,19 @@ export default function Navbar() {
           {navItems.map((item) => (
             item.name === activeMenu && (
               <div key={item.name} className="grid grid-cols-3 gap-16 h-full animate-in fade-in slide-in-from-bottom-4 duration-700">
-                {Object.entries(item.categories).map(([category, links]) => (
-                  <div key={category}>
-                    <h4 className="font-lejour text-lg text-[#917C63] mb-8 uppercase tracking-widest">{category}</h4>
+                {item.categories.map((cat) => (
+                  <div key={cat.title}>
+                    <h4 className="font-lejour text-lg text-[#917C63] mb-8 uppercase tracking-widest">{cat.title}</h4>
                     <ul className="space-y-4">
-                      {links.map((link) => (
-                         <li key={link}>
-                           <a href="#" className="font-inria text-xl hover:text-[#995134] transition-colors">
-                             {link}
-                           </a>
-                         </li>
+                      {cat.links.map((link) => (
+                        <li key={link.label}>
+                          <button
+                            onClick={() => handleLinkClick(link.href)}
+                            className="font-inria text-xl hover:text-[#995134] transition-colors text-left"
+                          >
+                            {link.label}
+                          </button>
+                        </li>
                       ))}
                     </ul>
                   </div>
@@ -142,24 +244,31 @@ export default function Navbar() {
                 <button 
                   className="w-full flex justify-between items-center py-2 border-b border-[#D8BFAE]/20 text-left"
                   onClick={(e) => {
+                    const icon = e.currentTarget.querySelector('.toggle-icon');
                     const next = e.currentTarget.nextElementSibling;
-                    if (next) next.classList.toggle('hidden');
+                    if (next) {
+                      next.classList.toggle('hidden');
+                      if (icon) icon.textContent = next.classList.contains('hidden') ? '+' : '−';
+                    }
                   }}
                 >
                   <span className="font-lejour text-3xl tracking-widest">{item.name}</span>
-                  <span className="text-[#917C63]">+</span>
+                  <span className="text-[#917C63] toggle-icon text-xl">+</span>
                 </button>
                 <div className="hidden mt-6 space-y-8 pl-4 animate-in fade-in slide-in-from-top-2">
-                  {Object.entries(item.categories).map(([category, links]) => (
-                    <div key={category}>
-                      <h4 className="font-lejour text-xs text-[#917C63] mb-4 uppercase tracking-widest">{category}</h4>
+                  {item.categories.map((cat) => (
+                    <div key={cat.title}>
+                      <h4 className="font-lejour text-xs text-[#917C63] mb-4 uppercase tracking-widest">{cat.title}</h4>
                       <ul className="space-y-4">
-                        {links.map((link) => (
-                            <li key={link}>
-                              <a href="#" className="font-inria text-xl text-[#3D2716]/80 active:text-[#995134]">
-                                {link}
-                              </a>
-                            </li>
+                        {cat.links.map((link) => (
+                          <li key={link.label}>
+                            <button
+                              onClick={() => handleLinkClick(link.href)}
+                              className="font-inria text-xl text-[#3D2716]/80 active:text-[#995134] text-left"
+                            >
+                              {link.label}
+                            </button>
+                          </li>
                         ))}
                       </ul>
                     </div>
