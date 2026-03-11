@@ -57,13 +57,33 @@ const navItems: NavItem[] = [
     name: "SELL",
     categories: [
       {
+        title: "Property Types",
+        links: [
+          { label: "Sell Apartments", href: "/sell?type=Apartment" },
+          { label: "Sell Villas", href: "/sell?type=Villa" },
+          { label: "Sell Townhouses", href: "/sell?type=Townhouse" },
+          { label: "Sell Penthouses", href: "/sell?type=Penthouse" },
+          { label: "All Property Types", href: "/sell" },
+        ],
+      },
+      {
         title: "Services",
         links: [
           { label: "List Your Property", href: "/sell" },
-          { label: "Book Valuation", href: "/sell" },
-          { label: "Selling Process", href: "/sell" },
-          { label: "Why Aviera Living", href: "/#brand-purpose" },
+          { label: "Get Free Valuation", href: "/sell" },
+          { label: "Selling Guide", href: "/sell" },
+          { label: "Market Analysis", href: "/sell" },
           { label: "Recently Sold", href: "/buy" },
+        ],
+      },
+      {
+        title: "Areas",
+        links: [
+          { label: "Sell in Downtown Dubai", href: "/sell?location=Downtown+Dubai" },
+          { label: "Sell in Dubai Marina", href: "/sell?location=Dubai+Marina" },
+          { label: "Sell in Palm Jumeirah", href: "/sell?location=Palm+Jumeirah" },
+          { label: "Sell in Business Bay", href: "/sell?location=Business+Bay" },
+          { label: "Sell in Emirates Hills", href: "/sell?location=Emirates+Hills" },
         ],
       },
     ],
