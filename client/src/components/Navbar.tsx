@@ -16,6 +16,7 @@ type NavCategory = {
 type NavItem = {
   name: string;
   categories: NavCategory[];
+  href?: string;
 };
 
 const navItems: NavItem[] = [
@@ -55,38 +56,8 @@ const navItems: NavItem[] = [
   },
   {
     name: "SELL",
-    categories: [
-      {
-        title: "Property Types",
-        links: [
-          { label: "Sell Apartments", href: "/sell?type=Apartment" },
-          { label: "Sell Villas", href: "/sell?type=Villa" },
-          { label: "Sell Townhouses", href: "/sell?type=Townhouse" },
-          { label: "Sell Penthouses", href: "/sell?type=Penthouse" },
-          { label: "All Property Types", href: "/sell" },
-        ],
-      },
-      {
-        title: "Services",
-        links: [
-          { label: "List Your Property", href: "/sell" },
-          { label: "Get Free Valuation", href: "/sell" },
-          { label: "Selling Guide", href: "/sell" },
-          { label: "Market Analysis", href: "/sell" },
-          { label: "Recently Sold", href: "/buy" },
-        ],
-      },
-      {
-        title: "Areas",
-        links: [
-          { label: "Sell in Downtown Dubai", href: "/sell?location=Downtown+Dubai" },
-          { label: "Sell in Dubai Marina", href: "/sell?location=Dubai+Marina" },
-          { label: "Sell in Palm Jumeirah", href: "/sell?location=Palm+Jumeirah" },
-          { label: "Sell in Business Bay", href: "/sell?location=Business+Bay" },
-          { label: "Sell in Emirates Hills", href: "/sell?location=Emirates+Hills" },
-        ],
-      },
-    ],
+    href: "/sell",
+    categories: [],
   },
   {
     name: "RENT",
@@ -184,18 +155,28 @@ export default function Navbar() {
           </Link>
 
           <div className="hidden lg:flex items-center space-x-12">
-            {navItems.map((item) => (
-              <button
-                key={item.name}
-                className={cn(
-                  "font-lejour text-sm tracking-[0.2em] uppercase hover:text-[#995134] transition-colors",
-                  activeMenu === item.name && "text-[#995134]"
-                )}
-                onClick={() => setActiveMenu(activeMenu === item.name ? null : item.name)}
-              >
-                {item.name}
-              </button>
-            ))}
+            {navItems.map((item) =>
+              item.href ? (
+                <button
+                  key={item.name}
+                  className="font-lejour text-sm tracking-[0.2em] uppercase hover:text-[#995134] transition-colors"
+                  onClick={() => handleLinkClick(item.href!)}
+                >
+                  {item.name}
+                </button>
+              ) : (
+                <button
+                  key={item.name}
+                  className={cn(
+                    "font-lejour text-sm tracking-[0.2em] uppercase hover:text-[#995134] transition-colors",
+                    activeMenu === item.name && "text-[#995134]"
+                  )}
+                  onClick={() => setActiveMenu(activeMenu === item.name ? null : item.name)}
+                >
+                  {item.name}
+                </button>
+              )
+            )}
           </div>
 
           <div className="hidden lg:flex items-center space-x-8">
@@ -262,39 +243,51 @@ export default function Navbar() {
           <div className="flex-1 space-y-10">
             {navItems.map((item) => (
               <div key={item.name} className="group">
-                <button 
-                  className="w-full flex justify-between items-center py-2 border-b border-[#D8BFAE]/20 text-left"
-                  onClick={(e) => {
-                    const icon = e.currentTarget.querySelector('.toggle-icon');
-                    const next = e.currentTarget.nextElementSibling;
-                    if (next) {
-                      next.classList.toggle('hidden');
-                      if (icon) icon.textContent = next.classList.contains('hidden') ? '+' : '−';
-                    }
-                  }}
-                >
-                  <span className="font-lejour text-3xl tracking-widest">{item.name}</span>
-                  <span className="text-[#917C63] toggle-icon text-xl">+</span>
-                </button>
-                <div className="hidden mt-6 space-y-8 pl-4 animate-in fade-in slide-in-from-top-2">
-                  {item.categories.map((cat) => (
-                    <div key={cat.title}>
-                      <h4 className="font-lejour text-xs text-[#917C63] mb-4 uppercase tracking-widest">{cat.title}</h4>
-                      <ul className="space-y-4">
-                        {cat.links.map((link) => (
-                          <li key={link.label}>
-                            <button
-                              onClick={() => handleLinkClick(link.href)}
-                              className="font-inria text-xl text-[#3D2716]/80 active:text-[#995134] text-left"
-                            >
-                              {link.label}
-                            </button>
-                          </li>
-                        ))}
-                      </ul>
+                {item.href ? (
+                  <button
+                    className="w-full flex justify-between items-center py-2 border-b border-[#D8BFAE]/20 text-left"
+                    onClick={() => handleLinkClick(item.href!)}
+                  >
+                    <span className="font-lejour text-3xl tracking-widest">{item.name}</span>
+                    <span className="text-[#917C63] text-xl">→</span>
+                  </button>
+                ) : (
+                  <>
+                    <button 
+                      className="w-full flex justify-between items-center py-2 border-b border-[#D8BFAE]/20 text-left"
+                      onClick={(e) => {
+                        const icon = e.currentTarget.querySelector('.toggle-icon');
+                        const next = e.currentTarget.nextElementSibling;
+                        if (next) {
+                          next.classList.toggle('hidden');
+                          if (icon) icon.textContent = next.classList.contains('hidden') ? '+' : '−';
+                        }
+                      }}
+                    >
+                      <span className="font-lejour text-3xl tracking-widest">{item.name}</span>
+                      <span className="text-[#917C63] toggle-icon text-xl">+</span>
+                    </button>
+                    <div className="hidden mt-6 space-y-8 pl-4 animate-in fade-in slide-in-from-top-2">
+                      {item.categories.map((cat) => (
+                        <div key={cat.title}>
+                          <h4 className="font-lejour text-xs text-[#917C63] mb-4 uppercase tracking-widest">{cat.title}</h4>
+                          <ul className="space-y-4">
+                            {cat.links.map((link) => (
+                              <li key={link.label}>
+                                <button
+                                  onClick={() => handleLinkClick(link.href)}
+                                  className="font-inria text-xl text-[#3D2716]/80 active:text-[#995134] text-left"
+                                >
+                                  {link.label}
+                                </button>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      ))}
                     </div>
-                  ))}
-                </div>
+                  </>
+                )}
               </div>
             ))}
           </div>
