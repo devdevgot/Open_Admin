@@ -158,8 +158,9 @@ export default function Navbar() {
         )}
       >
         <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center">
-          <Link href="/" className="font-lejour text-2xl tracking-widest uppercase">
-              Aviera Living
+          <Link href="/" className="text-2xl tracking-widest uppercase">
+              <span className="font-lejour">Aviera</span>{" "}
+              <span className="font-symphony">Living</span>
           </Link>
 
           <div className="hidden lg:flex items-center space-x-12">

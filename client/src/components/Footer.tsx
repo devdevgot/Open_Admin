@@ -5,7 +5,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8 mb-20">
           {/* Brand */}
           <div className="lg:col-span-1 border-b border-[#FAF8F5]/10 pb-12 sm:border-0 sm:pb-0">
-            <h2 className="font-lejour text-2xl tracking-widest uppercase mb-6">Aviera Living</h2>
+            <h2 className="text-2xl tracking-widest uppercase mb-6"><span className="font-lejour">Aviera</span> <span className="font-symphony">Living</span></h2>
             <p className="font-inria text-[#FAF8F5]/70 text-sm leading-relaxed mb-8 max-w-xs">
               Luxury Real Estate, Redefined by Trust. Legal Precision. Boutique Guidance.
             </p>
