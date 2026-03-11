@@ -66,13 +66,21 @@ export default function Navbar() {
           {/* Desktop Nav */}
           <div className="hidden lg:flex items-center space-x-12">
             {navItems.map((item) => (
-              <button
-                key={item.name}
-                className="font-lejour text-sm tracking-[0.2em] uppercase hover:text-[#995134] transition-colors"
-                onClick={() => setActiveMenu(activeMenu === item.name ? null : item.name)}
-              >
-                {item.name}
-              </button>
+              item.name === "BUY" ? (
+                <Link key={item.name} href="/buy">
+                  <a className="font-lejour text-sm tracking-[0.2em] uppercase hover:text-[#995134] transition-colors">
+                    {item.name}
+                  </a>
+                </Link>
+              ) : (
+                <button
+                  key={item.name}
+                  className="font-lejour text-sm tracking-[0.2em] uppercase hover:text-[#995134] transition-colors"
+                  onClick={() => setActiveMenu(activeMenu === item.name ? null : item.name)}
+                >
+                  {item.name}
+                </button>
+              )
             ))}
           </div>
 
@@ -139,16 +147,25 @@ export default function Navbar() {
           <div className="flex-1 space-y-10">
             {navItems.map((item) => (
               <div key={item.name} className="group">
-                <button 
-                  className="w-full flex justify-between items-center py-2 border-b border-[#D8BFAE]/20 text-left"
-                  onClick={(e) => {
-                    const next = e.currentTarget.nextElementSibling;
-                    if (next) next.classList.toggle('hidden');
-                  }}
-                >
-                  <span className="font-lejour text-3xl tracking-widest">{item.name}</span>
-                  <span className="text-[#917C63]">+</span>
-                </button>
+                {item.name === "BUY" ? (
+                  <Link href="/buy">
+                    <a className="w-full flex justify-between items-center py-2 border-b border-[#D8BFAE]/20 text-left">
+                      <span className="font-lejour text-3xl tracking-widest">{item.name}</span>
+                      <span className="text-[#917C63]">→</span>
+                    </a>
+                  </Link>
+                ) : (
+                  <button 
+                    className="w-full flex justify-between items-center py-2 border-b border-[#D8BFAE]/20 text-left"
+                    onClick={(e) => {
+                      const next = e.currentTarget.nextElementSibling;
+                      if (next) next.classList.toggle('hidden');
+                    }}
+                  >
+                    <span className="font-lejour text-3xl tracking-widest">{item.name}</span>
+                    <span className="text-[#917C63]">+</span>
+                  </button>
+                )}
                 <div className="hidden mt-6 space-y-8 pl-4 animate-in fade-in slide-in-from-top-2">
                   {Object.entries(item.categories).map(([category, links]) => (
                     <div key={category}>
