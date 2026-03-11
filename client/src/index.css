@@ -3,6 +3,13 @@
 
 @custom-variant dark (&:is(.dark *));
 
+@font-face {
+  font-family: 'Symphony';
+  src: url('/fonts/Symphony-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
 @theme inline {
   --color-cacao: #3D2716;
   --color-forest: #424D38;
