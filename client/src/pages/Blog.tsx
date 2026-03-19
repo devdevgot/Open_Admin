@@ -160,7 +160,7 @@ export default function Blog() {
         <section className="py-16 border-b border-[#D8BFAE]/20">
           <div className="container mx-auto px-6 lg:px-12">
             <p className="font-lejour text-xs text-[#917C63] uppercase tracking-[0.3em] mb-8">Featured Article</p>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-0 group cursor-pointer" data-testid="card-featured-post">
+            <Link href={`/blog/${featured!.id}`} className="grid grid-cols-1 lg:grid-cols-2 gap-0 group" data-testid="card-featured-post">
               <div className="relative overflow-hidden aspect-[4/3] lg:aspect-auto">
                 <img
                   src={featured!.image}
@@ -189,7 +189,7 @@ export default function Blog() {
                   </div>
                 </div>
               </div>
-            </div>
+            </Link>
           </div>
         </section>
       )}
@@ -230,7 +230,7 @@ export default function Blog() {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {regular.map((post) => (
-              <article key={post.id} className="group cursor-pointer" data-testid={`card-post-${post.id}`}>
+              <Link key={post.id} href={`/blog/${post.id}`} className="group block" data-testid={`card-post-${post.id}`}>
                 {/* Image */}
                 <div className="relative overflow-hidden aspect-[16/10] mb-5">
                   <img
@@ -265,7 +265,7 @@ export default function Blog() {
                     <ArrowRight size={13} />
                   </div>
                 </div>
-              </article>
+              </Link>
             ))}
           </div>
         )}

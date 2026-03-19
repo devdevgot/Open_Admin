@@ -22,6 +22,7 @@ import AboutValues from "@/pages/AboutValues";
 import AboutExperience from "@/pages/AboutExperience";
 import AboutInvestors from "@/pages/AboutInvestors";
 import Blog from "@/pages/Blog";
+import BlogPost from "@/pages/BlogPost";
 import PropertyDetail from "@/pages/PropertyDetail";
 
 function Router() {
@@ -45,6 +46,7 @@ function Router() {
       <Route path="/about/experience" component={AboutExperience}/>
       <Route path="/about/investors" component={AboutInvestors}/>
       <Route path="/blog" component={Blog}/>
+      <Route path="/blog/:id" component={BlogPost}/>
       <Route path="/property/:id" component={PropertyDetail}/>
       <Route component={NotFound} />
     </Switch>
