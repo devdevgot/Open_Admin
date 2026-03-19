@@ -32,6 +32,7 @@ import AdminPropertyForm from "@/pages/admin/AdminPropertyForm";
 import AdminBlog from "@/pages/admin/AdminBlog";
 import AdminBlogForm from "@/pages/admin/AdminBlogForm";
 import AdminAgents from "@/pages/admin/AdminAgents";
+import ContactModal from "@/components/ContactModal";
 
 function Router() {
   return (
@@ -81,6 +82,7 @@ function App() {
       <TooltipProvider>
         <Toaster />
         <Router />
+        <ContactModal />
       </TooltipProvider>
     </QueryClientProvider>
   );

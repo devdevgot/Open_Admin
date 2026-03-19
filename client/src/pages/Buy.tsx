@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useSearch } from "wouter";
+import { openContactModal } from "@/lib/contact";
 import { Heart, MapPin, BedDouble, Bath, Maximize, SlidersHorizontal, X } from "lucide-react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import Navbar from "@/components/Navbar";
@@ -311,7 +312,7 @@ export default function Buy() {
                       <Link href={`/property/${property.id}`} className="flex-1 bg-[#3D2716] text-[#FAF8F5] py-3 font-inria text-xs uppercase tracking-widest hover:bg-[#995134] transition-colors text-center" data-testid={`link-view-details-${property.id}`}>
                         View Details
                       </Link>
-                      <button className="flex-1 border border-[#3D2716] text-[#3D2716] py-3 font-inria text-xs uppercase tracking-widest hover:bg-[#3D2716] hover:text-[#FAF8F5] transition-colors" data-testid={`button-schedule-tour-${property.id}`}>
+                      <button onClick={() => openContactModal({ type: "buy", propertyId: property.id, propertyTitle: property.title })} className="flex-1 border border-[#3D2716] text-[#3D2716] py-3 font-inria text-xs uppercase tracking-widest hover:bg-[#3D2716] hover:text-[#FAF8F5] transition-colors" data-testid={`button-schedule-tour-${property.id}`}>
                         Schedule Tour
                       </button>
                     </div>
@@ -336,7 +337,7 @@ export default function Buy() {
                 Our advisors have access to exclusive off-market properties and pre-launch projects not listed publicly. Share your criteria and let us find your perfect investment.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button className="bg-[#995134] text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-schedule-consultation">
+                <button onClick={() => openContactModal({ type: "buy" })} className="bg-[#995134] text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-schedule-consultation">
                   Schedule Consultation
                 </button>
                 <a href="tel:+97140000000" className="border border-[#FAF8F5]/30 text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center">

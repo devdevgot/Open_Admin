@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { Star, MapPin, Wifi, Car, Waves, Utensils, ArrowRight } from "lucide-react";
+import { openContactModal } from "@/lib/contact";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -182,7 +183,7 @@ export default function RentShortTerm() {
                     ))}
                   </div>
                 </div>
-                <button className="w-full bg-[#3D2716] text-[#FAF8F5] py-3 font-inria text-xs uppercase tracking-widest hover:bg-[#995134] transition-colors mt-2" data-testid={`button-book-${stay.title.toLowerCase().replace(/\s/g, "-")}`}>
+                <button onClick={() => openContactModal({ type: "rent", prefillMessage: `I am interested in the ${stay.title} short-term stay.` })} className="w-full bg-[#3D2716] text-[#FAF8F5] py-3 font-inria text-xs uppercase tracking-widest hover:bg-[#995134] transition-colors mt-2" data-testid={`button-book-${stay.title.toLowerCase().replace(/\s/g, "-")}`}>
                   Check Availability
                 </button>
               </div>
@@ -218,7 +219,7 @@ export default function RentShortTerm() {
             We specialise in corporate relocations, family getaways and extended executive stays. Contact our team for tailored rates.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-[#995134] text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-corporate">
+            <button onClick={() => openContactModal({ type: "rent", prefillMessage: "I am enquiring about corporate or extended stay packages." })} className="bg-[#995134] text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-corporate">
               Corporate Enquiry
             </button>
             <a href="tel:+97140000000" className="border border-[#FAF8F5]/30 text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center">

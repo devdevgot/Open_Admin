@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { Heart, MapPin, BedDouble, Bath, Maximize, Trees } from "lucide-react";
+import { openContactModal } from "@/lib/contact";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -163,7 +164,7 @@ export default function RentVillas() {
                     <Link href={`/property/${property.id}`} className="flex-1 bg-[#3D2716] text-[#FAF8F5] py-3 font-inria text-xs uppercase tracking-widest hover:bg-[#424D38] transition-colors text-center" data-testid={`link-view-${property.id}`}>
                       View Details
                     </Link>
-                    <button className="flex-1 border border-[#3D2716] text-[#3D2716] py-3 font-inria text-xs uppercase tracking-widest hover:bg-[#3D2716] hover:text-[#FAF8F5] transition-colors" data-testid={`button-enquire-${property.id}`}>
+                    <button onClick={() => openContactModal({ type: "rent", propertyId: property.id, propertyTitle: property.title })} className="flex-1 border border-[#3D2716] text-[#3D2716] py-3 font-inria text-xs uppercase tracking-widest hover:bg-[#3D2716] hover:text-[#FAF8F5] transition-colors" data-testid={`button-enquire-${property.id}`}>
                       Enquire
                     </button>
                   </div>
@@ -180,7 +181,7 @@ export default function RentVillas() {
           <p className="font-inria text-lg text-[#FAF8F5]/70 mb-10 max-w-2xl mx-auto">
             Many of our premium villas are available exclusively through direct inquiry. Let us arrange a private viewing.
           </p>
-          <button className="bg-[#995134] text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-cta">
+          <button onClick={() => openContactModal({ type: "rent" })} className="bg-[#995134] text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-cta">
             Arrange Private Viewing
           </button>
         </div>

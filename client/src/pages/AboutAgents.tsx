@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { MapPin, Languages } from "lucide-react";
+import { openContactModal } from "@/lib/contact";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -121,7 +122,7 @@ export default function AboutAgents() {
                     <p className="font-lejour text-[10px] text-[#917C63] uppercase tracking-[0.2em]">Volume</p>
                     <p className="font-symphony text-xl text-[#3D2716]">{agent.transactions}</p>
                   </div>
-                  <button className="bg-[#3D2716] text-[#FAF8F5] px-6 py-2.5 font-inria text-xs uppercase tracking-widest hover:bg-[#995134] transition-colors" data-testid={`button-contact-${agent.name.toLowerCase().replace(/\s/g, "-")}`}>
+                  <button onClick={() => openContactModal({ type: "general", agentName: agent.name, prefillMessage: `I would like to speak with ${agent.name} about a property.` })} className="bg-[#3D2716] text-[#FAF8F5] px-6 py-2.5 font-inria text-xs uppercase tracking-widest hover:bg-[#995134] transition-colors" data-testid={`button-contact-${agent.name.toLowerCase().replace(/\s/g, "-")}`}>
                     Contact
                   </button>
                 </div>
@@ -141,7 +142,7 @@ export default function AboutAgents() {
               <p className="font-inria text-lg text-[#FAF8F5]/70 leading-relaxed mb-10">
                 We are always interested in meeting exceptional real estate professionals who share our values. If you believe that trust and legal precision are as important as sales results, we want to hear from you.
               </p>
-              <button className="bg-[#995134] text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-careers">
+              <button onClick={() => openContactModal({ type: "general", prefillMessage: "I am interested in joining the Aviera Living team." })} className="bg-[#995134] text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-careers">
                 View Open Positions
               </button>
             </div>

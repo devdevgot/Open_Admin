@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useParams } from "wouter";
+import { openContactModal } from "@/lib/contact";
 import { useQuery } from "@tanstack/react-query";
 import { Eye, Clock, Calendar, ArrowLeft, Share2, BookOpen, Loader2 } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -338,9 +339,9 @@ export default function BlogPost() {
             Speak with one of our senior advisors for a personalised assessment of how these market conditions affect your specific situation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/about" className="bg-[#995134] text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors text-center" data-testid="button-schedule">
+            <button onClick={() => openContactModal({ type: "general" })} className="bg-[#995134] text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors text-center" data-testid="button-schedule">
               Schedule a Consultation
-            </Link>
+            </button>
             <Link href="/blog" className="border border-[#FAF8F5]/30 text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center" data-testid="link-more-articles">
               More Articles
             </Link>

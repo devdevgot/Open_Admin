@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { openContactModal } from "@/lib/contact";
 
 type NavLink = {
   label: string;
@@ -186,8 +187,8 @@ export default function Navbar() {
           </div>
 
           <div className="hidden lg:flex items-center space-x-8">
-            <span className="font-inria text-sm uppercase tracking-wider cursor-pointer hover:text-[#995134] transition-colors">Contact</span>
-            <button className="bg-[#3D2716] text-[#FAF8F5] font-inria uppercase tracking-wider text-xs px-8 py-3 hover:bg-[#995134] transition-colors">
+            <span onClick={() => openContactModal({ type: "general" })} className="font-inria text-sm uppercase tracking-wider cursor-pointer hover:text-[#995134] transition-colors">Contact</span>
+            <button onClick={() => openContactModal({ type: "general" })} className="bg-[#3D2716] text-[#FAF8F5] font-inria uppercase tracking-wider text-xs px-8 py-3 hover:bg-[#995134] transition-colors" data-testid="button-get-in-touch-desktop">
               Get in Touch
             </button>
           </div>
@@ -303,7 +304,7 @@ export default function Navbar() {
               <span className="font-lejour text-[10px] text-[#917C63] uppercase tracking-[0.2em]">Contact</span>
               <a href="tel:+97140000000" className="font-inria text-lg">+971 4 000 0000</a>
             </div>
-            <button className="w-full bg-[#3D2716] text-[#FAF8F5] font-inria uppercase tracking-widest py-5 text-sm active:bg-[#995134] transition-colors">
+            <button onClick={() => openContactModal({ type: "general" })} className="w-full bg-[#3D2716] text-[#FAF8F5] font-inria uppercase tracking-widest py-5 text-sm active:bg-[#995134] transition-colors" data-testid="button-get-in-touch-mobile">
               Get in Touch
             </button>
           </div>

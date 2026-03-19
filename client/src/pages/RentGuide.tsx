@@ -1,6 +1,7 @@
 import { Link } from "wouter";
 import { BookOpen, FileText, Scale, Home, CreditCard, Key, ChevronDown } from "lucide-react";
 import { useState } from "react";
+import { openContactModal } from "@/lib/contact";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -153,7 +154,7 @@ export default function RentGuide() {
                     <div className="mt-10 p-8 bg-[#3D2716]/[0.04] border border-[#D8BFAE]/20">
                       <p className="font-lejour text-xs text-[#917C63] uppercase tracking-[0.3em] mb-3">Need Personalised Advice?</p>
                       <p className="font-inria text-sm text-[#3D2716]/70 mb-5">Our rental advisors are available seven days a week to walk you through this step in person.</p>
-                      <button className="bg-[#3D2716] text-[#FAF8F5] px-8 py-3 font-inria text-xs uppercase tracking-widest hover:bg-[#995134] transition-colors" data-testid="button-speak-advisor">
+                      <button onClick={() => openContactModal({ type: "rent" })} className="bg-[#3D2716] text-[#FAF8F5] px-8 py-3 font-inria text-xs uppercase tracking-widest hover:bg-[#995134] transition-colors" data-testid="button-speak-advisor">
                         Speak With an Advisor
                       </button>
                     </div>
@@ -223,7 +224,7 @@ export default function RentGuide() {
             <Link href="/rent" className="bg-[#995134] text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors text-center" data-testid="link-browse-rentals">
               Browse Rentals
             </Link>
-            <button className="border border-[#FAF8F5]/30 text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors" data-testid="button-speak-advisor">
+            <button onClick={() => openContactModal({ type: "rent" })} className="border border-[#FAF8F5]/30 text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors" data-testid="button-speak-advisor">
               Speak With Advisor
             </button>
           </div>

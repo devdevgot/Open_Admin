@@ -1,5 +1,6 @@
 import { Link } from "wouter";
 import { TrendingUp, Shield, Globe, BarChart3, Building2, Landmark } from "lucide-react";
+import { openContactModal } from "@/lib/contact";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -69,7 +70,7 @@ export default function AboutInvestors() {
           <p className="font-inria text-xl text-[#FAF8F5]/80 max-w-xl mb-10">
             Dubai is one of the world's great investment markets. The question is not whether to invest — it is who you trust to guide you through it.
           </p>
-          <button className="bg-[#995134] text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-investor-consultation">
+          <button onClick={() => openContactModal({ type: "buy", prefillMessage: "I am interested in investment opportunities in Dubai real estate and would like to schedule a consultation." })} className="bg-[#995134] text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-investor-consultation">
             Investor Consultation
           </button>
         </div>
@@ -154,7 +155,7 @@ export default function AboutInvestors() {
             Whether you are entering Dubai real estate for the first time or expanding an existing portfolio, we will provide the intelligence, access, and legal certainty you need to invest with confidence.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-[#995134] text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-consultation">
+            <button onClick={() => openContactModal({ type: "buy" })} className="bg-[#995134] text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-consultation">
               Book Investor Consultation
             </button>
             <Link href="/buy" className="border border-[#FAF8F5]/30 text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center" data-testid="link-portfolio">

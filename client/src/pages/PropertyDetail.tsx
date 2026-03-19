@@ -1,5 +1,6 @@
 import { useParams, Link } from "wouter";
 import { Share2, Heart, MapPin, Check } from "lucide-react";
+import { openContactModal } from "@/lib/contact";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -227,7 +228,7 @@ export default function PropertyDetail() {
               </p>
 
               <div className="space-y-3">
-                <button className="w-full bg-[#3D2716] text-[#FAF8F5] py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#995134] transition-colors" data-testid="button-schedule-viewing">
+                <button onClick={() => openContactModal({ type: "buy", propertyId: property.id, propertyTitle: property.title })} className="w-full bg-[#3D2716] text-[#FAF8F5] py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#995134] transition-colors" data-testid="button-schedule-viewing">
                   Schedule Tour
                 </button>
                 <button className="w-full border border-[#3D2716] text-[#3D2716] py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#3D2716] hover:text-[#FAF8F5] transition-colors flex items-center justify-center space-x-2" data-testid="button-share">
