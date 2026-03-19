@@ -24,10 +24,19 @@ import AboutInvestors from "@/pages/AboutInvestors";
 import Blog from "@/pages/Blog";
 import BlogPost from "@/pages/BlogPost";
 import PropertyDetail from "@/pages/PropertyDetail";
+import AdminLogin from "@/pages/admin/AdminLogin";
+import AdminDashboard from "@/pages/admin/AdminDashboard";
+import AdminInquiries from "@/pages/admin/AdminInquiries";
+import AdminProperties from "@/pages/admin/AdminProperties";
+import AdminPropertyForm from "@/pages/admin/AdminPropertyForm";
+import AdminBlog from "@/pages/admin/AdminBlog";
+import AdminBlogForm from "@/pages/admin/AdminBlogForm";
+import AdminAgents from "@/pages/admin/AdminAgents";
 
 function Router() {
   return (
     <Switch>
+      {/* Public site */}
       <Route path="/" component={Home}/>
       <Route path="/buy" component={Buy}/>
       <Route path="/sell" component={Sell}/>
@@ -48,6 +57,19 @@ function Router() {
       <Route path="/blog" component={Blog}/>
       <Route path="/blog/:id" component={BlogPost}/>
       <Route path="/property/:id" component={PropertyDetail}/>
+
+      {/* Admin */}
+      <Route path="/admin/login" component={AdminLogin}/>
+      <Route path="/admin/inquiries" component={AdminInquiries}/>
+      <Route path="/admin/properties/new" component={AdminPropertyForm}/>
+      <Route path="/admin/properties/:id" component={AdminPropertyForm}/>
+      <Route path="/admin/properties" component={AdminProperties}/>
+      <Route path="/admin/blog/new" component={AdminBlogForm}/>
+      <Route path="/admin/blog/:id" component={AdminBlogForm}/>
+      <Route path="/admin/blog" component={AdminBlog}/>
+      <Route path="/admin/agents" component={AdminAgents}/>
+      <Route path="/admin" component={AdminDashboard}/>
+
       <Route component={NotFound} />
     </Switch>
   );
