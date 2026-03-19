@@ -65,16 +65,17 @@ const navItems: NavItem[] = [
       {
         title: "Properties",
         links: [
-          { label: "Apartments for Rent", href: "/rent" },
-          { label: "Villas for Rent", href: "/rent" },
-          { label: "Short-Term Stays", href: "/rent" },
+          { label: "Apartments for Rent", href: "/rent/apartments" },
+          { label: "Villas for Rent", href: "/rent/villas" },
+          { label: "Short-Term Stays", href: "/rent/short-term" },
+          { label: "All Rentals", href: "/rent" },
         ],
       },
       {
         title: "Services",
         links: [
-          { label: "Landlord Services", href: "/rent" },
-          { label: "Rental Guide", href: "/rent" },
+          { label: "Landlord Services", href: "/rent/landlord" },
+          { label: "Rental Guide", href: "/rent/guide" },
         ],
       },
     ],
