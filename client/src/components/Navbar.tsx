@@ -81,6 +81,11 @@ const navItems: NavItem[] = [
     ],
   },
   {
+    name: "OUR BLOG",
+    href: "/blog",
+    categories: [],
+  },
+  {
     name: "ABOUT US",
     categories: [
       {
