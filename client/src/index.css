@@ -5,7 +5,8 @@
 
 @font-face {
   font-family: 'Symphony';
-  src: url('/fonts/Symphony-Regular.ttf') format('truetype');
+  src: url('/fonts/SymphonyPro-Regular.otf') format('opentype'),
+       url('/fonts/Symphony-Regular.ttf') format('truetype');
   font-weight: 400;
   font-style: normal;
 }
