@@ -158,7 +158,7 @@ export default function Navbar() {
         <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center">
           <Link href="/" className="flex flex-col items-start leading-tight">
               <span className="font-lejour uppercase text-2xl tracking-widest">Aviera</span>
-              <span className="font-symphony italic lowercase text-lg -mt-1">Living</span>
+              <span className="font-symphony italic lowercase -mt-1 text-right ml-[80px] text-[19px]">Living</span>
           </Link>
 
           <div className="hidden lg:flex items-center space-x-12">
@@ -204,7 +204,6 @@ export default function Navbar() {
           </div>
         </div>
       </nav>
-
       {/* Fullscreen Mega Menu (Desktop) */}
       <div
         className={cn(
@@ -238,7 +237,6 @@ export default function Navbar() {
           ))}
         </div>
       </div>
-
       {/* Mobile Menu */}
       <div
         className={cn(
