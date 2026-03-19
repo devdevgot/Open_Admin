@@ -86,19 +86,19 @@ const navItems: NavItem[] = [
       {
         title: "Company",
         links: [
-          { label: "Our Founder", href: "/#founder" },
-          { label: "Our Story", href: "/#brand-purpose" },
-          { label: "Our Agents", href: "/#agents" },
-          { label: "Brand Purpose", href: "/#brand-purpose" },
+          { label: "Our Founder", href: "/about/founder" },
+          { label: "Our Story", href: "/about/story" },
+          { label: "Our Agents", href: "/about/agents" },
+          { label: "About Aviera", href: "/about" },
         ],
       },
       {
         title: "Values",
         links: [
-          { label: "Mission & Vision", href: "/#mission-vision" },
-          { label: "Core Values", href: "/#core-values" },
-          { label: "Client Experience Promise", href: "/#client-experience" },
-          { label: "Why It Matters to Investors", href: "/#why-it-matters" },
+          { label: "Mission & Vision", href: "/about/mission" },
+          { label: "Core Values", href: "/about/values" },
+          { label: "Client Experience Promise", href: "/about/experience" },
+          { label: "Why It Matters to Investors", href: "/about/investors" },
         ],
       },
     ],

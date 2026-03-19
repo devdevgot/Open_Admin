@@ -1,0 +1,168 @@
+import { Link } from "wouter";
+import { MapPin, Languages } from "lucide-react";
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
+
+const agents = [
+  {
+    name: "Sophia Al Nour",
+    title: "Founder & Managing Director",
+    specialisation: "Ultra-Luxury Villas, Investment Strategy",
+    location: "Dubai, UAE",
+    languages: ["Arabic", "English", "French"],
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=700&fit=crop&crop=face",
+    transactions: "AED 2.1B+",
+    bio: "Legal background, 15 years in Dubai real estate. Specialises in UHNWI advisory and portfolio structuring.",
+  },
+  {
+    name: "James Carrington",
+    title: "Senior Sales Director",
+    specialisation: "Off-Plan & Developer Partnerships",
+    location: "Dubai, UAE",
+    languages: ["English", "German"],
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=700&fit=crop&crop=face",
+    transactions: "AED 780M+",
+    bio: "Former Head of International Sales at Emaar. Unparalleled knowledge of Dubai's off-plan market landscape.",
+  },
+  {
+    name: "Layla Hassan",
+    title: "Luxury Residential Specialist",
+    specialisation: "Penthouses & Waterfront Residences",
+    location: "Dubai, UAE",
+    languages: ["Arabic", "English"],
+    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&h=700&fit=crop&crop=face",
+    transactions: "AED 540M+",
+    bio: "Trusted by families relocating from Europe and the GCC. Renowned for her depth of neighbourhood knowledge.",
+  },
+  {
+    name: "Andrei Volkov",
+    title: "Investment Portfolio Advisor",
+    specialisation: "CIS & Eastern European Investors",
+    location: "Dubai, UAE",
+    languages: ["Russian", "English", "Ukrainian"],
+    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=700&fit=crop&crop=face",
+    transactions: "AED 410M+",
+    bio: "Dedicated to building long-term investment portfolios for clients from Russia, Ukraine and Central Asia.",
+  },
+  {
+    name: "Priya Sharma",
+    title: "Rental & Yield Specialist",
+    specialisation: "Buy-to-Let & Rental Portfolio Management",
+    location: "Dubai, UAE",
+    languages: ["English", "Hindi", "Tamil"],
+    image: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?w=600&h=700&fit=crop&crop=face",
+    transactions: "AED 280M+",
+    bio: "Expert in buy-to-let strategy, yield optimisation and managing multi-unit residential portfolios across Dubai.",
+  },
+  {
+    name: "Marcus Webb",
+    title: "Legal & Compliance Lead",
+    specialisation: "Contract Review, RERA Compliance",
+    location: "Dubai, UAE",
+    languages: ["English"],
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&h=700&fit=crop&crop=face",
+    transactions: "500+ transactions reviewed",
+    bio: "Qualified English solicitor with UAE legal certification. Reviews every Aviera contract before it is signed.",
+  },
+];
+
+export default function AboutAgents() {
+  return (
+    <div className="min-h-screen bg-[#FAF8F5]">
+      <Navbar />
+
+      {/* Hero */}
+      <section className="relative pt-44 pb-20 overflow-hidden bg-[#3D2716]/[0.03]">
+        <div className="container mx-auto px-6 lg:px-12">
+          <Link href="/about" className="text-sm font-inria text-[#917C63] uppercase tracking-widest hover:text-[#3D2716] transition-colors mb-8 inline-block" data-testid="link-back">
+            ← About Us
+          </Link>
+          <p className="font-lejour text-xs text-[#917C63] uppercase tracking-[0.3em] mb-4">The Team</p>
+          <h1 className="font-symphony text-5xl md:text-7xl text-[#3D2716] mb-6 leading-[1.1]" data-testid="text-page-title">
+            The People<br />Behind Every Deal
+          </h1>
+          <p className="font-inria text-xl text-[#3D2716]/70 max-w-2xl leading-relaxed">
+            Small by design. Each member of the Aviera team was chosen not for their sales record, but for the quality of their judgment, the depth of their expertise, and the standard of their integrity.
+          </p>
+        </div>
+      </section>
+
+      {/* Agents Grid */}
+      <section className="py-20 container mx-auto px-6 lg:px-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {agents.map((agent) => (
+            <div key={agent.name} className="group" data-testid={`card-agent-${agent.name.toLowerCase().replace(/\s/g, "-")}`}>
+              {/* Photo */}
+              <div className="relative overflow-hidden aspect-[3/4] mb-6">
+                <img
+                  src={agent.image}
+                  alt={agent.name}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                />
+                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#3D2716]/90 to-transparent p-6 pt-16">
+                  <p className="font-symphony text-2xl text-[#FAF8F5]">{agent.name}</p>
+                  <p className="font-lejour text-xs text-[#D8BFAE] uppercase tracking-widest mt-1">{agent.title}</p>
+                </div>
+              </div>
+              {/* Info */}
+              <div className="space-y-4">
+                <div className="flex items-center gap-2 text-[#917C63]">
+                  <MapPin size={14} />
+                  <span className="font-inria text-sm">{agent.location}</span>
+                </div>
+                <p className="font-inria text-sm text-[#3D2716] font-medium">{agent.specialisation}</p>
+                <p className="font-inria text-sm text-[#3D2716]/65 leading-relaxed">{agent.bio}</p>
+                <div className="flex items-start gap-2 pt-2">
+                  <Languages size={14} className="text-[#917C63] mt-0.5 shrink-0" />
+                  <span className="font-inria text-xs text-[#917C63]">{agent.languages.join(", ")}</span>
+                </div>
+                <div className="pt-3 border-t border-[#D8BFAE]/20 flex justify-between items-center">
+                  <div>
+                    <p className="font-lejour text-[10px] text-[#917C63] uppercase tracking-[0.2em]">Volume</p>
+                    <p className="font-symphony text-xl text-[#3D2716]">{agent.transactions}</p>
+                  </div>
+                  <button className="bg-[#3D2716] text-[#FAF8F5] px-6 py-2.5 font-inria text-xs uppercase tracking-widest hover:bg-[#995134] transition-colors" data-testid={`button-contact-${agent.name.toLowerCase().replace(/\s/g, "-")}`}>
+                    Contact
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Join the team */}
+      <section className="py-20 bg-[#3D2716] text-[#FAF8F5]">
+        <div className="container mx-auto px-6 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div>
+              <p className="font-lejour text-xs text-[#D8BFAE] uppercase tracking-[0.3em] mb-4">Careers</p>
+              <h2 className="font-symphony text-4xl md:text-5xl mb-6">Join a Team That<br />Does Things Differently</h2>
+              <p className="font-inria text-lg text-[#FAF8F5]/70 leading-relaxed mb-10">
+                We are always interested in meeting exceptional real estate professionals who share our values. If you believe that trust and legal precision are as important as sales results, we want to hear from you.
+              </p>
+              <button className="bg-[#995134] text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-careers">
+                View Open Positions
+              </button>
+            </div>
+            <div className="hidden lg:grid grid-cols-2 gap-6">
+              {[
+                { label: "Team Size", value: "12" },
+                { label: "Avg. Tenure", value: "5.2 yrs" },
+                { label: "Languages", value: "11" },
+                { label: "Nationalities", value: "8" },
+              ].map((s) => (
+                <div key={s.label} className="border border-[#FAF8F5]/10 p-8 text-center">
+                  <p className="font-symphony text-4xl text-[#D8BFAE]">{s.value}</p>
+                  <p className="font-inria text-xs text-[#FAF8F5]/50 uppercase tracking-wider mt-2">{s.label}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <Footer />
+    </div>
+  );
+}

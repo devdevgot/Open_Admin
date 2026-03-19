@@ -13,6 +13,14 @@ import RentVillas from "@/pages/RentVillas";
 import RentShortTerm from "@/pages/RentShortTerm";
 import RentLandlord from "@/pages/RentLandlord";
 import RentGuide from "@/pages/RentGuide";
+import About from "@/pages/About";
+import AboutFounder from "@/pages/AboutFounder";
+import AboutStory from "@/pages/AboutStory";
+import AboutAgents from "@/pages/AboutAgents";
+import AboutMission from "@/pages/AboutMission";
+import AboutValues from "@/pages/AboutValues";
+import AboutExperience from "@/pages/AboutExperience";
+import AboutInvestors from "@/pages/AboutInvestors";
 import PropertyDetail from "@/pages/PropertyDetail";
 
 function Router() {
@@ -27,6 +35,14 @@ function Router() {
       <Route path="/rent/short-term" component={RentShortTerm}/>
       <Route path="/rent/landlord" component={RentLandlord}/>
       <Route path="/rent/guide" component={RentGuide}/>
+      <Route path="/about" component={About}/>
+      <Route path="/about/founder" component={AboutFounder}/>
+      <Route path="/about/story" component={AboutStory}/>
+      <Route path="/about/agents" component={AboutAgents}/>
+      <Route path="/about/mission" component={AboutMission}/>
+      <Route path="/about/values" component={AboutValues}/>
+      <Route path="/about/experience" component={AboutExperience}/>
+      <Route path="/about/investors" component={AboutInvestors}/>
       <Route path="/property/:id" component={PropertyDetail}/>
       <Route component={NotFound} />
     </Switch>
