@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useLocation } from "wouter";
+import { setAdminToken } from "@/lib/adminAuth";
 
 export default function AdminLogin() {
   const [, navigate] = useLocation();
@@ -19,6 +20,8 @@ export default function AdminLogin() {
         credentials: "include",
       });
       if (res.ok) {
+        const data = await res.json();
+        if (data.token) setAdminToken(data.token);
         navigate("/admin");
       } else {
         const d = await res.json();

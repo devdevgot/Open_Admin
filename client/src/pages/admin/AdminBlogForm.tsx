@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useLocation } from "wouter";
 import { Upload, X, Plus, Loader2, ArrowLeft, Grip, Trash2 } from "lucide-react";
 import AdminLayout from "@/components/admin/AdminLayout";
+import { adminFetch, getAdminToken } from "@/lib/adminAuth";
 
 const CATEGORIES = ["Market Insights", "Legal Guide", "Investor Tips", "Neighbourhood", "Lifestyle"];
 
@@ -21,7 +22,13 @@ const EMPTY_FORM = {
 async function uploadFile(file: File): Promise<string> {
   const fd = new FormData();
   fd.append("file", file);
-  const res = await fetch("/api/admin/upload", { method: "POST", body: fd, credentials: "include" });
+  const token = getAdminToken();
+  const res = await fetch("/api/admin/upload", {
+    method: "POST",
+    body: fd,
+    credentials: "include",
+    headers: token ? { "Authorization": `Bearer ${token}` } : {},
+  });
   if (!res.ok) throw new Error("Upload failed");
   return (await res.json()).url;
 }
@@ -42,7 +49,7 @@ export default function AdminBlogForm() {
 
   useEffect(() => {
     if (!isNew) {
-      fetch(`/api/admin/blog`, { credentials: "include" })
+      adminFetch(`/api/admin/blog`)
         .then(r => r.json())
         .then((posts: any[]) => {
           const post = posts.find(p => p.id === parseInt(params.id));
@@ -107,18 +114,10 @@ export default function AdminBlogForm() {
     setSaving(true);
     setError("");
     try {
-      const body = {
-        ...form,
-        content: JSON.stringify(form.sections),
-      };
+      const body = { ...form, content: JSON.stringify(form.sections) };
       const method = isNew ? "POST" : "PUT";
       const url = isNew ? "/api/admin/blog" : `/api/admin/blog/${params.id}`;
-      const res = await fetch(url, {
-        method,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-        credentials: "include",
-      });
+      const res = await adminFetch(url, { method, body: JSON.stringify(body) });
       if (!res.ok) {
         const d = await res.json();
         throw new Error(d.message || "Save failed");
@@ -154,7 +153,6 @@ export default function AdminBlogForm() {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Meta */}
           <Section title="Article Details">
             <Field label="Title *">
               <input required value={form.title} onChange={e => handleTitleChange(e.target.value)} placeholder="Article headline..." className={INPUT} data-testid="input-title" />
@@ -184,7 +182,6 @@ export default function AdminBlogForm() {
             </div>
           </Section>
 
-          {/* Author */}
           <Section title="Author">
             <div className="grid grid-cols-2 gap-4">
               <Field label="Author Name *">
@@ -209,7 +206,6 @@ export default function AdminBlogForm() {
             </Field>
           </Section>
 
-          {/* Hero image */}
           <Section title="Hero Image">
             {form.heroImage && (
               <div className="relative w-full aspect-[3/1] rounded-md overflow-hidden mb-3">
@@ -229,11 +225,8 @@ export default function AdminBlogForm() {
             </label>
           </Section>
 
-          {/* Content sections */}
           <Section title="Article Content">
-            <p className="text-xs text-gray-500 mb-4">
-              Add sections that make up your article. Each section will appear in the table of contents.
-            </p>
+            <p className="text-xs text-gray-500 mb-4">Add sections that make up your article. Each section will appear in the table of contents.</p>
             <div className="space-y-4">
               {form.sections.map((section, idx) => (
                 <div key={section.id} className="border border-gray-200 rounded-md p-4 bg-gray-50">
@@ -249,37 +242,17 @@ export default function AdminBlogForm() {
                     )}
                   </div>
                   <Field label="Section Title *">
-                    <input
-                      required
-                      value={section.title}
-                      onChange={e => updateSection(idx, "title", e.target.value)}
-                      placeholder="Section heading..."
-                      className={INPUT}
-                      data-testid={`input-section-title-${idx}`}
-                    />
+                    <input required value={section.title} onChange={e => updateSection(idx, "title", e.target.value)} placeholder="Section heading..." className={INPUT} data-testid={`input-section-title-${idx}`} />
                   </Field>
                   <div className="mt-3">
                     <Field label="Content *">
-                      <textarea
-                        required
-                        value={section.content}
-                        onChange={e => updateSection(idx, "content", e.target.value)}
-                        rows={5}
-                        placeholder="Section body text. Use double line breaks to separate paragraphs."
-                        className={INPUT}
-                        data-testid={`input-section-content-${idx}`}
-                      />
+                      <textarea required value={section.content} onChange={e => updateSection(idx, "content", e.target.value)} rows={5} placeholder="Section body text. Use double line breaks to separate paragraphs." className={INPUT} data-testid={`input-section-content-${idx}`} />
                     </Field>
                   </div>
                 </div>
               ))}
             </div>
-            <button
-              type="button"
-              onClick={addSection}
-              className="mt-3 flex items-center gap-2 text-sm text-amber-700 hover:text-amber-800 font-medium"
-              data-testid="button-add-section"
-            >
+            <button type="button" onClick={addSection} className="mt-3 flex items-center gap-2 text-sm text-amber-700 hover:text-amber-800 font-medium" data-testid="button-add-section">
               <Plus size={14} />
               Add Section
             </button>

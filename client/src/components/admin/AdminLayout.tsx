@@ -4,6 +4,7 @@ import {
   LayoutDashboard, MessageSquare, Building2, FileText,
   Users, LogOut, Menu, X, ChevronRight, Bell
 } from "lucide-react";
+import { adminFetch, clearAdminToken } from "@/lib/adminAuth";
 
 const NAV = [
   { href: "/admin", label: "Dashboard", icon: LayoutDashboard, exact: true },
@@ -20,15 +21,17 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   const [newInquiries, setNewInquiries] = useState(0);
 
   useEffect(() => {
-    fetch("/api/admin/me").then(r => {
-      setAuth(r.ok);
-      if (r.ok) {
-        fetch("/api/admin/stats", { credentials: "include" })
-          .then(r => r.json())
-          .then(d => setNewInquiries(d.newInquiries || 0))
-          .catch(() => {});
-      }
-    }).catch(() => setAuth(false));
+    adminFetch("/api/admin/me")
+      .then(r => {
+        setAuth(r.ok);
+        if (r.ok) {
+          adminFetch("/api/admin/stats")
+            .then(r => r.json())
+            .then(d => setNewInquiries(d.newInquiries || 0))
+            .catch(() => {});
+        }
+      })
+      .catch(() => setAuth(false));
   }, [location]);
 
   if (auth === null) {
@@ -42,7 +45,8 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   if (auth === false) return <Redirect to="/admin/login" />;
 
   const handleLogout = async () => {
-    await fetch("/api/admin/logout", { method: "POST" });
+    await adminFetch("/api/admin/logout", { method: "POST" });
+    clearAdminToken();
     window.location.href = "/admin/login";
   };
 

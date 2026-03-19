@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { Link } from "wouter";
 import { Building2, FileText, MessageSquare, Users, Mail, AlertCircle, Plus } from "lucide-react";
 import AdminLayout from "@/components/admin/AdminLayout";
+import { adminFetch } from "@/lib/adminAuth";
 
 interface Stats {
   properties: number;
@@ -15,7 +16,7 @@ interface Stats {
 export default function AdminDashboard() {
   const { data: stats, isLoading } = useQuery<Stats>({
     queryKey: ["/api/admin/stats"],
-    queryFn: () => fetch("/api/admin/stats", { credentials: "include" }).then(r => r.json()),
+    queryFn: () => adminFetch("/api/admin/stats").then(r => r.json()),
   });
 
   const cards = [

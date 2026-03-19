@@ -2,6 +2,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Link } from "wouter";
 import { Plus, Pencil, Trash2, FileText, Star, Eye } from "lucide-react";
 import AdminLayout from "@/components/admin/AdminLayout";
+import { adminFetch } from "@/lib/adminAuth";
 
 interface BlogPost {
   id: number;
@@ -31,12 +32,11 @@ export default function AdminBlog() {
 
   const { data: posts = [], isLoading } = useQuery<BlogPost[]>({
     queryKey: ["/api/admin/blog"],
-    queryFn: () => fetch("/api/admin/blog", { credentials: "include" }).then(r => r.json()),
+    queryFn: () => adminFetch("/api/admin/blog").then(r => r.json()),
   });
 
   const deletePost = useMutation({
-    mutationFn: (id: number) =>
-      fetch(`/api/admin/blog/${id}`, { method: "DELETE", credentials: "include" }),
+    mutationFn: (id: number) => adminFetch(`/api/admin/blog/${id}`, { method: "DELETE" }),
     onSuccess: () => qc.invalidateQueries({ queryKey: ["/api/admin/blog"] }),
   });
 
@@ -72,7 +72,6 @@ export default function AdminBlog() {
           <div className="space-y-3">
             {posts.map(post => (
               <div key={post.id} className="bg-white rounded-lg border border-gray-200 flex items-center gap-4 p-4" data-testid={`post-${post.id}`}>
-                {/* Image */}
                 <div className="w-16 h-16 rounded-md overflow-hidden shrink-0 bg-gray-100">
                   {post.heroImage ? (
                     <img src={post.heroImage} alt={post.title} className="w-full h-full object-cover" />
@@ -82,8 +81,6 @@ export default function AdminBlog() {
                     </div>
                   )}
                 </div>
-
-                {/* Info */}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 flex-wrap mb-1">
                     <p className="font-semibold text-sm text-gray-900 truncate">{post.title}</p>
@@ -100,11 +97,9 @@ export default function AdminBlog() {
                     </span>
                   </div>
                 </div>
-
-                {/* Actions */}
                 <div className="flex items-center gap-2 shrink-0">
                   <Link href={`/blog/${post.id}`}>
-                    <button className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors text-xs" title="View on site">
+                    <button className="p-2 text-gray-400 hover:text-blue-600 hover:bg-blue-50 rounded-md transition-colors" title="View on site">
                       <Eye size={15} />
                     </button>
                   </Link>

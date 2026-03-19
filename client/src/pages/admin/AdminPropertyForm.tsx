@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { useParams, useLocation } from "wouter";
 import { Upload, X, Plus, Loader2, ArrowLeft } from "lucide-react";
 import AdminLayout from "@/components/admin/AdminLayout";
+import { adminFetch, getAdminToken } from "@/lib/adminAuth";
 
 const PROPERTY_TYPES = ["Apartment", "Villa", "Penthouse", "Townhouse", "Office", "Land"];
 const LISTING_TYPES = ["buy", "rent", "short-term"];
@@ -20,10 +21,15 @@ const EMPTY_FORM = {
 async function uploadFile(file: File): Promise<string> {
   const fd = new FormData();
   fd.append("file", file);
-  const res = await fetch("/api/admin/upload", { method: "POST", body: fd, credentials: "include" });
+  const token = getAdminToken();
+  const res = await fetch("/api/admin/upload", {
+    method: "POST",
+    body: fd,
+    credentials: "include",
+    headers: token ? { "Authorization": `Bearer ${token}` } : {},
+  });
   if (!res.ok) throw new Error("Upload failed");
-  const data = await res.json();
-  return data.url;
+  return (await res.json()).url;
 }
 
 export default function AdminPropertyForm() {
@@ -38,7 +44,7 @@ export default function AdminPropertyForm() {
 
   useEffect(() => {
     if (!isNew) {
-      fetch(`/api/admin/properties`, { credentials: "include" })
+      adminFetch(`/api/admin/properties`)
         .then(r => r.json())
         .then((props: any[]) => {
           const prop = props.find(p => p.id === parseInt(params.id));
@@ -106,12 +112,7 @@ export default function AdminPropertyForm() {
       };
       const method = isNew ? "POST" : "PUT";
       const url = isNew ? "/api/admin/properties" : `/api/admin/properties/${params.id}`;
-      const res = await fetch(url, {
-        method,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(body),
-        credentials: "include",
-      });
+      const res = await adminFetch(url, { method, body: JSON.stringify(body) });
       if (!res.ok) {
         const d = await res.json();
         throw new Error(d.message || "Save failed");
@@ -147,7 +148,6 @@ export default function AdminPropertyForm() {
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
-          {/* Basic info */}
           <Section title="Basic Information">
             <Field label="Title *">
               <input required value={form.title} onChange={e => set("title", e.target.value)} placeholder="e.g. Skyline Penthouse — Palm Jumeirah" className={INPUT} data-testid="input-title" />
@@ -165,7 +165,6 @@ export default function AdminPropertyForm() {
             </div>
           </Section>
 
-          {/* Location */}
           <Section title="Location">
             <div className="grid grid-cols-2 gap-4">
               <Field label="Location *">
@@ -177,7 +176,6 @@ export default function AdminPropertyForm() {
             </div>
           </Section>
 
-          {/* Property details */}
           <Section title="Property Details">
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
               <Field label="Property Type *">
@@ -220,7 +218,6 @@ export default function AdminPropertyForm() {
             </div>
           </Section>
 
-          {/* Images */}
           <Section title="Photos">
             <div className="flex flex-wrap gap-3 mb-3">
               {form.images.map((img, i) => (
@@ -262,7 +259,6 @@ export default function AdminPropertyForm() {
             </Field>
           </Section>
 
-          {/* Agent */}
           <Section title="Agent Information">
             <div className="grid grid-cols-2 gap-4">
               <Field label="Agent Name">

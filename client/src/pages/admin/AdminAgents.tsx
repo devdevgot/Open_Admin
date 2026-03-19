@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Plus, Trash2, Pencil, Users, Save, X, Upload, Loader2 } from "lucide-react";
 import AdminLayout from "@/components/admin/AdminLayout";
+import { adminFetch, getAdminToken } from "@/lib/adminAuth";
 
 interface Agent {
   id: number;
@@ -26,7 +27,13 @@ const EMPTY: Omit<Agent, "id"> = {
 async function uploadFile(file: File): Promise<string> {
   const fd = new FormData();
   fd.append("file", file);
-  const res = await fetch("/api/admin/upload", { method: "POST", body: fd, credentials: "include" });
+  const token = getAdminToken();
+  const res = await fetch("/api/admin/upload", {
+    method: "POST",
+    body: fd,
+    credentials: "include",
+    headers: token ? { "Authorization": `Bearer ${token}` } : {},
+  });
   if (!res.ok) throw new Error("Upload failed");
   return (await res.json()).url;
 }
@@ -40,19 +47,14 @@ export default function AdminAgents() {
 
   const { data: agents = [], isLoading } = useQuery<Agent[]>({
     queryKey: ["/api/admin/agents"],
-    queryFn: () => fetch("/api/admin/agents", { credentials: "include" }).then(r => r.json()),
+    queryFn: () => adminFetch("/api/admin/agents").then(r => r.json()),
   });
 
   const save = useMutation({
     mutationFn: async (data: typeof form) => {
       const url = editing ? `/api/admin/agents/${editing.id}` : "/api/admin/agents";
       const method = editing ? "PUT" : "POST";
-      const res = await fetch(url, {
-        method,
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(data),
-        credentials: "include",
-      });
+      const res = await adminFetch(url, { method, body: JSON.stringify(data) });
       if (!res.ok) throw new Error("Save failed");
     },
     onSuccess: () => {
@@ -64,7 +66,7 @@ export default function AdminAgents() {
   });
 
   const del = useMutation({
-    mutationFn: (id: number) => fetch(`/api/admin/agents/${id}`, { method: "DELETE", credentials: "include" }),
+    mutationFn: (id: number) => adminFetch(`/api/admin/agents/${id}`, { method: "DELETE" }),
     onSuccess: () => qc.invalidateQueries({ queryKey: ["/api/admin/agents"] }),
   });
 
@@ -119,7 +121,6 @@ export default function AdminAgents() {
           )}
         </div>
 
-        {/* Form */}
         {showForm && (
           <div className="bg-white rounded-lg border border-gray-200 p-6 mb-6">
             <div className="flex items-center justify-between mb-4">
@@ -164,7 +165,6 @@ export default function AdminAgents() {
           </div>
         )}
 
-        {/* List */}
         {isLoading ? (
           <div className="text-center py-20 text-gray-400">Loading...</div>
         ) : agents.length === 0 && !showForm ? (

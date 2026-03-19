@@ -3,7 +3,7 @@ import multer from "multer";
 import path from "path";
 import fs from "fs";
 import { storage } from "../storage";
-import { requireAdmin } from "../middleware/adminAuth";
+import { requireAdmin, generateAdminToken, revokeAdminToken, validateAdminToken } from "../middleware/adminAuth";
 import { propertyInsertSchema, blogPostInsertSchema, agentInsertSchema, inquiryInsertSchema } from "@shared/schema";
 import { AppError } from "../middleware/errorHandler";
 
@@ -38,17 +38,25 @@ router.post("/login", (req, res) => {
 
   if (username === ADMIN_USER && password === ADMIN_PASS) {
     req.session.admin = true;
-    return res.json({ success: true });
+    req.session.save(() => {});
+    const token = generateAdminToken();
+    return res.json({ success: true, token });
   }
   return res.status(401).json({ message: "Invalid credentials" });
 });
 
 router.post("/logout", (req, res) => {
+  const auth = req.headers.authorization;
+  if (auth?.startsWith("Bearer ")) revokeAdminToken(auth.slice(7));
   req.session.destroy(() => {});
   res.json({ success: true });
 });
 
 router.get("/me", (req, res) => {
+  const auth = req.headers.authorization;
+  if (auth?.startsWith("Bearer ") && validateAdminToken(auth.slice(7))) {
+    return res.json({ admin: true });
+  }
   if (req.session?.admin) return res.json({ admin: true });
   return res.status(401).json({ message: "Not authenticated" });
 });

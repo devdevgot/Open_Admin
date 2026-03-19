@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { MessageSquare, Trash2, ChevronDown } from "lucide-react";
 import AdminLayout from "@/components/admin/AdminLayout";
+import { adminFetch } from "@/lib/adminAuth";
 
 interface Inquiry {
   id: number;
@@ -42,24 +43,21 @@ export default function AdminInquiries() {
     queryKey: ["/api/admin/inquiries", filterStatus],
     queryFn: () => {
       const url = filterStatus ? `/api/admin/inquiries?status=${filterStatus}` : "/api/admin/inquiries";
-      return fetch(url, { credentials: "include" }).then(r => r.json());
+      return adminFetch(url).then(r => r.json());
     },
   });
 
   const updateStatus = useMutation({
     mutationFn: ({ id, status }: { id: number; status: string }) =>
-      fetch(`/api/admin/inquiries/${id}/status`, {
+      adminFetch(`/api/admin/inquiries/${id}/status`, {
         method: "PATCH",
-        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ status }),
-        credentials: "include",
       }),
     onSuccess: () => qc.invalidateQueries({ queryKey: ["/api/admin/inquiries"] }),
   });
 
   const deleteInquiry = useMutation({
-    mutationFn: (id: number) =>
-      fetch(`/api/admin/inquiries/${id}`, { method: "DELETE", credentials: "include" }),
+    mutationFn: (id: number) => adminFetch(`/api/admin/inquiries/${id}`, { method: "DELETE" }),
     onSuccess: () => qc.invalidateQueries({ queryKey: ["/api/admin/inquiries"] }),
   });
 

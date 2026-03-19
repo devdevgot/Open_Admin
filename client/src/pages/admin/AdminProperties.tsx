@@ -2,6 +2,7 @@ import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { Link } from "wouter";
 import { Plus, Pencil, Trash2, Building2, Star } from "lucide-react";
 import AdminLayout from "@/components/admin/AdminLayout";
+import { adminFetch } from "@/lib/adminAuth";
 
 interface Property {
   id: number;
@@ -34,12 +35,11 @@ export default function AdminProperties() {
 
   const { data: properties = [], isLoading } = useQuery<Property[]>({
     queryKey: ["/api/admin/properties"],
-    queryFn: () => fetch("/api/admin/properties", { credentials: "include" }).then(r => r.json()),
+    queryFn: () => adminFetch("/api/admin/properties").then(r => r.json()),
   });
 
   const deleteProperty = useMutation({
-    mutationFn: (id: number) =>
-      fetch(`/api/admin/properties/${id}`, { method: "DELETE", credentials: "include" }),
+    mutationFn: (id: number) => adminFetch(`/api/admin/properties/${id}`, { method: "DELETE" }),
     onSuccess: () => qc.invalidateQueries({ queryKey: ["/api/admin/properties"] }),
   });
 
@@ -75,7 +75,6 @@ export default function AdminProperties() {
           <div className="space-y-3">
             {properties.map(prop => (
               <div key={prop.id} className="bg-white rounded-lg border border-gray-200 flex items-center gap-4 p-4" data-testid={`property-${prop.id}`}>
-                {/* Image */}
                 <div className="w-16 h-16 rounded-md overflow-hidden shrink-0 bg-gray-100">
                   {prop.images?.[0] ? (
                     <img src={prop.images[0]} alt={prop.title} className="w-full h-full object-cover" />
@@ -85,8 +84,6 @@ export default function AdminProperties() {
                     </div>
                   )}
                 </div>
-
-                {/* Info */}
                 <div className="flex-1 min-w-0">
                   <div className="flex items-center gap-2 flex-wrap mb-1">
                     <p className="font-semibold text-sm text-gray-900 truncate">{prop.title}</p>
@@ -103,8 +100,6 @@ export default function AdminProperties() {
                     </span>
                   </div>
                 </div>
-
-                {/* Actions */}
                 <div className="flex items-center gap-2 shrink-0">
                   <Link href={`/admin/properties/${prop.id}`}>
                     <button className="p-2 text-gray-400 hover:text-amber-700 hover:bg-amber-50 rounded-md transition-colors" data-testid={`button-edit-property-${prop.id}`}>
