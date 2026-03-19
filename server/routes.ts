@@ -1,51 +1,25 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
-import { storage } from "./storage";
+import propertiesRouter from "./routes/properties";
+import favoritesRouter from "./routes/favorites";
+import blogRouter from "./routes/blog";
+import inquiriesRouter from "./routes/inquiries";
+import newsletterRouter from "./routes/newsletter";
+import agentsRouter from "./routes/agents";
+import { errorHandler } from "./middleware/errorHandler";
 
 export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
-  app.get("/api/properties", async (_req, res) => {
-    const type = _req.query.type as string | undefined;
-    if (type && type !== "All") {
-      const props = await storage.getPropertiesByType(type);
-      return res.json(props);
-    }
-    const props = await storage.getProperties();
-    res.json(props);
-  });
+  app.use("/api/properties", propertiesRouter);
+  app.use("/api/favorites", favoritesRouter);
+  app.use("/api/blog", blogRouter);
+  app.use("/api/inquiries", inquiriesRouter);
+  app.use("/api/newsletter", newsletterRouter);
+  app.use("/api/agents", agentsRouter);
 
-  app.get("/api/properties/:id", async (req, res) => {
-    const id = parseInt(req.params.id);
-    if (isNaN(id)) {
-      return res.status(400).json({ message: "Invalid property ID" });
-    }
-    const property = await storage.getPropertyById(id);
-    if (!property) {
-      return res.status(404).json({ message: "Property not found" });
-    }
-    res.json(property);
-  });
-
-  app.get("/api/favorites", async (_req, res) => {
-    const favs = await storage.getFavorites();
-    res.json(favs);
-  });
-
-  app.post("/api/favorites", async (req, res) => {
-    const { propertyId } = req.body;
-    if (!propertyId) {
-      return res.status(400).json({ message: "propertyId is required" });
-    }
-    const already = await storage.isFavorited(propertyId);
-    if (already) {
-      await storage.removeFavorite(propertyId);
-      return res.json({ favorited: false });
-    }
-    await storage.addFavorite({ propertyId });
-    res.json({ favorited: true });
-  });
+  app.use(errorHandler as any);
 
   return httpServer;
 }
