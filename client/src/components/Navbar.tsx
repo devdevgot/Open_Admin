@@ -158,7 +158,7 @@ export default function Navbar() {
         <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center">
           <Link href="/" className="flex flex-col items-start leading-tight">
               <span className="font-lejour uppercase text-2xl tracking-widest">Aviera</span>
-              <span className="font-symphony italic lowercase -mt-1 text-right ml-[80px] text-[19px] font-normal">Living</span>
+              <span className="font-symphony italic -mt-1 text-right ml-[80px] text-[25px] font-normal">Living</span>
           </Link>
 
           <div className="hidden lg:flex items-center space-x-12">
