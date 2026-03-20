@@ -44,6 +44,7 @@ export default function AdminAgents() {
   const [creating, setCreating] = useState(false);
   const [form, setForm] = useState<Omit<Agent, "id">>(EMPTY);
   const [uploading, setUploading] = useState(false);
+  const [saveError, setSaveError] = useState("");
 
   const { data: agents = [], isLoading } = useQuery<Agent[]>({
     queryKey: ["/api/admin/agents"],
@@ -55,13 +56,20 @@ export default function AdminAgents() {
       const url = editing ? `/api/admin/agents/${editing.id}` : "/api/admin/agents";
       const method = editing ? "PUT" : "POST";
       const res = await adminFetch(url, { method, body: JSON.stringify(data) });
-      if (!res.ok) throw new Error("Save failed");
+      if (!res.ok) {
+        const d = await res.json().catch(() => ({}));
+        throw new Error(d.message || "Save failed");
+      }
     },
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["/api/admin/agents"] });
+      setSaveError("");
       setEditing(null);
       setCreating(false);
       setForm(EMPTY);
+    },
+    onError: (err: any) => {
+      setSaveError(err.message || "Could not save. Please try again.");
     },
   });
 
@@ -82,7 +90,7 @@ export default function AdminAgents() {
     setForm(EMPTY);
   };
 
-  const cancel = () => { setEditing(null); setCreating(false); setForm(EMPTY); };
+  const cancel = () => { setEditing(null); setCreating(false); setForm(EMPTY); setSaveError(""); };
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -149,6 +157,9 @@ export default function AdminAgents() {
                 <textarea value={form.bio || ""} onChange={e => setForm(f => ({ ...f, bio: e.target.value }))} rows={3} className={IN} />
               </F>
             </div>
+            {saveError && (
+              <div className="mt-4 bg-red-50 border border-red-200 rounded-md p-3 text-sm text-red-700">{saveError}</div>
+            )}
             <div className="flex gap-3 mt-5">
               <button
                 type="button"

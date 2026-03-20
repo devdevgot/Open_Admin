@@ -7,41 +7,38 @@ declare module "express-session" {
   }
 }
 
-// In-memory token store (token → expiry timestamp)
-const tokenStore = new Map<string, number>();
+const TOKEN_SECRET = process.env.TOKEN_SECRET || "aviera-token-secret-2026-xyz";
 
-const TOKEN_TTL = 24 * 60 * 60 * 1000; // 24h
-
-export function generateAdminToken(): string {
-  const token = crypto.randomBytes(32).toString("hex");
-  tokenStore.set(token, Date.now() + TOKEN_TTL);
-  return token;
+export function generateAdminToken(username: string, password: string): string {
+  return crypto
+    .createHmac("sha256", TOKEN_SECRET)
+    .update(`${username}:${password}`)
+    .digest("hex");
 }
 
 export function validateAdminToken(token: string): boolean {
-  const expiry = tokenStore.get(token);
-  if (!expiry) return false;
-  if (Date.now() > expiry) {
-    tokenStore.delete(token);
+  const ADMIN_USER = process.env.ADMIN_USERNAME || "admin";
+  const ADMIN_PASS = process.env.ADMIN_PASSWORD || "Aviera2026!";
+  const expected = generateAdminToken(ADMIN_USER, ADMIN_PASS);
+  try {
+    return (
+      token.length === expected.length &&
+      crypto.timingSafeEqual(Buffer.from(token, "hex"), Buffer.from(expected, "hex"))
+    );
+  } catch {
     return false;
   }
-  return true;
 }
 
-export function revokeAdminToken(token: string) {
-  tokenStore.delete(token);
+export function revokeAdminToken(_token: string) {
 }
 
 export function requireAdmin(req: Request, res: Response, next: NextFunction) {
-  // 1. Check bearer token (primary method — works in all environments)
   const auth = req.headers.authorization;
   if (auth?.startsWith("Bearer ")) {
     const token = auth.slice(7);
     if (validateAdminToken(token)) return next();
   }
-
-  // 2. Fallback: check session cookie
   if (req.session?.admin === true) return next();
-
   return res.status(401).json({ message: "Unauthorized" });
 }

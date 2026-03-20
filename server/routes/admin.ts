@@ -39,7 +39,7 @@ router.post("/login", (req, res) => {
   if (username === ADMIN_USER && password === ADMIN_PASS) {
     req.session.admin = true;
     req.session.save(() => {});
-    const token = generateAdminToken();
+    const token = generateAdminToken(username, password);
     return res.json({ success: true, token });
   }
   return res.status(401).json({ message: "Invalid credentials" });

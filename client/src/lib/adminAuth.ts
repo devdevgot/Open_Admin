@@ -19,12 +19,10 @@ export function adminHeaders(extra: Record<string, string> = {}): Record<string,
   return headers;
 }
 
-// General purpose admin fetch — automatically attaches the auth token
-export function adminFetch(url: string, options: RequestInit = {}): Promise<Response> {
+export async function adminFetch(url: string, options: RequestInit = {}): Promise<Response> {
   const isFormData = options.body instanceof FormData;
   const headers: Record<string, string> = {};
 
-  // Don't set Content-Type for FormData (browser sets it with boundary)
   if (!isFormData) {
     headers["Content-Type"] = "application/json";
   }
@@ -32,7 +30,7 @@ export function adminFetch(url: string, options: RequestInit = {}): Promise<Resp
   const token = getAdminToken();
   if (token) headers["Authorization"] = `Bearer ${token}`;
 
-  return fetch(url, {
+  const res = await fetch(url, {
     credentials: "include",
     ...options,
     headers: {
@@ -40,4 +38,11 @@ export function adminFetch(url: string, options: RequestInit = {}): Promise<Resp
       ...(options.headers as Record<string, string> | undefined),
     },
   });
+
+  if (res.status === 401 && !url.includes("/login")) {
+    clearAdminToken();
+    window.location.href = "/admin/login";
+  }
+
+  return res;
 }
