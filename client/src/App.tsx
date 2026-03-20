@@ -62,10 +62,8 @@ function Router() {
       {/* Admin */}
       <Route path="/admin/login" component={AdminLogin}/>
       <Route path="/admin/inquiries" component={AdminInquiries}/>
-      <Route path="/admin/properties/new" component={AdminPropertyForm}/>
       <Route path="/admin/properties/:id" component={AdminPropertyForm}/>
       <Route path="/admin/properties" component={AdminProperties}/>
-      <Route path="/admin/blog/new" component={AdminBlogForm}/>
       <Route path="/admin/blog/:id" component={AdminBlogForm}/>
       <Route path="/admin/blog" component={AdminBlog}/>
       <Route path="/admin/agents" component={AdminAgents}/>
