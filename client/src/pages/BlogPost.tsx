@@ -142,7 +142,6 @@ export default function BlogPost() {
           alt={post.title}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-[#3D2716]/90 via-[#3D2716]/50 to-transparent" />
         <div className="absolute bottom-0 left-0 right-0 pb-10">
           <div className="max-w-6xl mx-auto px-6 lg:px-12">
             <Link href="/blog" className="inline-flex items-center gap-2 text-sm font-inria text-[#D8BFAE] uppercase tracking-widest hover:text-[#FAF8F5] transition-colors mb-6" data-testid="link-back-blog">

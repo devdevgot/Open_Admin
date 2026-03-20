@@ -270,11 +270,6 @@ export default function Buy() {
                         }
                       />
                     </button>
-                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#3D2716]/80 to-transparent p-5 pt-12">
-                      <p className="font-symphony text-3xl text-[#FAF8F5]" data-testid={`text-price-${property.id}`}>
-                        {property.price}
-                      </p>
-                    </div>
                     <div className="absolute top-4 left-4 bg-[#3D2716]/90 text-[#FAF8F5] px-3 py-1.5 font-inria text-[10px] uppercase tracking-widest">
                       {property.type}
                     </div>
@@ -282,6 +277,7 @@ export default function Buy() {
 
                   {/* Content */}
                   <div className="space-y-3">
+                    <p className="font-symphony text-2xl text-[#3D2716]" data-testid={`text-price-${property.id}`}>{property.price}</p>
                     <h3 className="font-lejour text-lg text-[#3D2716] leading-tight uppercase tracking-wider">
                       <Link href={`/property/${property.id}`} className="hover:text-[#995134] transition-colors">
                         {property.title}

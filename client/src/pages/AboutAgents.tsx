@@ -100,13 +100,13 @@ export default function AboutAgents() {
                   alt={agent.name}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#3D2716]/90 to-transparent p-6 pt-16">
-                  <p className="font-symphony text-2xl text-[#FAF8F5]">{agent.name}</p>
-                  <p className="font-lejour text-xs text-[#D8BFAE] uppercase tracking-widest mt-1">{agent.title}</p>
-                </div>
               </div>
               {/* Info */}
               <div className="space-y-4">
+                <div className="mb-1">
+                  <p className="font-symphony text-2xl text-[#3D2716]">{agent.name}</p>
+                  <p className="font-lejour text-xs text-[#917C63] uppercase tracking-widest mt-1">{agent.title}</p>
+                </div>
                 <div className="flex items-center gap-2 text-[#917C63]">
                   <MapPin size={14} />
                   <span className="font-inria text-sm">{agent.location}</span>

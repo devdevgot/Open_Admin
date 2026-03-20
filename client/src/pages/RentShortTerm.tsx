@@ -96,7 +96,6 @@ export default function RentShortTerm() {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url(https://images.unsplash.com/photo-1571003123894-1f0594d2b5d9?w=1920&h=1080&fit=crop)" }}
         >
-          <div className="absolute inset-0 bg-gradient-to-t from-[#3D2716] via-[#3D2716]/40 to-transparent"></div>
         </div>
         <div className="relative z-10 container mx-auto px-6 lg:px-12 pb-14">
           <Link href="/rent" className="text-sm font-inria text-[#D8BFAE] uppercase tracking-widest hover:text-[#FAF8F5] transition-colors mb-6 inline-block" data-testid="link-back">

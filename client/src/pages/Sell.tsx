@@ -105,7 +105,6 @@ export default function Sell() {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url(https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=1920&h=1080&fit=crop)" }}
         >
-          <div className="absolute inset-0 bg-[#3D2716]/75"></div>
         </div>
         <div className="relative z-10 container mx-auto px-6 lg:px-12">
           <Link href="/" className="text-sm font-inria text-[#D8BFAE] uppercase tracking-widest hover:text-[#FAF8F5] transition-colors mb-8 inline-block" data-testid="link-back-home">

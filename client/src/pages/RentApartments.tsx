@@ -61,7 +61,6 @@ export default function RentApartments() {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url(https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=1920&h=1080&fit=crop)" }}
         >
-          <div className="absolute inset-0 bg-gradient-to-t from-[#3D2716] via-[#3D2716]/50 to-transparent"></div>
         </div>
         <div className="relative z-10 container mx-auto px-6 lg:px-12 pb-14">
           <Link href="/rent" className="text-sm font-inria text-[#D8BFAE] uppercase tracking-widest hover:text-[#FAF8F5] transition-colors mb-6 inline-block" data-testid="link-back">
@@ -139,13 +138,9 @@ export default function RentApartments() {
                   >
                     <Heart size={18} className={favoritedIds.includes(property.id) ? "fill-[#995134] text-[#995134]" : "text-[#3D2716]"} />
                   </button>
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-[#3D2716]/80 to-transparent p-5 pt-12">
-                    <p className="font-symphony text-2xl text-[#FAF8F5]">
-                      {property.price}<span className="font-inria text-sm text-[#FAF8F5]/70"> /yr</span>
-                    </p>
-                  </div>
                 </div>
                 <div className="space-y-3">
+                  <p className="font-symphony text-2xl text-[#3D2716]">{property.price}<span className="font-inria text-sm text-[#917C63]"> /yr</span></p>
                   <h3 className="font-lejour text-lg text-[#3D2716] uppercase tracking-wider">{property.title}</h3>
                   <div className="flex items-center gap-1.5 text-[#917C63]">
                     <MapPin size={14} />
