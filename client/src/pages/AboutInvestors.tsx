@@ -57,6 +57,7 @@ export default function AboutInvestors() {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url(https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1920&h=1080&fit=crop)" }}
         >
+          <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/40 to-transparent"></div>
         </div>
         <div className="relative z-10 container mx-auto px-6 lg:px-12">
           <Link href="/about" className="text-sm font-inria text-[#D8BFAE] uppercase tracking-widest hover:text-[#FAF8F5] transition-colors mb-8 inline-block" data-testid="link-back">

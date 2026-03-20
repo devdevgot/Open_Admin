@@ -61,6 +61,7 @@ export default function RentVillas() {
           className="absolute inset-0 bg-cover bg-center"
           style={{ backgroundImage: "url(https://images.unsplash.com/photo-1600607687644-aac4c3eac7f4?w=1920&h=1080&fit=crop)" }}
         >
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-transparent"></div>
         </div>
         <div className="relative z-10 container mx-auto px-6 lg:px-12 pb-14">
           <Link href="/rent" className="text-sm font-inria text-[#D8BFAE] uppercase tracking-widest hover:text-[#FAF8F5] transition-colors mb-6 inline-block" data-testid="link-back">
@@ -133,9 +134,11 @@ export default function RentVillas() {
                   <div className="absolute top-4 left-4 bg-[#424D38]/90 text-[#FAF8F5] px-3 py-1.5 font-inria text-[10px] uppercase tracking-widest">
                     Villa
                   </div>
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent p-5 pt-12">
+                    <p className="font-symphony text-2xl text-[#FAF8F5]">{property.price}<span className="font-inria text-sm text-[#FAF8F5]/70"> /yr</span></p>
+                  </div>
                 </div>
                 <div className="space-y-3">
-                  <p className="font-symphony text-2xl text-[#3D2716]">{property.price}<span className="font-inria text-sm text-[#917C63]"> /yr</span></p>
                   <h3 className="font-lejour text-lg text-[#3D2716] uppercase tracking-wider">{property.title}</h3>
                   <div className="flex items-center gap-1.5 text-[#917C63]">
                     <MapPin size={14} />
