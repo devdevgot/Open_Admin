@@ -133,7 +133,7 @@ export default function Buy() {
       </section>
 
       {/* Filters */}
-      <div className="border-b border-[#D8BFAE]/30 bg-white sticky top-20 z-40 shadow-sm">
+      <div className="border-b border-[#D8BFAE]/30 bg-white sticky top-20 z-20 shadow-sm">
         <div className="container mx-auto px-6 lg:px-12">
           {/* Collapsed bar — icon + active filter summary */}
           <div
@@ -159,7 +159,7 @@ export default function Buy() {
 
           {/* Expanded filters */}
           <div
-            className={`transition-all duration-300 ease-in-out overflow-hidden ${filtersOpen ? "max-h-40 opacity-100 py-5" : "max-h-0 opacity-0 py-0"}`}
+            className={`transition-all duration-300 ease-in-out overflow-hidden ${filtersOpen ? "max-h-64 opacity-100 py-5" : "max-h-0 opacity-0 py-0"}`}
           >
             <div className="flex flex-col md:flex-row md:items-center gap-6">
               <div className="flex flex-wrap gap-2 flex-1">
