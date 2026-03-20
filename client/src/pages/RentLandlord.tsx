@@ -129,14 +129,14 @@ export default function RentLandlord() {
               <p className="font-inria text-lg text-[#3D2716]/70 leading-relaxed mb-10">
                 Our end-to-end landlord service is built for the investor who values results over process. We handle everything so you can focus on what matters.
               </p>
-              <button className="bg-[#3D2716] text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#995134] transition-colors" data-testid="button-get-started">
+              <button className="bg-[#424D38] text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#3D2716] transition-colors" data-testid="button-get-started">
                 Get Started Today
               </button>
             </div>
             <div>
               {steps.map((step, idx) => (
                 <div key={step.number} className={`flex gap-8 pb-10 ${idx !== steps.length - 1 ? "border-b border-[#D8BFAE]/20 mb-10" : ""}`}>
-                  <div className="w-10 h-10 bg-[#995134] flex items-center justify-center shrink-0 mt-1">
+                  <div className="w-10 h-10 bg-[#424D38] flex items-center justify-center shrink-0 mt-1">
                     <span className="font-symphony text-sm text-[#FAF8F5]">{step.number}</span>
                   </div>
                   <div>

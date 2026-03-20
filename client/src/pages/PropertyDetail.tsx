@@ -130,7 +130,7 @@ export default function PropertyDetail() {
             <div className="border-b border-[#D8BFAE]/30 pb-8">
               <div className="flex justify-between items-start mb-6">
                 <div>
-                  <span className="inline-block bg-[#3D2716] text-[#FAF8F5] px-4 py-2 font-inria text-xs uppercase tracking-widest mb-6" data-testid="text-property-type">
+                  <span className="inline-block bg-[#424D38] text-[#FAF8F5] px-4 py-2 font-inria text-xs uppercase tracking-widest mb-6" data-testid="text-property-type">
                     {property.type}
                   </span>
                   <h1 className="font-symphony text-4xl md:text-5xl text-[#3D2716] mb-4" data-testid="text-property-title">
@@ -228,7 +228,7 @@ export default function PropertyDetail() {
               </p>
 
               <div className="space-y-3">
-                <button onClick={() => openContactModal({ type: "buy", propertyId: property.id, propertyTitle: property.title })} className="w-full bg-[#3D2716] text-[#FAF8F5] py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#995134] transition-colors" data-testid="button-schedule-viewing">
+                <button onClick={() => openContactModal({ type: "buy", propertyId: property.id, propertyTitle: property.title })} className="w-full bg-[#424D38] text-[#FAF8F5] py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#3D2716] transition-colors" data-testid="button-schedule-viewing">
                   Schedule Tour
                 </button>
                 <button className="w-full border border-[#3D2716] text-[#3D2716] py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#3D2716] hover:text-[#FAF8F5] transition-colors flex items-center justify-center space-x-2" data-testid="button-share">
@@ -265,7 +265,7 @@ export default function PropertyDetail() {
           <h3 className="font-symphony text-3xl md:text-4xl text-[#3D2716] mb-6">
             Explore More Properties
           </h3>
-          <Link href="/buy" className="inline-block bg-[#3D2716] text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#995134] transition-colors" data-testid="link-explore-more">
+          <Link href="/buy" className="inline-block bg-[#424D38] text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#3D2716] transition-colors" data-testid="link-explore-more">
               Back to Listings
           </Link>
         </div>

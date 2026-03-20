@@ -104,7 +104,7 @@ export default function AboutStory() {
             There are hundreds of real estate firms in Dubai. There is only one Aviera. Come and find out why.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/about/founder" className="bg-[#3D2716] text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#995134] transition-colors text-center" data-testid="link-founder">
+            <Link href="/about/founder" className="bg-[#424D38] text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#3D2716] transition-colors text-center" data-testid="link-founder">
               Meet Our Founder
             </Link>
             <Link href="/about/values" className="border border-[#3D2716] text-[#3D2716] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#3D2716] hover:text-[#FAF8F5] transition-colors text-center" data-testid="link-values">

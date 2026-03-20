@@ -98,7 +98,7 @@ export default function ContactModal() {
       {/* Panel */}
       <div className="relative w-full max-w-lg bg-[#FAF8F5] shadow-2xl overflow-hidden">
         {/* Header */}
-        <div className="bg-[#3D2716] px-8 pt-8 pb-6">
+        <div className="bg-[#424D38] px-8 pt-8 pb-6">
           <button
             onClick={handleClose}
             className="absolute top-5 right-5 text-white/50 hover:text-white transition-colors"

@@ -62,7 +62,7 @@ export default function AboutMission() {
               >
                 <div className={idx % 2 !== 0 ? "lg:order-2" : ""}>
                   <div className="inline-flex items-center gap-4 mb-8">
-                    <div className="w-12 h-12 bg-[#3D2716]/[0.06] flex items-center justify-center">
+                    <div className="w-12 h-12 bg-[#424D38]/[0.08] flex items-center justify-center">
                       <m.icon size={22} className="text-[#995134]" strokeWidth={1.5} />
                     </div>
                     <p className="font-lejour text-xs text-[#917C63] uppercase tracking-[0.3em]">{m.label}</p>
@@ -71,7 +71,7 @@ export default function AboutMission() {
                   <p className="font-inria text-lg text-[#3D2716]/70 leading-loose">{m.body}</p>
                 </div>
                 <div className={`hidden lg:block ${idx % 2 !== 0 ? "lg:order-1" : ""}`}>
-                  <div className="aspect-square bg-[#3D2716]/[0.04] flex items-center justify-center">
+                  <div className="aspect-square bg-[#424D38]/[0.05] flex items-center justify-center">
                     <m.icon size={120} className="text-[#D8BFAE]/60" strokeWidth={0.5} />
                   </div>
                 </div>

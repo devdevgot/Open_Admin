@@ -308,7 +308,7 @@ export default function Buy() {
                     </div>
 
                     <div className="flex gap-3 pt-4">
-                      <Link href={`/property/${property.id}`} className="flex-1 bg-[#3D2716] text-[#FAF8F5] py-3 font-inria text-xs uppercase tracking-widest hover:bg-[#995134] transition-colors text-center" data-testid={`link-view-details-${property.id}`}>
+                      <Link href={`/property/${property.id}`} className="flex-1 bg-[#3D2716] text-[#FAF8F5] py-3 font-inria text-xs uppercase tracking-widest hover:bg-[#424D38] transition-colors text-center" data-testid={`link-view-details-${property.id}`}>
                         View Details
                       </Link>
                       <button onClick={() => openContactModal({ type: "buy", propertyId: property.id, propertyTitle: property.title })} className="flex-1 border border-[#3D2716] text-[#3D2716] py-3 font-inria text-xs uppercase tracking-widest hover:bg-[#3D2716] hover:text-[#FAF8F5] transition-colors" data-testid={`button-schedule-tour-${property.id}`}>

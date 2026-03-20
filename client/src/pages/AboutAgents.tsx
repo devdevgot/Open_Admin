@@ -122,7 +122,7 @@ export default function AboutAgents() {
                     <p className="font-lejour text-[10px] text-[#917C63] uppercase tracking-[0.2em]">Volume</p>
                     <p className="font-symphony text-xl text-[#3D2716]">{agent.transactions}</p>
                   </div>
-                  <button onClick={() => openContactModal({ type: "general", agentName: agent.name, prefillMessage: `I would like to speak with ${agent.name} about a property.` })} className="bg-[#3D2716] text-[#FAF8F5] px-6 py-2.5 font-inria text-xs uppercase tracking-widest hover:bg-[#995134] transition-colors" data-testid={`button-contact-${agent.name.toLowerCase().replace(/\s/g, "-")}`}>
+                  <button onClick={() => openContactModal({ type: "general", agentName: agent.name, prefillMessage: `I would like to speak with ${agent.name} about a property.` })} className="bg-[#424D38] text-[#FAF8F5] px-6 py-2.5 font-inria text-xs uppercase tracking-widest hover:bg-[#3D2716] transition-colors" data-testid={`button-contact-${agent.name.toLowerCase().replace(/\s/g, "-")}`}>
                     Contact
                   </button>
                 </div>

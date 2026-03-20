@@ -122,7 +122,7 @@ export default function BlogPost() {
         <div className="flex flex-col items-center justify-center h-[70vh] text-center px-6">
           <h2 className="font-symphony text-4xl text-[#3D2716] mb-4">Article Not Found</h2>
           <p className="font-inria text-[#917C63] mb-8">The article you're looking for doesn't exist or has been removed.</p>
-          <Link href="/blog" className="bg-[#3D2716] text-[#FAF8F5] px-8 py-3 font-inria uppercase tracking-widest hover:bg-[#995134] transition-colors">
+          <Link href="/blog" className="bg-[#424D38] text-[#FAF8F5] px-8 py-3 font-inria uppercase tracking-widest hover:bg-[#3D2716] transition-colors">
             Back to Blog
           </Link>
         </div>
@@ -240,7 +240,7 @@ export default function BlogPost() {
                   <p className="font-inria text-xs text-[#917C63] leading-relaxed mb-4">
                     Need personalised advice on this topic?
                   </p>
-                  <Link href="/about" className="block w-full bg-[#3D2716] text-[#FAF8F5] py-3 font-inria text-xs uppercase tracking-widest text-center hover:bg-[#995134] transition-colors" data-testid="button-toc-cta">
+                  <Link href="/about" className="block w-full bg-[#424D38] text-[#FAF8F5] py-3 font-inria text-xs uppercase tracking-widest text-center hover:bg-[#3D2716] transition-colors" data-testid="button-toc-cta">
                     Speak With Us
                   </Link>
                 </div>

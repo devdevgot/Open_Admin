@@ -182,7 +182,7 @@ export default function Sell() {
               <p className="font-inria text-lg text-[#3D2716]/70 leading-relaxed mb-10">
                 From initial consultation to keys handover, our four-phase approach ensures transparency, legal compliance, and the highest achievable sale price for your property.
               </p>
-              <button className="bg-[#3D2716] text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#995134] transition-colors" data-testid="button-start-process">
+              <button className="bg-[#424D38] text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#3D2716] transition-colors" data-testid="button-start-process">
                 Start the Process <ArrowRight className="inline ml-2" size={16} />
               </button>
             </div>
@@ -194,7 +194,7 @@ export default function Sell() {
                   className={`relative pl-16 py-10 ${idx !== steps.length - 1 ? "border-b border-[#D8BFAE]/20" : ""}`}
                   data-testid={`step-${step.number}`}
                 >
-                  <div className="absolute left-0 top-10 w-10 h-10 bg-[#995134] flex items-center justify-center">
+                  <div className="absolute left-0 top-10 w-10 h-10 bg-[#424D38] flex items-center justify-center">
                     <span className="font-symphony text-sm text-[#FAF8F5]">{step.number}</span>
                   </div>
                   <h3 className="font-lejour text-xl text-[#3D2716] uppercase tracking-widest mb-3">{step.title}</h3>
