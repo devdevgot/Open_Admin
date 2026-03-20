@@ -1,15 +1,53 @@
 import { Link } from "wouter";
+import { useRef, useEffect, useState } from "react";
 import { ArrowRight, Shield, TrendingUp, Users, FileCheck, Eye, Handshake } from "lucide-react";
 import { openContactModal } from "@/lib/contact";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const stats = [
-  { value: "97%", label: "Asking Price Achieved" },
-  { value: "21", label: "Average Days on Market" },
-  { value: "200+", label: "Properties Sold" },
-  { value: "1.2B", label: "AED Total Volume" },
+  { end: 97, decimals: 0, suffix: "%", label: "Asking Price Achieved" },
+  { end: 21, decimals: 0, suffix: "", label: "Average Days on Market" },
+  { end: 200, decimals: 0, suffix: "+", label: "Properties Sold" },
+  { end: 1.2, decimals: 1, suffix: "B", label: "AED Total Volume" },
 ];
+
+function AnimatedCounter({ end, decimals, suffix }: { end: number; decimals: number; suffix: string }) {
+  const [count, setCount] = useState(0);
+  const ref = useRef<HTMLSpanElement>(null);
+  const started = useRef(false);
+
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting && !started.current) {
+          started.current = true;
+          const duration = 1800;
+          const startTime = performance.now();
+          const tick = (now: number) => {
+            const elapsed = now - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3);
+            setCount(parseFloat((eased * end).toFixed(decimals)));
+            if (progress < 1) requestAnimationFrame(tick);
+          };
+          requestAnimationFrame(tick);
+        }
+      },
+      { threshold: 0.4 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, [end, decimals]);
+
+  return (
+    <span ref={ref}>
+      {decimals > 0 ? count.toFixed(decimals) : Math.round(count)}{suffix}
+    </span>
+  );
+}
 
 const steps = [
   {
@@ -99,7 +137,9 @@ export default function Sell() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 md:divide-x divide-[#FAF8F5]/10">
             {stats.map((stat) => (
               <div key={stat.label} className="text-center md:px-8">
-                <p className="font-symphony text-4xl md:text-5xl text-[#D8BFAE] mb-2">{stat.value}</p>
+                <p className="font-symphony text-4xl md:text-5xl text-[#D8BFAE] mb-2">
+                  <AnimatedCounter end={stat.end} decimals={stat.decimals} suffix={stat.suffix} />
+                </p>
                 <p className="font-inria text-sm text-[#FAF8F5]/60 uppercase tracking-wider">{stat.label}</p>
               </div>
             ))}
