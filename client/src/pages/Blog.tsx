@@ -117,7 +117,7 @@ export default function Blog() {
           )}
 
           {/* Filter Bar */}
-          <section className="border-b border-[#D8BFAE]/20 bg-white sticky top-20 z-40 shadow-sm">
+          <section className="border-b border-[#D8BFAE]/20 bg-white sticky top-20 z-20 shadow-sm">
             <div className="container mx-auto px-6 lg:px-12 py-4">
               <div className="flex flex-wrap gap-2 items-center">
                 <Tag size={14} className="text-[#917C63] mr-1" />
