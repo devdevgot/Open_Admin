@@ -62,7 +62,7 @@ export default function AboutStory() {
                 className={`py-16 ${idx !== chapters.length - 1 ? "border-b border-[#D8BFAE]/20" : ""}`}
               >
                 <p className="font-lejour text-xs text-[#917C63] uppercase tracking-[0.3em] mb-4">{ch.year}</p>
-                <h2 className="font-symphony text-3xl md:text-4xl text-[#3D2716] mb-8">{ch.title}</h2>
+                <h2 className="font-inria italic text-3xl md:text-4xl text-[#3D2716] mb-8">{ch.title}</h2>
                 <p className="font-inria text-lg text-[#3D2716]/70 leading-loose">{ch.body}</p>
               </div>
             ))}
@@ -99,7 +99,7 @@ export default function AboutStory() {
       {/* CTA */}
       <section className="py-20">
         <div className="container mx-auto px-6 lg:px-12 text-center">
-          <h2 className="font-symphony text-4xl text-[#3D2716] mb-6">Experience the Difference</h2>
+          <h2 className="font-inria text-4xl text-[#3D2716] mb-6">Experience the Difference</h2>
           <p className="font-inria text-lg text-[#3D2716]/70 mb-10 max-w-xl mx-auto">
             There are hundreds of real estate firms in Dubai. There is only one Aviera. Come and find out why.
           </p>

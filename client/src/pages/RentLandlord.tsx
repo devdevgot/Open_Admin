@@ -109,7 +109,7 @@ export default function RentLandlord() {
             {services.map((s) => (
               <div key={s.title} className="bg-white p-10 border border-[#D8BFAE]/20 hover:border-[#995134]/30 hover:shadow-lg transition-all" data-testid={`card-service-${s.title.toLowerCase().replace(/[\s&]/g, "-")}`}>
                 <s.icon size={30} className="text-[#424D38] mb-6" strokeWidth={1.5} />
-                <h3 className="font-lejour text-base text-[#3D2716] uppercase tracking-widest mb-3">{s.title}</h3>
+                <h3 className="font-inria text-lg text-[#3D2716] font-medium mb-3">{s.title}</h3>
                 <p className="font-inria text-sm text-[#3D2716]/70 leading-relaxed">{s.description}</p>
               </div>
             ))}
@@ -140,7 +140,7 @@ export default function RentLandlord() {
                     <span className="font-symphony text-sm text-[#FAF8F5]">{step.number}</span>
                   </div>
                   <div>
-                    <h3 className="font-lejour text-base text-[#3D2716] uppercase tracking-widest mb-2">{step.title}</h3>
+                    <h3 className="font-inria text-lg text-[#3D2716] font-medium mb-2">{step.title}</h3>
                     <p className="font-inria text-sm text-[#3D2716]/70 leading-relaxed">{step.desc}</p>
                   </div>
                 </div>

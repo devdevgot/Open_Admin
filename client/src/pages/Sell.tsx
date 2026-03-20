@@ -163,7 +163,7 @@ export default function Sell() {
               <div key={adv.title} className="group" data-testid={`card-advantage-${adv.title.toLowerCase().replace(/\s/g, "-")}`}>
                 <div className="bg-white p-10 border border-[#D8BFAE]/20 h-full transition-all group-hover:border-[#995134]/30 group-hover:shadow-lg">
                   <adv.icon size={32} className="text-[#995134] mb-6" strokeWidth={1.5} />
-                  <h3 className="font-lejour text-xl text-[#3D2716] uppercase tracking-widest mb-4">{adv.title}</h3>
+                  <h3 className="font-inria text-xl text-[#3D2716] font-medium mb-4">{adv.title}</h3>
                   <p className="font-inria text-[#3D2716]/70 leading-relaxed">{adv.description}</p>
                 </div>
               </div>
@@ -197,7 +197,7 @@ export default function Sell() {
                   <div className="absolute left-0 top-10 w-10 h-10 bg-[#424D38] flex items-center justify-center">
                     <span className="font-symphony text-sm text-[#FAF8F5]">{step.number}</span>
                   </div>
-                  <h3 className="font-lejour text-xl text-[#3D2716] uppercase tracking-widest mb-3">{step.title}</h3>
+                  <h3 className="font-inria text-xl text-[#3D2716] font-medium mb-3">{step.title}</h3>
                   <p className="font-inria text-[#3D2716]/70 leading-relaxed">{step.description}</p>
                 </div>
               ))}

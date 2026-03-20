@@ -128,7 +128,7 @@ export default function AboutInvestors() {
             {advantages.map((a, idx) => (
               <div key={a.title} className="bg-white p-10 border border-[#D8BFAE]/20 hover:border-[#995134]/30 hover:shadow-md transition-all" data-testid={`card-advantage-${idx}`}>
                 <a.icon size={28} className="text-[#424D38] mb-6" strokeWidth={1.5} />
-                <h3 className="font-lejour text-base text-[#3D2716] uppercase tracking-widest mb-4">{a.title}</h3>
+                <h3 className="font-inria text-lg text-[#3D2716] font-medium mb-4">{a.title}</h3>
                 <p className="font-inria text-sm text-[#3D2716]/70 leading-relaxed">{a.desc}</p>
               </div>
             ))}

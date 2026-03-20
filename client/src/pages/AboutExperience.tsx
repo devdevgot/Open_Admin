@@ -86,7 +86,7 @@ export default function AboutExperience() {
                 <div className="flex items-center gap-4 mb-6">
                   <p.icon size={28} className="text-[#424D38]" strokeWidth={1.5} />
                 </div>
-                <h3 className="font-lejour text-base text-[#3D2716] uppercase tracking-widest mb-4">{p.title}</h3>
+                <h3 className="font-inria text-lg text-[#3D2716] font-medium mb-4">{p.title}</h3>
                 <p className="font-inria text-sm text-[#3D2716]/70 leading-relaxed">{p.desc}</p>
               </div>
             ))}
@@ -108,7 +108,7 @@ export default function AboutExperience() {
                   <span className="font-symphony text-5xl text-[#D8BFAE]">{j.step}</span>
                   <span className="font-inria text-xs text-[#917C63] uppercase tracking-wider">{j.time}</span>
                 </div>
-                <h3 className="font-lejour text-base text-[#3D2716] uppercase tracking-widest mb-3">{j.title}</h3>
+                <h3 className="font-inria text-lg text-[#3D2716] font-medium mb-3">{j.title}</h3>
                 <p className="font-inria text-sm text-[#3D2716]/70 leading-relaxed">{j.desc}</p>
               </div>
             ))}
@@ -120,7 +120,7 @@ export default function AboutExperience() {
       <section className="py-24 border-t border-[#D8BFAE]/20">
         <div className="container mx-auto px-6 lg:px-12">
           <p className="font-lejour text-xs text-[#917C63] uppercase tracking-[0.3em] mb-4 text-center">Client Words</p>
-          <h2 className="font-symphony text-4xl text-[#3D2716] mb-16 text-center">What Clients Say</h2>
+          <h2 className="font-inria text-4xl text-[#3D2716] mb-16 text-center">What Clients Say</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {[
               { quote: "Aviera is the only firm I have worked with that made me feel like the decision was entirely mine. No pressure, no manufactured urgency. Just excellent advice.", author: "Sarah M.", role: "Penthouse Owner, Dubai Marina" },
