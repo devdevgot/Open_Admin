@@ -50,9 +50,9 @@ export default function Footer() {
           <div className="pb-8 sm:pb-0">
             <h3 className="font-lejour text-[#D8BFAE] uppercase tracking-[0.2em] text-[10px] mb-6">Contact</h3>
             <ul className="space-y-4 font-inria text-[#FAF8F5]/80 text-sm">
-              <li>Level 42, ICD Brookfield Place</li>
-              <li>Dubai International Financial Centre</li>
-              <li>Dubai, UAE</li>
+              <li>Churchill Tower</li>
+              <li>Business Bay, Dubai</li>
+              <li>Office N 1809, UAE</li>
               <li className="pt-4"><a href="mailto:advisory@avieraliving.com" className="hover:text-[#FAF8F5] transition-colors">advisory@avieraliving.com</a></li>
               <li><a href="tel:+971502915941" className="hover:text-[#FAF8F5] transition-colors">+971 50 291 5941</a></li>
             </ul>
