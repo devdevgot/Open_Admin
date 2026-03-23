@@ -22,30 +22,32 @@ export default function AboutFounder() {
     <div className="min-h-screen bg-[#FAF8F5]">
       <Navbar />
 
-      {/* Hero */}
-      <section className="relative pt-0 overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[80vh] mt-16">
-          <div
-            className="relative bg-cover bg-center min-h-[50vh] lg:min-h-full"
-            style={{ backgroundImage: "url(https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=960&h=1200&fit=crop)" }}
-          >
-            <div className="absolute inset-0 bg-[#3D2716]/20"></div>
-          </div>
-          <div className="bg-[#3D2716] flex flex-col justify-center px-12 lg:px-16 py-20">
-            <Link href="/about" className="text-sm font-inria text-[#D8BFAE] uppercase tracking-widest hover:text-[#FAF8F5] transition-colors mb-10 inline-block" data-testid="link-back">
-              ← About Us
-            </Link>
-            <p className="font-lejour text-xs text-[#D8BFAE] uppercase tracking-[0.3em] mb-6">The Visionary</p>
-            <h1 className="font-symphony text-5xl md:text-6xl text-[#FAF8F5] mb-6 leading-[1.1]" data-testid="text-page-title">
-              Sophia<br />Al Nour
-            </h1>
-            <p className="font-lejour text-sm text-[#D8BFAE] uppercase tracking-widest mb-8">
-              Founder & Managing Director
-            </p>
-            <p className="font-inria text-lg text-[#FAF8F5]/80 leading-relaxed">
-              With a background in real estate law and over a decade advising Dubai's most sophisticated buyers, Sophia founded Aviera Living to fill a gap no other brokerage had addressed: a firm where trust, legal precision, and editorial luxury converge.
-            </p>
-          </div>
+      {/* Hero Photo */}
+      <section className="relative pt-0 overflow-hidden mt-16">
+        <div
+          className="w-full h-[50vh] lg:h-[60vh] bg-cover bg-center"
+          style={{ backgroundImage: "url(https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=960&h=1200&fit=crop)" }}
+        >
+          <div className="absolute inset-0 bg-[#3D2716]/20"></div>
+        </div>
+      </section>
+
+      {/* Hero Text */}
+      <section className="bg-[#3D2716] text-[#FAF8F5] py-20 lg:py-24">
+        <div className="container mx-auto px-6 lg:px-12 max-w-4xl">
+          <Link href="/about" className="text-sm font-inria text-[#D8BFAE] uppercase tracking-widest hover:text-[#FAF8F5] transition-colors mb-10 inline-block" data-testid="link-back">
+            ← About Us
+          </Link>
+          <p className="font-lejour text-xs text-[#D8BFAE] uppercase tracking-[0.3em] mb-6">The Visionary</p>
+          <h1 className="font-symphony text-5xl md:text-6xl text-[#FAF8F5] mb-6 leading-[1.1]" data-testid="text-page-title">
+            Sophia<br />Al Nour
+          </h1>
+          <p className="font-lejour text-sm text-[#D8BFAE] uppercase tracking-widest mb-8">
+            Founder & Managing Director
+          </p>
+          <p className="font-inria text-lg text-[#FAF8F5]/80 leading-relaxed">
+            With a background in real estate law and over a decade advising Dubai's most sophisticated buyers, Sophia founded Aviera Living to fill a gap no other brokerage had addressed: a firm where trust, legal precision, and editorial luxury converge.
+          </p>
         </div>
       </section>
 
