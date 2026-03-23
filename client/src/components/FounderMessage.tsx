@@ -12,7 +12,7 @@ export default function FounderMessage() {
               <img 
                 src={IMG_3765} 
                 alt="Aviera Living Founder" 
-                className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-1000"
+                className="object-cover w-full h-full"
               />
             </div>
             {/* Accent Block */}
