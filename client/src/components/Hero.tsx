@@ -29,9 +29,9 @@ export default function Hero() {
             <Link href="/buy" className="bg-[#3D2716] text-[#FAF8F5] font-inria uppercase tracking-widest text-xs md:text-sm px-10 py-5 md:py-4 hover:bg-[#995134] transition-colors border border-[#FAF8F5]/20 text-center">
               Explore Properties
             </Link>
-            <button className="bg-transparent text-[#FAF8F5] border border-[#FAF8F5]/40 font-inria uppercase tracking-widest text-xs md:text-sm px-10 py-5 md:py-4 hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors">
+            <Link href="/about/agents" className="bg-transparent text-[#FAF8F5] border border-[#FAF8F5]/40 font-inria uppercase tracking-widest text-xs md:text-sm px-10 py-5 md:py-4 hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center">
               Speak With An Advisor
-            </button>
+            </Link>
           </div>
         </div>
       </div>
