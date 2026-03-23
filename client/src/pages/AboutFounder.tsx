@@ -24,7 +24,7 @@ export default function AboutFounder() {
 
       {/* Hero */}
       <section className="relative pt-0 overflow-hidden">
-        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[80vh]">
+        <div className="grid grid-cols-1 lg:grid-cols-2 min-h-[80vh] mt-16">
           <div
             className="relative bg-cover bg-center min-h-[50vh] lg:min-h-full"
             style={{ backgroundImage: "url(https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=960&h=1200&fit=crop)" }}
