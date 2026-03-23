@@ -29,9 +29,9 @@ export default function AboutFounder() {
           {/* Photo */}
           <div className="relative overflow-hidden h-[55vw] max-h-[65vh] lg:h-auto lg:max-h-none">
             <img
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=960&h=1200&fit=crop"
-              alt="Sophia Al Nour"
-              className="absolute inset-0 w-full h-full object-cover object-[center_20%]"
+              src="/IMG_3765_1774274624169.jpeg"
+              alt="Rimma Daminova"
+              className="absolute inset-0 w-full h-full object-cover object-[center_30%]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#3D2716]/40 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[#3D2716]/10"></div>
           </div>
