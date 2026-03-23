@@ -1,73 +1,16 @@
+import { useQuery } from "@tanstack/react-query";
 import { Link } from "wouter";
 import { MapPin, Languages } from "lucide-react";
 import { openContactModal } from "@/lib/contact";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const agents = [
-  {
-    name: "Sophia Al Nour",
-    title: "Founder & Managing Director",
-    specialisation: "Ultra-Luxury Villas, Investment Strategy",
-    location: "Dubai, UAE",
-    languages: ["Arabic", "English", "French"],
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&h=700&fit=crop&crop=face",
-    transactions: "AED 2.1B+",
-    bio: "Legal background, 15 years in Dubai real estate. Specialises in UHNWI advisory and portfolio structuring.",
-  },
-  {
-    name: "James Carrington",
-    title: "Senior Sales Director",
-    specialisation: "Off-Plan & Developer Partnerships",
-    location: "Dubai, UAE",
-    languages: ["English", "German"],
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=700&fit=crop&crop=face",
-    transactions: "AED 780M+",
-    bio: "Former Head of International Sales at Emaar. Unparalleled knowledge of Dubai's off-plan market landscape.",
-  },
-  {
-    name: "Layla Hassan",
-    title: "Luxury Residential Specialist",
-    specialisation: "Penthouses & Waterfront Residences",
-    location: "Dubai, UAE",
-    languages: ["Arabic", "English"],
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?w=600&h=700&fit=crop&crop=face",
-    transactions: "AED 540M+",
-    bio: "Trusted by families relocating from Europe and the GCC. Renowned for her depth of neighbourhood knowledge.",
-  },
-  {
-    name: "Andrei Volkov",
-    title: "Investment Portfolio Advisor",
-    specialisation: "CIS & Eastern European Investors",
-    location: "Dubai, UAE",
-    languages: ["Russian", "English", "Ukrainian"],
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&h=700&fit=crop&crop=face",
-    transactions: "AED 410M+",
-    bio: "Dedicated to building long-term investment portfolios for clients from Russia, Ukraine and Central Asia.",
-  },
-  {
-    name: "Priya Sharma",
-    title: "Rental & Yield Specialist",
-    specialisation: "Buy-to-Let & Rental Portfolio Management",
-    location: "Dubai, UAE",
-    languages: ["English", "Hindi", "Tamil"],
-    image: "https://images.unsplash.com/photo-1598550874175-4d0ef436c909?w=600&h=700&fit=crop&crop=face",
-    transactions: "AED 280M+",
-    bio: "Expert in buy-to-let strategy, yield optimisation and managing multi-unit residential portfolios across Dubai.",
-  },
-  {
-    name: "Marcus Webb",
-    title: "Legal & Compliance Lead",
-    specialisation: "Contract Review, RERA Compliance",
-    location: "Dubai, UAE",
-    languages: ["English"],
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=600&h=700&fit=crop&crop=face",
-    transactions: "500+ transactions reviewed",
-    bio: "Qualified English solicitor with UAE legal certification. Reviews every Aviera contract before it is signed.",
-  },
-];
-
 export default function AboutAgents() {
+  const { data: agents = [] } = useQuery({
+    queryKey: ["/api/agents"],
+    queryFn: () => fetch("/api/agents").then(r => r.json()),
+  });
+
   return (
     <div className="min-h-screen bg-[#FAF8F5]">
       <Navbar />
@@ -92,35 +35,47 @@ export default function AboutAgents() {
       <section className="py-20 container mx-auto px-6 lg:px-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {agents.map((agent) => (
-            <div key={agent.name} className="group" data-testid={`card-agent-${agent.name.toLowerCase().replace(/\s/g, "-")}`}>
+            <div key={agent.id} className="group" data-testid={`card-agent-${agent.name.toLowerCase().replace(/\s/g, "-")}`}>
               {/* Photo */}
               <div className="relative overflow-hidden aspect-[3/4] mb-6">
-                <img
-                  src={agent.image}
-                  alt={agent.name}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                />
+                {agent.image ? (
+                  <img
+                    src={agent.image}
+                    alt={agent.name}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  />
+                ) : (
+                  <div className="w-full h-full bg-[#D8BFAE]/20 flex items-center justify-center">
+                    <span className="text-[#917C63]">No photo</span>
+                  </div>
+                )}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 pt-16">
                   <p className="font-symphony text-2xl text-[#FAF8F5]">{agent.name}</p>
-                  <p className="font-lejour text-xs text-[#D8BFAE] uppercase tracking-widest mt-1">{agent.title}</p>
+                  <p className="font-lejour text-xs text-[#D8BFAE] uppercase tracking-widest mt-1">{agent.role}</p>
                 </div>
               </div>
               {/* Info */}
               <div className="space-y-4">
                 <div className="flex items-center gap-2 text-[#917C63]">
                   <MapPin size={14} />
-                  <span className="font-inria text-sm">{agent.location}</span>
+                  <span className="font-inria text-sm">Dubai, UAE</span>
                 </div>
-                <p className="font-inria text-sm text-[#3D2716] font-medium">{agent.specialisation}</p>
-                <p className="font-inria text-sm text-[#3D2716]/65 leading-relaxed">{agent.bio}</p>
-                <div className="flex items-start gap-2 pt-2">
-                  <Languages size={14} className="text-[#917C63] mt-0.5 shrink-0" />
-                  <span className="font-inria text-xs text-[#917C63]">{agent.languages.join(", ")}</span>
-                </div>
+                {agent.specialties && agent.specialties.length > 0 && (
+                  <p className="font-inria text-sm text-[#3D2716] font-medium">{agent.specialties.join(", ")}</p>
+                )}
+                {agent.bio && (
+                  <p className="font-inria text-sm text-[#3D2716]/65 leading-relaxed">{agent.bio}</p>
+                )}
+                {agent.languages && agent.languages.length > 0 && (
+                  <div className="flex items-start gap-2 pt-2">
+                    <Languages size={14} className="text-[#917C63] mt-0.5 shrink-0" />
+                    <span className="font-inria text-xs text-[#917C63]">{agent.languages.join(", ")}</span>
+                  </div>
+                )}
                 <div className="pt-3 border-t border-[#D8BFAE]/20 flex justify-between items-center">
                   <div>
-                    <p className="font-lejour text-[10px] text-[#917C63] uppercase tracking-[0.2em]">Volume</p>
-                    <p className="font-symphony text-xl text-[#3D2716]">{agent.transactions}</p>
+                    <p className="font-lejour text-[10px] text-[#917C63] uppercase tracking-[0.2em]">Transactions</p>
+                    <p className="font-symphony text-xl text-[#3D2716]">{agent.transactions || 0}</p>
                   </div>
                   <button onClick={() => openContactModal({ type: "general", agentName: agent.name, prefillMessage: `I would like to speak with ${agent.name} about a property.` })} className="bg-[#424D38] text-[#FAF8F5] px-6 py-2.5 font-inria text-xs uppercase tracking-widest hover:bg-[#3D2716] transition-colors" data-testid={`button-contact-${agent.name.toLowerCase().replace(/\s/g, "-")}`}>
                     Contact
