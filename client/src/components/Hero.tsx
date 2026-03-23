@@ -1,5 +1,5 @@
 import { Link } from "wouter";
-import heroBg from "@/assets/images/hero-dubai.jpg";
+import heroBg from "@/assets/pexels-abbas-mohammed-1990079-3680912_1774271811528.jpg";
 
 export default function Hero() {
   return (
