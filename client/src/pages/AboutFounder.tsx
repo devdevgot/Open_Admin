@@ -20,10 +20,12 @@ const principles = [
 export default function AboutFounder() {
   return (
     <div className="min-h-screen bg-[#FAF8F5]">
-      <Navbar />
+      <div className="sticky top-0 z-50 bg-white shadow-sm">
+        <Navbar />
+      </div>
 
       {/* Hero */}
-      <section className="pt-24 lg:pt-0">
+      <section className="pt-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:min-h-[calc(100vh-64px)]">
 
           {/* Photo */}
