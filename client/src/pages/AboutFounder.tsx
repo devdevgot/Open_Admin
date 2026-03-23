@@ -43,14 +43,14 @@ export default function AboutFounder() {
             </Link>
             <p className="font-lejour text-xs text-[#D8BFAE] uppercase tracking-[0.3em] mb-5">The Visionary</p>
             <h1 className="font-symphony text-5xl sm:text-6xl lg:text-7xl text-[#FAF8F5] mb-5 leading-[1.08]" data-testid="text-page-title">
-              Sophia<br />Al Nour
+              Rimma<br />Daminova
             </h1>
             <div className="w-10 h-[1px] bg-[#D8BFAE]/40 mb-5"></div>
             <p className="font-lejour text-xs text-[#D8BFAE] uppercase tracking-[0.25em] mb-8">
               Founder & Managing Director
             </p>
             <p className="font-inria text-base lg:text-lg text-[#FAF8F5]/75 leading-relaxed max-w-md">
-              With a background in real estate law and over a decade advising Dubai's most sophisticated buyers, Sophia founded Aviera Living to fill a gap no other brokerage had addressed.
+              With a background in real estate law and over a decade advising Dubai's most sophisticated buyers, Rimma founded Aviera Living to fill a gap no other brokerage had addressed.
             </p>
           </div>
 
@@ -119,7 +119,7 @@ export default function AboutFounder() {
           <p className="font-inria text-2xl md:text-3xl italic leading-relaxed mb-10 text-[#FAF8F5]/90">
             I built Aviera because I believe that the most significant financial decision of a person's life deserves more than a sales pitch. It deserves a partner.
           </p>
-          <p className="font-lejour text-base text-[#D8BFAE] uppercase tracking-widest">Sophia Al Nour</p>
+          <p className="font-lejour text-base text-[#D8BFAE] uppercase tracking-widest">Rimma Daminova</p>
           <p className="font-inria text-sm text-[#FAF8F5]/50 mt-1">Founder & Managing Director</p>
           <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
             <Link href="/about/agents" className="border border-[#FAF8F5]/30 text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center" data-testid="link-meet-agents">
