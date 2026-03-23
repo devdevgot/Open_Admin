@@ -13,12 +13,14 @@ export default function Hero() {
         </div>
 
         <div className="relative z-10 text-center px-6 max-w-5xl mx-auto flex flex-col items-center">
-          <h1 className="font-symphony text-4xl sm:text-5xl md:text-7xl lg:text-8xl text-[#FAF8F5] mb-6 leading-[1.2] md:leading-[1.1] animate-in slide-in-from-bottom-8 fade-in duration-1000">
+          <p className="font-lejour text-[#D8BFAE] uppercase tracking-[0.3em] text-xs md:text-sm mb-6 md:mb-8 animate-in slide-in-from-bottom-8 fade-in duration-1000 letter-spacing-wide">Boutique Real Estate Advisory</p>
+          
+          <h1 className="font-symphony text-4xl sm:text-5xl md:text-7xl lg:text-[6.5rem] xl:text-8xl text-[#FAF8F5] mb-8 md:mb-10 leading-[1.15] md:leading-[1.08] tracking-tight animate-in slide-in-from-bottom-8 fade-in duration-1000 font-light" style={{letterSpacing: '-0.02em'}}>
             Luxury Real Estate,<br className="hidden md:block" />
             Redefined by Trust.
           </h1>
           
-          <p className="font-inria text-lg md:text-2xl text-[#FAF8F5]/90 mb-10 md:mb-12 max-w-3xl animate-in slide-in-from-bottom-8 fade-in duration-1000 delay-300 fill-mode-both px-4 md:px-0">
+          <p className="font-inria text-lg md:text-2xl text-[#FAF8F5]/85 mb-10 md:mb-14 max-w-3xl animate-in slide-in-from-bottom-8 fade-in duration-1000 delay-300 fill-mode-both px-4 md:px-0 leading-relaxed font-normal">
             Transparency. Legal Precision. Boutique Guidance.
           </p>
 
