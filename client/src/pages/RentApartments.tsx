@@ -127,11 +127,17 @@ export default function RentApartments() {
             {apartments.map((property) => (
               <div key={property.id} className="group" data-testid={`card-property-${property.id}`}>
                 <div className="relative overflow-hidden aspect-[4/3] mb-5">
-                  <img
-                    src={property.images[0]}
-                    alt={property.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                  />
+                  {property.images && property.images.length > 0 ? (
+                    <img
+                      src={property.images[0]}
+                      alt={property.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                    />
+                  ) : (
+                    <div className="w-full h-full bg-gradient-to-br from-[#D8BFAE]/30 to-[#917C63]/20 flex items-center justify-center">
+                      <span className="text-[#917C63] text-sm">No image</span>
+                    </div>
+                  )}
                   <button
                     onClick={() => toggleFavoriteMutation.mutate(property.id)}
                     className="absolute top-4 right-4 bg-white/90 w-10 h-10 flex items-center justify-center hover:bg-white transition-colors"

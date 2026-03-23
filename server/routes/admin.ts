@@ -70,8 +70,11 @@ router.use(requireAdmin);
 router.post("/upload", upload.single("file"), (req, res, next) => {
   try {
     if (!req.file) throw new AppError(400, "No file uploaded");
-    const url = `/uploads/${req.file.filename}`;
-    res.json({ url });
+    const fileBuffer = fs.readFileSync(path.join(uploadsDir, req.file.filename));
+    const base64 = fileBuffer.toString("base64");
+    const dataUrl = `data:${req.file.mimetype};base64,${base64}`;
+    fs.unlinkSync(path.join(uploadsDir, req.file.filename));
+    res.json({ url: dataUrl });
   } catch (err) {
     next(err);
   }
@@ -79,10 +82,6 @@ router.post("/upload", upload.single("file"), (req, res, next) => {
 
 router.delete("/upload", async (req, res, next) => {
   try {
-    const { filename } = req.body;
-    if (!filename) throw new AppError(400, "filename required");
-    const filepath = path.join(uploadsDir, filename);
-    if (fs.existsSync(filepath)) fs.unlinkSync(filepath);
     res.json({ success: true });
   } catch (err) {
     next(err);

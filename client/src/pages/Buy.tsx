@@ -248,11 +248,17 @@ export default function Buy() {
                   {/* Image */}
                   <div className="relative overflow-hidden bg-[#D8BFAE]/20 aspect-[4/3] mb-5">
                     <Link href={`/property/${property.id}`}>
-                      <img
-                        src={property.images[0]}
-                        alt={property.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                      />
+                      {property.images && property.images.length > 0 ? (
+                        <img
+                          src={property.images[0]}
+                          alt={property.title}
+                          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-gradient-to-br from-[#D8BFAE]/30 to-[#917C63]/20 flex items-center justify-center">
+                          <span className="text-[#917C63] text-sm">No image</span>
+                        </div>
+                      )}
                     </Link>
                     <button
                       onClick={(e) => {
@@ -274,10 +280,9 @@ export default function Buy() {
                     <div className="absolute top-4 left-4 bg-[#3D2716]/90 text-[#FAF8F5] px-3 py-1.5 font-inria text-[10px] uppercase tracking-widest">
                       {property.type}
                     </div>
-                  </div>
-
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent p-5 pt-12">
-                    <p className="font-symphony text-3xl text-[#FAF8F5]" data-testid={`text-price-${property.id}`}>{property.price}</p>
+                    <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent p-5 pt-12">
+                      <p className="font-symphony text-3xl text-[#FAF8F5]" data-testid={`text-price-${property.id}`}>{property.price}</p>
+                    </div>
                   </div>
                   {/* Content */}
                   <div className="space-y-3">
