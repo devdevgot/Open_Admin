@@ -1,5 +1,7 @@
 import founderImg from "@/assets/images/founder.jpg";
 
+import IMG_3765 from "@assets/IMG_3765.jpeg";
+
 export default function FounderMessage() {
   return (
     <section className="py-20 md:py-32 bg-[#FAF8F5]">
@@ -8,7 +10,7 @@ export default function FounderMessage() {
           <div className="w-full lg:w-5/12 relative order-2 lg:order-1">
             <div className="aspect-[4/5] relative overflow-hidden">
               <img 
-                src={founderImg} 
+                src={IMG_3765} 
                 alt="Aviera Living Founder" 
                 className="object-cover w-full h-full grayscale hover:grayscale-0 transition-all duration-1000"
               />
