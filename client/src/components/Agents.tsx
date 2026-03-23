@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import agent1 from "@/assets/images/agent_1.jpg";
 import agent2 from "@/assets/images/agent_2.jpg";
 import agent3 from "@/assets/images/agent_3.jpg";
@@ -39,9 +40,9 @@ export default function Agents() {
             <h2 className="font-lejour text-[#917C63] uppercase tracking-widest text-sm mb-4">Our People</h2>
             <h3 className="font-symphony text-4xl lg:text-5xl text-[#3D2716]">The Advisors.</h3>
           </div>
-          <button className="hidden md:block font-inria uppercase tracking-widest text-sm text-[#3D2716] border-b border-[#3D2716] pb-1 hover:text-[#995134] hover:border-[#995134] transition-colors">
+          <Link href="/about/agents" className="hidden md:block font-inria uppercase tracking-widest text-sm text-[#3D2716] border-b border-[#3D2716] pb-1 hover:text-[#995134] hover:border-[#995134] transition-colors">
             Meet the Full Team
-          </button>
+          </Link>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -62,9 +63,9 @@ export default function Agents() {
         </div>
         
         <div className="mt-12 text-center md:hidden">
-          <button className="font-inria uppercase tracking-widest text-sm text-[#3D2716] border-b border-[#3D2716] pb-1">
+          <Link href="/about/agents" className="font-inria uppercase tracking-widest text-sm text-[#3D2716] border-b border-[#3D2716] pb-1 hover:text-[#995134] hover:border-[#995134] transition-colors">
             Meet the Full Team
-          </button>
+          </Link>
         </div>
       </div>
     </section>
