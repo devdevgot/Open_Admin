@@ -8,19 +8,19 @@ export default function Agents() {
   });
 
   return (
-    <section className="py-32 bg-[#FAF8F5]">
+    <section className="py-16 lg:py-32 bg-[#FAF8F5]">
       <div className="container mx-auto px-6 lg:px-12">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16">
+        <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-16">
           <div>
-            <h2 className="font-lejour text-[#917C63] uppercase tracking-widest text-sm mb-4">Our People</h2>
-            <h3 className="font-symphony text-4xl lg:text-5xl text-[#3D2716]">The Advisors.</h3>
+            <h2 className="font-lejour text-[#917C63] uppercase tracking-widest text-xs md:text-sm mb-3">Our People</h2>
+            <h3 className="font-symphony text-3xl md:text-4xl lg:text-5xl text-[#3D2716]">The Advisors.</h3>
           </div>
-          <Link href="/about/agents" className="hidden md:block font-inria uppercase tracking-widest text-sm text-[#3D2716] border-b border-[#3D2716] pb-1 hover:text-[#995134] hover:border-[#995134] transition-colors">
+          <Link href="/about/agents" className="hidden md:block font-inria uppercase tracking-widest text-xs md:text-sm text-[#3D2716] border-b border-[#3D2716] pb-1 hover:text-[#995134] hover:border-[#995134] transition-colors">
             Meet the Full Team
           </Link>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8">
           {agents.map((agent) => (
             <div key={agent.id} className="group cursor-pointer">
               {agent.image && (
