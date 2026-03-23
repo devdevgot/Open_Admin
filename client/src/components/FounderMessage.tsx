@@ -32,7 +32,7 @@ export default function FounderMessage() {
             </div>
             
             <div className="mt-12">
-              <p className="font-lejour text-2xl text-[#3D2716]">Alexander Vance</p>
+              <p className="font-lejour text-2xl text-[#3D2716]">Rimma Daminovna </p>
               <p className="font-inria text-sm text-[#917C63] uppercase tracking-widest mt-1">Founder & CEO</p>
             </div>
           </div>
