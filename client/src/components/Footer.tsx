@@ -1,3 +1,5 @@
+import { Linkedin, Instagram, Facebook } from "lucide-react";
+
 export default function Footer() {
   return (
     <footer className="bg-[#424D38] text-[#FAF8F5] pt-24 pb-12 border-t border-[#FAF8F5]/10">
@@ -9,9 +11,16 @@ export default function Footer() {
             <p className="font-inria text-[#FAF8F5]/70 text-sm leading-relaxed mb-8 max-w-xs">
               Luxury Real Estate, Redefined by Trust. Legal Precision. Boutique Guidance.
             </p>
-            <div className="flex space-x-6">
-              <a href="#" className="text-[#FAF8F5]/70 hover:text-[#D8BFAE] transition-colors font-lejour tracking-widest text-xs">INSTAGRAM</a>
-              <a href="#" className="text-[#FAF8F5]/70 hover:text-[#D8BFAE] transition-colors font-lejour tracking-widest text-xs">LINKEDIN</a>
+            <div className="flex space-x-4">
+              <a href="https://www.instagram.com/avieraliving?igsh=MWUwZ25tNjJwaGRycQ==" target="_blank" rel="noopener noreferrer" className="text-[#FAF8F5]/70 hover:text-[#D8BFAE] transition-colors" aria-label="Instagram">
+                <Instagram size={20} />
+              </a>
+              <a href="https://www.linkedin.com/company/aviera-living/about/" target="_blank" rel="noopener noreferrer" className="text-[#FAF8F5]/70 hover:text-[#D8BFAE] transition-colors" aria-label="LinkedIn">
+                <Linkedin size={20} />
+              </a>
+              <a href="https://www.facebook.com/profile.php?id=61586981953546&sk=directory_offers" target="_blank" rel="noopener noreferrer" className="text-[#FAF8F5]/70 hover:text-[#D8BFAE] transition-colors" aria-label="Facebook">
+                <Facebook size={20} />
+              </a>
             </div>
           </div>
           
