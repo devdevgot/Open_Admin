@@ -23,7 +23,7 @@ export default function AboutFounder() {
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-16">
+      <section className="pt-24 lg:pt-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 lg:min-h-[calc(100vh-64px)]">
 
           {/* Photo */}
