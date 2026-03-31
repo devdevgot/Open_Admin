@@ -51,15 +51,34 @@ export default function AdminAgents() {
     queryFn: () => adminFetch("/api/admin/agents").then(r => r.json()),
   });
 
+  const cleanData = (data: typeof form) => ({
+    name: data.name.trim(),
+    role: data.role.trim(),
+    phone: data.phone?.trim() || null,
+    email: data.email?.trim() || null,
+    image: data.image?.trim() || null,
+    bio: data.bio?.trim() || null,
+    specialties: (data.specialties && data.specialties.length > 0) ? data.specialties : null,
+    languages: (data.languages && data.languages.length > 0) ? data.languages : null,
+    transactions: data.transactions ?? 0,
+    yearsExperience: data.yearsExperience ?? 0,
+    sortOrder: data.sortOrder ?? 0,
+  });
+
   const save = useMutation({
     mutationFn: async (data: typeof form) => {
       const url = editing ? `/api/admin/agents/${editing.id}` : "/api/admin/agents";
       const method = editing ? "PUT" : "POST";
-      const res = await adminFetch(url, { method, body: JSON.stringify(data) });
+      const payload = cleanData(data);
+      const res = await adminFetch(url, { method, body: JSON.stringify(payload) });
       if (!res.ok) {
         const d = await res.json().catch(() => ({}));
-        throw new Error(d.message || "Save failed");
+        const errMsg = d.errors
+          ? d.errors.map((e: any) => `${e.field}: ${e.message}`).join("; ")
+          : (d.message || "Save failed");
+        throw new Error(errMsg);
       }
+      return res.json();
     },
     onSuccess: () => {
       qc.invalidateQueries({ queryKey: ["/api/admin/agents"] });
@@ -69,6 +88,7 @@ export default function AdminAgents() {
       setForm(EMPTY);
     },
     onError: (err: any) => {
+      console.error("[AdminAgents] save error:", err);
       setSaveError(err.message || "Could not save. Please try again.");
     },
   });

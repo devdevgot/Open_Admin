@@ -242,10 +242,18 @@ router.get("/agents", async (_req, res, next) => {
 
 router.post("/agents", async (req, res, next) => {
   try {
-    const data = agentInsertSchema.parse(req.body);
-    const agent = await storage.createAgent(data);
+    const parsed = agentInsertSchema.safeParse(req.body);
+    if (!parsed.success) {
+      console.error("[admin/agents POST] Validation error:", parsed.error.errors);
+      return res.status(422).json({
+        message: "Validation failed",
+        errors: parsed.error.errors.map((e) => ({ field: e.path.join("."), message: e.message })),
+      });
+    }
+    const agent = await storage.createAgent(parsed.data);
     res.status(201).json(agent);
   } catch (err) {
+    console.error("[admin/agents POST] Error:", err);
     next(err);
   }
 });
