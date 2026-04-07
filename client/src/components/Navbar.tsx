@@ -187,8 +187,8 @@ export default function Navbar() {
           </div>
 
           <div className="hidden lg:flex items-center space-x-8">
-            <span onClick={() => openContactModal({ type: "general" })} className="font-inria text-sm uppercase tracking-wider cursor-pointer hover:text-[#995134] transition-colors">Contact</span>
-            <button onClick={() => openContactModal({ type: "general" })} className="bg-[#424D38] text-[#FAF8F5] font-inria uppercase tracking-wider text-xs px-8 py-3 hover:bg-[#3D2716] transition-colors" data-testid="button-get-in-touch-desktop">
+            <span onClick={() => openContactModal({ type: "general" })} className="font-lejour text-sm uppercase tracking-wider cursor-pointer hover:text-[#995134] transition-colors">Contact</span>
+            <button onClick={() => openContactModal({ type: "general" })} className="bg-[#424D38] text-[#FAF8F5] font-lejour uppercase tracking-wider text-xs px-8 py-3 hover:bg-[#3D2716] transition-colors" data-testid="button-get-in-touch-desktop">
               Get in Touch
             </button>
           </div>
@@ -302,7 +302,7 @@ export default function Navbar() {
               <span className="font-lejour text-[10px] text-[#917C63] uppercase tracking-[0.2em]">Contact</span>
               <a href="tel:+97140000000" className="font-inria text-lg">+971 4 000 0000</a>
             </div>
-            <button onClick={() => openContactModal({ type: "general" })} className="w-full bg-[#424D38] text-[#FAF8F5] font-inria uppercase tracking-widest py-5 text-sm active:bg-[#3D2716] transition-colors" data-testid="button-get-in-touch-mobile">
+            <button onClick={() => openContactModal({ type: "general" })} className="w-full bg-[#424D38] text-[#FAF8F5] font-lejour uppercase tracking-widest py-5 text-sm active:bg-[#3D2716] transition-colors" data-testid="button-get-in-touch-mobile">
               Get in Touch
             </button>
           </div>
