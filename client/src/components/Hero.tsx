@@ -26,7 +26,7 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 md:gap-6 w-full sm:w-auto animate-in slide-in-from-bottom-8 fade-in duration-1000 delay-500 fill-mode-both px-4 md:px-0">
-            <Link href="/buy" className="bg-[#3D2716] text-[#FAF8F5] font-inria uppercase tracking-widest text-xs md:text-sm px-10 py-5 md:py-4 hover:bg-[#995134] transition-colors border border-[#FAF8F5]/20 text-center">
+            <Link href="/buy" className="text-[#FAF8F5] font-inria uppercase tracking-widest text-xs md:text-sm px-10 py-5 md:py-4 hover:bg-[#995134] transition-colors border border-[#FAF8F5]/20 text-center bg-[#424d38]">
               Explore Properties
             </Link>
             <Link href="/about/agents" className="bg-transparent text-[#FAF8F5] border border-[#FAF8F5]/40 font-inria uppercase tracking-widest text-xs md:text-sm px-10 py-5 md:py-4 hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center">
@@ -35,7 +35,6 @@ export default function Hero() {
           </div>
         </div>
       </div>
-
       <div className="bg-[#FAF8F5] py-6 md:py-8 border-b border-[#D8BFAE]/30 shadow-sm">
         <div className="container mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-4 md:gap-6">
           <div className="flex-1 w-full grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6 divide-y md:divide-y-0 md:divide-x divide-[#D8BFAE]/30">
