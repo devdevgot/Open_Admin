@@ -228,10 +228,10 @@ export default function PropertyDetail() {
               </p>
 
               <div className="space-y-3">
-                <button onClick={() => openContactModal({ type: "buy", propertyId: property.id, propertyTitle: property.title })} className="w-full bg-[#424D38] text-[#FAF8F5] py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#3D2716] transition-colors" data-testid="button-schedule-viewing">
+                <button onClick={() => openContactModal({ type: "buy", propertyId: property.id, propertyTitle: property.title })} className="w-full bg-[#424D38] text-[#FAF8F5] py-4 font-lejour uppercase tracking-widest text-sm hover:bg-[#3D2716] transition-colors" data-testid="button-schedule-viewing">
                   Schedule Tour
                 </button>
-                <button className="w-full border border-[#3D2716] text-[#3D2716] py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#3D2716] hover:text-[#FAF8F5] transition-colors flex items-center justify-center space-x-2" data-testid="button-share">
+                <button className="w-full border border-[#3D2716] text-[#3D2716] py-4 font-lejour uppercase tracking-widest text-sm hover:bg-[#3D2716] hover:text-[#FAF8F5] transition-colors flex items-center justify-center space-x-2" data-testid="button-share">
                   <Share2 size={16} />
                   <span>Share</span>
                 </button>
@@ -265,7 +265,7 @@ export default function PropertyDetail() {
           <h3 className="font-symphony text-3xl md:text-4xl text-[#3D2716] mb-6">
             Explore More Properties
           </h3>
-          <Link href="/buy" className="inline-block bg-[#424D38] text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#3D2716] transition-colors" data-testid="link-explore-more">
+          <Link href="/buy" className="inline-block bg-[#424D38] text-[#FAF8F5] px-12 py-4 font-lejour uppercase tracking-widest hover:bg-[#3D2716] transition-colors" data-testid="link-explore-more">
               Back to Listings
           </Link>
         </div>

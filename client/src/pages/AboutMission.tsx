@@ -85,7 +85,7 @@ export default function AboutMission() {
       <section className="py-20 bg-[#3D2716]/[0.04] border-t border-[#D8BFAE]/20">
         <div className="container mx-auto px-6 lg:px-12">
           <p className="font-lejour text-xs text-[#917C63] uppercase tracking-[0.3em] mb-4 text-center">Strategic Commitments</p>
-          <h2 className="font-inria text-4xl text-[#3D2716] mb-16 text-center">How We Pursue Our Mission</h2>
+          <h2 className="font-symphony text-4xl text-[#3D2716] mb-16 text-center">How We Pursue Our Mission</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {[
               { num: "01", title: "Remain Boutique", desc: "We will never grow faster than our ability to maintain quality. Selectivity is a competitive advantage, not a limitation." },
@@ -96,7 +96,7 @@ export default function AboutMission() {
               <div key={c.num} className="flex gap-8 bg-white p-8 border border-[#D8BFAE]/20" data-testid={`card-commitment-${c.num}`}>
                 <span className="font-symphony text-4xl text-[#D8BFAE] shrink-0">{c.num}</span>
                 <div>
-                  <h3 className="font-inria text-lg text-[#3D2716] font-medium mb-3">{c.title}</h3>
+                  <h3 className="font-lejour text-lg text-[#3D2716] uppercase tracking-wider mb-3">{c.title}</h3>
                   <p className="font-inria text-sm text-[#3D2716]/70 leading-relaxed">{c.desc}</p>
                 </div>
               </div>
@@ -112,10 +112,10 @@ export default function AboutMission() {
             Browse our curated portfolio or speak with an advisor to experience firsthand what mission-led real estate advisory looks like.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/buy" className="bg-[#995134] text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors text-center" data-testid="link-properties">
+            <Link href="/buy" className="bg-[#995134] text-[#FAF8F5] px-10 py-4 font-lejour uppercase tracking-widest text-sm hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors text-center" data-testid="link-properties">
               Browse Properties
             </Link>
-            <Link href="/about/values" className="border border-[#FAF8F5]/30 text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center" data-testid="link-values">
+            <Link href="/about/values" className="border border-[#FAF8F5]/30 text-[#FAF8F5] px-10 py-4 font-lejour uppercase tracking-widest text-sm hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center" data-testid="link-values">
               Our Core Values
             </Link>
           </div>

@@ -97,7 +97,7 @@ export default function RentApartments() {
           <div className="flex flex-wrap gap-3 items-center">
             <span className="font-lejour text-[10px] text-[#917C63] uppercase tracking-[0.2em]">Popular Areas:</span>
             {["Downtown Dubai", "Dubai Marina", "Palm Jumeirah", "Business Bay", "JBR"].map((area) => (
-              <button key={area} className="font-inria text-xs text-[#3D2716] border border-[#D8BFAE]/50 px-4 py-1.5 hover:border-[#3D2716] transition-colors uppercase tracking-wider" data-testid={`button-area-${area.toLowerCase().replace(/\s/g, "-")}`}>
+              <button key={area} className="font-lejour text-xs text-[#3D2716] border border-[#D8BFAE]/50 px-4 py-1.5 hover:border-[#3D2716] transition-colors uppercase tracking-wider" data-testid={`button-area-${area.toLowerCase().replace(/\s/g, "-")}`}>
                 {area}
               </button>
             ))}
@@ -170,10 +170,10 @@ export default function RentApartments() {
                     </div>
                   </div>
                   <div className="flex gap-3 pt-4">
-                    <Link href={`/property/${property.id}`} className="flex-1 bg-[#3D2716] text-[#FAF8F5] py-3 font-inria text-xs uppercase tracking-widest hover:bg-[#424D38] transition-colors text-center" data-testid={`link-view-${property.id}`}>
+                    <Link href={`/property/${property.id}`} className="flex-1 bg-[#3D2716] text-[#FAF8F5] py-3 font-lejour text-xs uppercase tracking-widest hover:bg-[#424D38] transition-colors text-center" data-testid={`link-view-${property.id}`}>
                       View Details
                     </Link>
-                    <button onClick={() => openContactModal({ type: "rent", propertyId: property.id, propertyTitle: property.title })} className="flex-1 border border-[#3D2716] text-[#3D2716] py-3 font-inria text-xs uppercase tracking-widest hover:bg-[#3D2716] hover:text-[#FAF8F5] transition-colors" data-testid={`button-enquire-${property.id}`}>
+                    <button onClick={() => openContactModal({ type: "rent", propertyId: property.id, propertyTitle: property.title })} className="flex-1 border border-[#3D2716] text-[#3D2716] py-3 font-lejour text-xs uppercase tracking-widest hover:bg-[#3D2716] hover:text-[#FAF8F5] transition-colors" data-testid={`button-enquire-${property.id}`}>
                       Enquire
                     </button>
                   </div>
@@ -190,7 +190,7 @@ export default function RentApartments() {
           <p className="font-inria text-lg text-[#FAF8F5]/70 mb-10 max-w-2xl mx-auto">
             Our rental team has access to exclusive listings not yet published. Share your criteria and we'll find the perfect match.
           </p>
-          <button onClick={() => openContactModal({ type: "rent" })} className="bg-[#995134] text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-cta">
+          <button onClick={() => openContactModal({ type: "rent" })} className="bg-[#995134] text-[#FAF8F5] px-12 py-4 font-lejour uppercase tracking-widest hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-cta">
             Contact Rental Team
           </button>
         </div>

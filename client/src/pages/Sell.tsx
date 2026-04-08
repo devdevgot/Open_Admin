@@ -120,10 +120,10 @@ export default function Sell() {
               Achieve exceptional results with Dubai's most trusted luxury brokerage. We combine market intelligence with legal precision to maximize your return.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <button onClick={() => openContactModal({ type: "valuation" })} className="bg-[#995134] text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-get-valuation">
+              <button onClick={() => openContactModal({ type: "valuation" })} className="bg-[#995134] text-[#FAF8F5] px-10 py-4 font-lejour uppercase tracking-widest text-sm hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-get-valuation">
                 Get Free Valuation
               </button>
-              <button onClick={() => openContactModal({ type: "sell" })} className="border border-[#FAF8F5]/40 text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors" data-testid="button-speak-advisor">
+              <button onClick={() => openContactModal({ type: "sell" })} className="border border-[#FAF8F5]/40 text-[#FAF8F5] px-10 py-4 font-lejour uppercase tracking-widest text-sm hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors" data-testid="button-speak-advisor">
                 Speak With An Advisor
               </button>
             </div>
@@ -182,7 +182,7 @@ export default function Sell() {
               <p className="font-inria text-lg text-[#3D2716]/70 leading-relaxed mb-10">
                 From initial consultation to keys handover, our four-phase approach ensures transparency, legal compliance, and the highest achievable sale price for your property.
               </p>
-              <button className="bg-[#424D38] text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#3D2716] transition-colors" data-testid="button-start-process">
+              <button className="bg-[#424D38] text-[#FAF8F5] px-10 py-4 font-lejour uppercase tracking-widest text-sm hover:bg-[#3D2716] transition-colors" data-testid="button-start-process">
                 Start the Process <ArrowRight className="inline ml-2" size={16} />
               </button>
             </div>
@@ -245,7 +245,7 @@ export default function Sell() {
                   <option value="penthouse" className="text-[#3D2716]">Penthouse</option>
                   <option value="townhouse" className="text-[#3D2716]">Townhouse</option>
                 </select>
-                <button className="w-full bg-[#995134] text-[#FAF8F5] py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors mt-2" data-testid="button-submit-valuation">
+                <button className="w-full bg-[#995134] text-[#FAF8F5] py-4 font-lejour uppercase tracking-widest text-sm hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors mt-2" data-testid="button-submit-valuation">
                   Request Valuation
                 </button>
               </div>
@@ -282,10 +282,10 @@ export default function Sell() {
             Schedule a confidential consultation with one of our senior advisors to discuss your property and explore the best strategy for achieving your goals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button onClick={() => openContactModal({ type: "sell" })} className="bg-[#995134] text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-contact-advisor">
+            <button onClick={() => openContactModal({ type: "sell" })} className="bg-[#995134] text-[#FAF8F5] px-12 py-4 font-lejour uppercase tracking-widest hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-contact-advisor">
               Schedule Consultation
             </button>
-            <a href="tel:+97140000000" className="border border-[#FAF8F5]/30 text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center" data-testid="link-call">
+            <a href="tel:+97140000000" className="border border-[#FAF8F5]/30 text-[#FAF8F5] px-12 py-4 font-lejour uppercase tracking-widest hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center" data-testid="link-call">
               Call +971 4 000 0000
             </a>
           </div>

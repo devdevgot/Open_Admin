@@ -18,7 +18,7 @@ export default function Hero() {
           
           <h1 className="font-symphony text-4xl sm:text-5xl md:text-7xl lg:text-[6.5rem] xl:text-8xl text-[#FAF8F5] mb-8 md:mb-10 leading-[1.15] md:leading-[1.08] tracking-tight animate-in slide-in-from-bottom-8 fade-in duration-1000 font-light" style={{letterSpacing: '-0.02em'}}>
             Luxury Real Estate,<br className="hidden md:block" />
-            Redefined by Trust.
+            Redefined by <em>Trust.</em>
           </h1>
           
           <p className="font-inria text-lg md:text-2xl text-[#FAF8F5]/85 mb-10 md:mb-14 max-w-3xl animate-in slide-in-from-bottom-8 fade-in duration-1000 delay-300 fill-mode-both px-4 md:px-0 leading-relaxed font-normal">
@@ -26,10 +26,10 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 md:gap-6 w-full sm:w-auto animate-in slide-in-from-bottom-8 fade-in duration-1000 delay-500 fill-mode-both px-4 md:px-0">
-            <Link href="/buy" className="text-[#FAF8F5] font-inria uppercase tracking-widest text-xs md:text-sm px-10 py-5 md:py-4 hover:bg-[#995134] transition-colors border border-[#FAF8F5]/20 text-center bg-[#424d38]">
+            <Link href="/buy" className="text-[#FAF8F5] font-lejour uppercase tracking-widest text-xs md:text-sm px-10 py-5 md:py-4 hover:bg-[#995134] transition-colors border border-[#FAF8F5]/20 text-center bg-[#424d38]">
               Explore Properties
             </Link>
-            <Link href="/about/agents" className="bg-transparent text-[#FAF8F5] border border-[#FAF8F5]/40 font-inria uppercase tracking-widest text-xs md:text-sm px-10 py-5 md:py-4 hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center">
+            <Link href="/about/agents" className="bg-transparent text-[#FAF8F5] border border-[#FAF8F5]/40 font-lejour uppercase tracking-widest text-xs md:text-sm px-10 py-5 md:py-4 hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center">
               Speak With An Advisor
             </Link>
           </div>

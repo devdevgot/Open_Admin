@@ -88,7 +88,7 @@
   --input: 24 35% 76%;
   --ring: 26 47% 16%;
 
-  --radius: 0rem; /* Editorial layout, sharp edges preferred over rounded for luxury feel */
+  --radius: 0.25rem;
 }
 
 @layer base {

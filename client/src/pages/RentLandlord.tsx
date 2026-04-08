@@ -69,10 +69,10 @@ export default function RentLandlord() {
             Let your property work harder. Our full-service landlord management takes the burden off your hands — from finding the right tenant to collecting rent.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <button className="bg-[#995134] text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-list-property">
+            <button className="bg-[#995134] text-[#FAF8F5] px-10 py-4 font-lejour uppercase tracking-widest text-sm hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-list-property">
               List My Property
             </button>
-            <button className="border border-[#FAF8F5]/40 text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors" data-testid="button-learn-more">
+            <button className="border border-[#FAF8F5]/40 text-[#FAF8F5] px-10 py-4 font-lejour uppercase tracking-widest text-sm hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors" data-testid="button-learn-more">
               Learn More <ArrowRight className="inline ml-2" size={16} />
             </button>
           </div>
@@ -129,7 +129,7 @@ export default function RentLandlord() {
               <p className="font-inria text-lg text-[#3D2716]/70 leading-relaxed mb-10">
                 Our end-to-end landlord service is built for the investor who values results over process. We handle everything so you can focus on what matters.
               </p>
-              <button className="bg-[#424D38] text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#3D2716] transition-colors" data-testid="button-get-started">
+              <button className="bg-[#424D38] text-[#FAF8F5] px-10 py-4 font-lejour uppercase tracking-widest text-sm hover:bg-[#3D2716] transition-colors" data-testid="button-get-started">
                 Get Started Today
               </button>
             </div>
@@ -169,10 +169,10 @@ export default function RentLandlord() {
             Schedule a free property assessment and receive a detailed rental projection within 48 hours.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-[#995134] text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-free-assessment">
+            <button className="bg-[#995134] text-[#FAF8F5] px-12 py-4 font-lejour uppercase tracking-widest hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-free-assessment">
               Free Property Assessment
             </button>
-            <a href="tel:+97140000000" className="border border-[#FAF8F5]/30 text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center">
+            <a href="tel:+97140000000" className="border border-[#FAF8F5]/30 text-[#FAF8F5] px-12 py-4 font-lejour uppercase tracking-widest hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center">
               Call +971 4 000 0000
             </a>
           </div>

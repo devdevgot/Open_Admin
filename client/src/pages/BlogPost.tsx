@@ -122,7 +122,7 @@ export default function BlogPost() {
         <div className="flex flex-col items-center justify-center h-[70vh] text-center px-6">
           <h2 className="font-symphony text-4xl text-[#3D2716] mb-4">Article Not Found</h2>
           <p className="font-inria text-[#917C63] mb-8">The article you're looking for doesn't exist or has been removed.</p>
-          <Link href="/blog" className="bg-[#424D38] text-[#FAF8F5] px-8 py-3 font-inria uppercase tracking-widest hover:bg-[#3D2716] transition-colors">
+          <Link href="/blog" className="bg-[#424D38] text-[#FAF8F5] px-8 py-3 font-lejour uppercase tracking-widest hover:bg-[#3D2716] transition-colors">
             Back to Blog
           </Link>
         </div>
@@ -240,7 +240,7 @@ export default function BlogPost() {
                   <p className="font-inria text-xs text-[#917C63] leading-relaxed mb-4">
                     Need personalised advice on this topic?
                   </p>
-                  <Link href="/about" className="block w-full bg-[#424D38] text-[#FAF8F5] py-3 font-inria text-xs uppercase tracking-widest text-center hover:bg-[#3D2716] transition-colors" data-testid="button-toc-cta">
+                  <Link href="/about" className="block w-full bg-[#424D38] text-[#FAF8F5] py-3 font-lejour text-xs uppercase tracking-widest text-center hover:bg-[#3D2716] transition-colors" data-testid="button-toc-cta">
                     Speak With Us
                   </Link>
                 </div>
@@ -339,10 +339,10 @@ export default function BlogPost() {
             Speak with one of our senior advisors for a personalised assessment of how these market conditions affect your specific situation.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button onClick={() => openContactModal({ type: "general" })} className="bg-[#995134] text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors text-center" data-testid="button-schedule">
+            <button onClick={() => openContactModal({ type: "general" })} className="bg-[#995134] text-[#FAF8F5] px-12 py-4 font-lejour uppercase tracking-widest hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors text-center" data-testid="button-schedule">
               Schedule a Consultation
             </button>
-            <Link href="/blog" className="border border-[#FAF8F5]/30 text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center" data-testid="link-more-articles">
+            <Link href="/blog" className="border border-[#FAF8F5]/30 text-[#FAF8F5] px-12 py-4 font-lejour uppercase tracking-widest hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center" data-testid="link-more-articles">
               More Articles
             </Link>
           </div>

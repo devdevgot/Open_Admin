@@ -124,10 +124,10 @@ export default function AboutFounder() {
           <p className="font-lejour text-base text-[#D8BFAE] uppercase tracking-widest">Rimma Daminova</p>
           <p className="font-inria text-sm text-[#FAF8F5]/50 mt-1">Founder & Managing Director</p>
           <div className="mt-12 flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/about/agents" className="border border-[#FAF8F5]/30 text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center" data-testid="link-meet-agents">
+            <Link href="/about/agents" className="border border-[#FAF8F5]/30 text-[#FAF8F5] px-10 py-4 font-lejour uppercase tracking-widest text-sm hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center" data-testid="link-meet-agents">
               Meet the Team
             </Link>
-            <Link href="/about/story" className="border border-[#FAF8F5]/30 text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center" data-testid="link-our-story">
+            <Link href="/about/story" className="border border-[#FAF8F5]/30 text-[#FAF8F5] px-10 py-4 font-lejour uppercase tracking-widest text-sm hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center" data-testid="link-our-story">
               Our Story
             </Link>
           </div>

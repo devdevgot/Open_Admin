@@ -145,7 +145,7 @@ export default function AboutExperience() {
           <p className="font-inria text-lg text-[#FAF8F5]/70 mb-10 max-w-2xl mx-auto">
             Schedule your complimentary 60-minute consultation and discover what considered, client-first advisory really feels like.
           </p>
-          <button onClick={() => openContactModal({ type: "general" })} className="bg-[#995134] text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-schedule">
+          <button onClick={() => openContactModal({ type: "general" })} className="bg-[#995134] text-[#FAF8F5] px-12 py-4 font-lejour uppercase tracking-widest hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-schedule">
             Book Your Consultation
           </button>
         </div>

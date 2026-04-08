@@ -111,10 +111,10 @@ export default function AboutValues() {
             We invite you to test these values against our work. Speak with a past client, review a property with us, or simply ask the hard questions. We welcome the scrutiny.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/about/experience" className="bg-[#995134] text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors text-center" data-testid="link-experience">
+            <Link href="/about/experience" className="bg-[#995134] text-[#FAF8F5] px-10 py-4 font-lejour uppercase tracking-widest text-sm hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors text-center" data-testid="link-experience">
               Client Experience Promise
             </Link>
-            <Link href="/about/agents" className="border border-[#FAF8F5]/30 text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center" data-testid="link-agents">
+            <Link href="/about/agents" className="border border-[#FAF8F5]/30 text-[#FAF8F5] px-10 py-4 font-lejour uppercase tracking-widest text-sm hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center" data-testid="link-agents">
               Meet the Team
             </Link>
           </div>

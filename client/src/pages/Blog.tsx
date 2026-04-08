@@ -126,7 +126,7 @@ export default function Blog() {
                     key={cat}
                     onClick={() => setActiveCategory(cat)}
                     data-testid={`button-category-${cat.toLowerCase().replace(/\s/g, "-")}`}
-                    className={`font-inria text-xs uppercase tracking-widest px-5 py-2 transition-all ${
+                    className={`font-lejour text-xs uppercase tracking-widest px-5 py-2 transition-all ${
                       activeCategory === cat
                         ? "bg-[#3D2716] text-[#FAF8F5]"
                         : "border border-[#D8BFAE]/50 text-[#3D2716] hover:border-[#3D2716]"
@@ -272,7 +272,7 @@ function NewsletterForm() {
             type="submit"
             disabled={status === "loading"}
             data-testid="button-newsletter-submit"
-            className="w-full bg-[#995134] text-[#FAF8F5] py-4 font-inria uppercase tracking-widest hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors disabled:opacity-60"
+            className="w-full bg-[#995134] text-[#FAF8F5] py-4 font-lejour uppercase tracking-widest hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors disabled:opacity-60"
           >
             {status === "loading" ? "Subscribing..." : "Subscribe to Intelligence"}
           </button>

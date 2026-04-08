@@ -99,15 +99,15 @@ export default function AboutStory() {
       {/* CTA */}
       <section className="py-20">
         <div className="container mx-auto px-6 lg:px-12 text-center">
-          <h2 className="font-inria text-4xl text-[#3D2716] mb-6">Experience the Difference</h2>
+          <h2 className="font-symphony text-4xl text-[#3D2716] mb-6">Experience the Difference</h2>
           <p className="font-inria text-lg text-[#3D2716]/70 mb-10 max-w-xl mx-auto">
             There are hundreds of real estate firms in Dubai. There is only one Aviera. Come and find out why.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/about/founder" className="bg-[#424D38] text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#3D2716] transition-colors text-center" data-testid="link-founder">
+            <Link href="/about/founder" className="bg-[#424D38] text-[#FAF8F5] px-10 py-4 font-lejour uppercase tracking-widest text-sm hover:bg-[#3D2716] transition-colors text-center" data-testid="link-founder">
               Meet Our Founder
             </Link>
-            <Link href="/about/values" className="border border-[#3D2716] text-[#3D2716] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#3D2716] hover:text-[#FAF8F5] transition-colors text-center" data-testid="link-values">
+            <Link href="/about/values" className="border border-[#3D2716] text-[#3D2716] px-10 py-4 font-lejour uppercase tracking-widest text-sm hover:bg-[#3D2716] hover:text-[#FAF8F5] transition-colors text-center" data-testid="link-values">
               Our Core Values
             </Link>
           </div>

@@ -203,7 +203,7 @@ export default function ContactModal() {
                 type="submit"
                 disabled={submitting}
                 data-testid="button-submit-inquiry"
-                className="w-full bg-[#995134] text-[#FAF8F5] py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#3D2716] transition-colors flex items-center justify-center gap-2 disabled:opacity-60"
+                className="w-full bg-[#995134] text-[#FAF8F5] py-4 font-lejour uppercase tracking-widest text-sm hover:bg-[#3D2716] transition-colors flex items-center justify-center gap-2 disabled:opacity-60"
               >
                 {submitting && <Loader2 size={14} className="animate-spin" />}
                 {submitting ? "Sending..." : "Send Enquiry"}

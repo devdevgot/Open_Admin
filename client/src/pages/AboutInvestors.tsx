@@ -70,7 +70,7 @@ export default function AboutInvestors() {
           <p className="font-inria text-xl text-[#FAF8F5]/80 max-w-xl mb-10">
             Dubai is one of the world's great investment markets. The question is not whether to invest — it is who you trust to guide you through it.
           </p>
-          <button onClick={() => openContactModal({ type: "buy", prefillMessage: "I am interested in investment opportunities in Dubai real estate and would like to schedule a consultation." })} className="bg-[#995134] text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-investor-consultation">
+          <button onClick={() => openContactModal({ type: "buy", prefillMessage: "I am interested in investment opportunities in Dubai real estate and would like to schedule a consultation." })} className="bg-[#995134] text-[#FAF8F5] px-10 py-4 font-lejour uppercase tracking-widest text-sm hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-investor-consultation">
             Investor Consultation
           </button>
         </div>
@@ -128,7 +128,7 @@ export default function AboutInvestors() {
             {advantages.map((a, idx) => (
               <div key={a.title} className="bg-white p-10 border border-[#D8BFAE]/20 hover:border-[#995134]/30 hover:shadow-md transition-all" data-testid={`card-advantage-${idx}`}>
                 <a.icon size={28} className="text-[#424D38] mb-6" strokeWidth={1.5} />
-                <h3 className="font-inria text-lg text-[#3D2716] font-medium mb-4">{a.title}</h3>
+                <h3 className="font-lejour text-lg text-[#3D2716] uppercase tracking-wider mb-4">{a.title}</h3>
                 <p className="font-inria text-sm text-[#3D2716]/70 leading-relaxed">{a.desc}</p>
               </div>
             ))}
@@ -155,10 +155,10 @@ export default function AboutInvestors() {
             Whether you are entering Dubai real estate for the first time or expanding an existing portfolio, we will provide the intelligence, access, and legal certainty you need to invest with confidence.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button onClick={() => openContactModal({ type: "buy" })} className="bg-[#995134] text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-consultation">
+            <button onClick={() => openContactModal({ type: "buy" })} className="bg-[#995134] text-[#FAF8F5] px-12 py-4 font-lejour uppercase tracking-widest hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-consultation">
               Book Investor Consultation
             </button>
-            <Link href="/buy" className="border border-[#FAF8F5]/30 text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center" data-testid="link-portfolio">
+            <Link href="/buy" className="border border-[#FAF8F5]/30 text-[#FAF8F5] px-12 py-4 font-lejour uppercase tracking-widest hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center" data-testid="link-portfolio">
               Browse Investment Properties
             </Link>
           </div>

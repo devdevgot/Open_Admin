@@ -109,13 +109,13 @@ export default function Rent() {
         <div className="container mx-auto px-6 lg:px-12 py-5">
           <div className="flex flex-wrap gap-4 items-center">
             <span className="font-lejour text-[10px] text-[#917C63] uppercase tracking-[0.2em]">Browse:</span>
-            <Link href="/rent/apartments" className="font-inria text-sm text-[#3D2716] border border-[#D8BFAE]/50 px-5 py-2 hover:border-[#3D2716] transition-colors uppercase tracking-wider" data-testid="link-apartments">
+            <Link href="/rent/apartments" className="font-lejour text-sm text-[#3D2716] border border-[#D8BFAE]/50 px-5 py-2 hover:border-[#3D2716] transition-colors uppercase tracking-wider" data-testid="link-apartments">
               Apartments
             </Link>
-            <Link href="/rent/villas" className="font-inria text-sm text-[#3D2716] border border-[#D8BFAE]/50 px-5 py-2 hover:border-[#3D2716] transition-colors uppercase tracking-wider" data-testid="link-villas">
+            <Link href="/rent/villas" className="font-lejour text-sm text-[#3D2716] border border-[#D8BFAE]/50 px-5 py-2 hover:border-[#3D2716] transition-colors uppercase tracking-wider" data-testid="link-villas">
               Villas
             </Link>
-            <Link href="/rent/short-term" className="font-inria text-sm text-[#3D2716] border border-[#D8BFAE]/50 px-5 py-2 hover:border-[#3D2716] transition-colors uppercase tracking-wider" data-testid="link-short-term">
+            <Link href="/rent/short-term" className="font-lejour text-sm text-[#3D2716] border border-[#D8BFAE]/50 px-5 py-2 hover:border-[#3D2716] transition-colors uppercase tracking-wider" data-testid="link-short-term">
               Short-Term Stays
             </Link>
             <span className="hidden md:block w-px h-6 bg-[#D8BFAE]/30"></span>
@@ -134,7 +134,7 @@ export default function Rent() {
               key={type}
               onClick={() => setSelectedType(type)}
               data-testid={`button-filter-${type.toLowerCase()}`}
-              className={`px-5 py-2 font-inria text-xs uppercase tracking-widest transition-all ${
+              className={`px-5 py-2 font-lejour text-xs uppercase tracking-widest transition-all ${
                 selectedType === type ? "bg-[#3D2716] text-[#FAF8F5]" : "border border-[#D8BFAE]/50 text-[#3D2716] hover:border-[#3D2716]"
               }`}
             >
@@ -199,10 +199,10 @@ export default function Rent() {
                     </div>
                   </div>
                   <div className="flex gap-3 pt-4">
-                    <Link href={`/property/${property.id}`} className="flex-1 bg-[#3D2716] text-[#FAF8F5] py-3 font-inria text-xs uppercase tracking-widest hover:bg-[#424D38] transition-colors text-center" data-testid={`link-view-${property.id}`}>
+                    <Link href={`/property/${property.id}`} className="flex-1 bg-[#3D2716] text-[#FAF8F5] py-3 font-lejour text-xs uppercase tracking-widest hover:bg-[#424D38] transition-colors text-center" data-testid={`link-view-${property.id}`}>
                       View Details
                     </Link>
-                    <button className="flex-1 border border-[#3D2716] text-[#3D2716] py-3 font-inria text-xs uppercase tracking-widest hover:bg-[#3D2716] hover:text-[#FAF8F5] transition-colors" data-testid={`button-enquire-${property.id}`}>
+                    <button className="flex-1 border border-[#3D2716] text-[#3D2716] py-3 font-lejour text-xs uppercase tracking-widest hover:bg-[#3D2716] hover:text-[#FAF8F5] transition-colors" data-testid={`button-enquire-${property.id}`}>
                       Enquire
                     </button>
                   </div>
@@ -220,7 +220,7 @@ export default function Rent() {
           <p className="font-inria text-lg text-[#FAF8F5]/70 mb-10 max-w-2xl mx-auto">
             Tell us your requirements and our rental specialists will curate a personal shortlist within 24 hours.
           </p>
-          <button className="bg-[#995134] text-[#FAF8F5] px-12 py-4 font-inria uppercase tracking-widest hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-cta">
+          <button className="bg-[#995134] text-[#FAF8F5] px-12 py-4 font-lejour uppercase tracking-widest hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-cta">
             Speak With a Specialist
           </button>
         </div>

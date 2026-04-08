@@ -21,7 +21,7 @@ export default function WhyItMatters() {
           <div className="mt-16">
             <button
               onClick={() => openContactModal({ type: "general" })}
-              className="bg-[#424D38] text-[#FAF8F5] font-inria uppercase tracking-widest text-sm px-10 py-4 hover:bg-[#3D2716] transition-colors"
+              className="bg-[#424D38] text-[#FAF8F5] font-lejour uppercase tracking-widest text-sm px-10 py-4 hover:bg-[#3D2716] transition-colors"
               data-testid="button-schedule-consultation"
             >
               Schedule a Consultation

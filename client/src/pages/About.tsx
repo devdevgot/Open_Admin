@@ -37,7 +37,7 @@ export default function About() {
             <p className="font-inria text-xl text-[#3D2716]/70 leading-relaxed mb-12">
               Aviera Living is Dubai's boutique luxury real estate firm — where legal precision, editorial design, and human connection converge to create an experience unlike any other.
             </p>
-            <Link href="/about/founder" className="bg-[#424D38] text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#3D2716] transition-colors inline-block" data-testid="link-meet-founder">
+            <Link href="/about/founder" className="bg-[#424D38] text-[#FAF8F5] px-10 py-4 font-lejour uppercase tracking-widest text-sm hover:bg-[#3D2716] transition-colors inline-block" data-testid="link-meet-founder">
               Meet Our Founder
             </Link>
           </div>

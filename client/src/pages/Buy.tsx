@@ -172,7 +172,7 @@ export default function Buy() {
                       setSelectedLocation("All");
                     }}
                     data-testid={`button-filter-type-${type.toLowerCase()}`}
-                    className={`px-5 py-2 font-inria text-xs uppercase tracking-widest transition-all ${
+                    className={`px-5 py-2 font-lejour text-xs uppercase tracking-widest transition-all ${
                       selectedType === type
                         ? "bg-[#3D2716] text-[#FAF8F5]"
                         : "text-[#3D2716] border border-[#D8BFAE]/50 hover:border-[#3D2716]"
@@ -192,7 +192,7 @@ export default function Buy() {
                         key={loc}
                         onClick={() => setSelectedLocation(loc)}
                         data-testid={`button-filter-location-${loc.toLowerCase().replace(/\s/g, "-")}`}
-                        className={`px-4 py-2 font-inria text-xs uppercase tracking-widest transition-all ${
+                        className={`px-4 py-2 font-lejour text-xs uppercase tracking-widest transition-all ${
                           selectedLocation === loc
                             ? "bg-[#424D38] text-[#FAF8F5]"
                             : "text-[#3D2716] border border-[#D8BFAE]/50 hover:border-[#424D38]"
@@ -230,7 +230,7 @@ export default function Buy() {
           <div className="text-center py-20">
             <p className="font-symphony text-3xl text-[#3D2716] mb-4">No Properties Found</p>
             <p className="font-inria text-[#917C63] mb-8">Try adjusting your filters to see more results.</p>
-            <Link href="/buy" className="bg-[#3D2716] text-[#FAF8F5] px-8 py-3 font-inria text-sm uppercase tracking-widest hover:bg-[#995134] transition-colors" data-testid="link-view-all">
+            <Link href="/buy" className="bg-[#3D2716] text-[#FAF8F5] px-8 py-3 font-lejour text-sm uppercase tracking-widest hover:bg-[#995134] transition-colors" data-testid="link-view-all">
               View All Properties
             </Link>
           </div>
@@ -312,10 +312,10 @@ export default function Buy() {
                     </div>
 
                     <div className="flex gap-3 pt-4">
-                      <Link href={`/property/${property.id}`} className="flex-1 bg-[#3D2716] text-[#FAF8F5] py-3 font-inria text-xs uppercase tracking-widest hover:bg-[#424D38] transition-colors text-center" data-testid={`link-view-details-${property.id}`}>
+                      <Link href={`/property/${property.id}`} className="flex-1 bg-[#3D2716] text-[#FAF8F5] py-3 font-lejour text-xs uppercase tracking-widest hover:bg-[#424D38] transition-colors text-center" data-testid={`link-view-details-${property.id}`}>
                         View Details
                       </Link>
-                      <button onClick={() => openContactModal({ type: "buy", propertyId: property.id, propertyTitle: property.title })} className="flex-1 border border-[#3D2716] text-[#3D2716] py-3 font-inria text-xs uppercase tracking-widest hover:bg-[#3D2716] hover:text-[#FAF8F5] transition-colors" data-testid={`button-schedule-tour-${property.id}`}>
+                      <button onClick={() => openContactModal({ type: "buy", propertyId: property.id, propertyTitle: property.title })} className="flex-1 border border-[#3D2716] text-[#3D2716] py-3 font-lejour text-xs uppercase tracking-widest hover:bg-[#3D2716] hover:text-[#FAF8F5] transition-colors" data-testid={`button-schedule-tour-${property.id}`}>
                         Schedule Tour
                       </button>
                     </div>
@@ -340,10 +340,10 @@ export default function Buy() {
                 Our advisors have access to exclusive off-market properties and pre-launch projects not listed publicly. Share your criteria and let us find your perfect investment.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
-                <button onClick={() => openContactModal({ type: "buy" })} className="bg-[#995134] text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-schedule-consultation">
+                <button onClick={() => openContactModal({ type: "buy" })} className="bg-[#995134] text-[#FAF8F5] px-10 py-4 font-lejour uppercase tracking-widest text-sm hover:bg-[#D8BFAE] hover:text-[#3D2716] transition-colors" data-testid="button-schedule-consultation">
                   Schedule Consultation
                 </button>
-                <a href="tel:+97140000000" className="border border-[#FAF8F5]/30 text-[#FAF8F5] px-10 py-4 font-inria uppercase tracking-widest text-sm hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center">
+                <a href="tel:+97140000000" className="border border-[#FAF8F5]/30 text-[#FAF8F5] px-10 py-4 font-lejour uppercase tracking-widest text-sm hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center">
                   Call Us Directly
                 </a>
               </div>
