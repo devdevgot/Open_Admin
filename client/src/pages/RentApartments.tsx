@@ -146,14 +146,14 @@ export default function RentApartments() {
                     <Heart size={18} className={favoritedIds.includes(property.id) ? "fill-[#995134] text-[#995134]" : "text-[#3D2716]"} />
                   </button>
                   <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent p-5 pt-12">
-                    <p className="font-symphony text-2xl text-[#FAF8F5]">{property.price}<span className="font-inria text-sm text-[#FAF8F5]/70"> /yr</span></p>
+                    <p className="font-lejour text-xl text-[#FAF8F5] uppercase tracking-wider">{property.price}<span className="font-inria text-sm text-[#FAF8F5]/70 normal-case"> /yr</span></p>
                   </div>
                 </div>
                 <div className="space-y-3">
                   <h3 className="font-lejour text-lg text-[#3D2716] uppercase tracking-wider">{property.title}</h3>
                   <div className="flex items-center gap-1.5 text-[#917C63]">
                     <MapPin size={14} />
-                    <span className="font-inria text-sm">{property.location}</span>
+                    <span className="font-lejour text-xs uppercase tracking-wider">{property.location}</span>
                   </div>
                   <div className="flex items-center gap-5 pt-3 border-t border-[#D8BFAE]/20">
                     <div className="flex items-center gap-1.5">

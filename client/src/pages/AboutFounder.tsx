@@ -118,7 +118,7 @@ export default function AboutFounder() {
       <section className="py-24 bg-[#3D2716] text-[#FAF8F5]">
         <div className="container mx-auto px-6 lg:px-12 text-center max-w-4xl">
           <div className="font-symphony text-6xl text-[#D8BFAE] mb-8">"</div>
-          <p className="font-inria text-2xl md:text-3xl italic leading-relaxed mb-10 text-[#FAF8F5]/90">
+          <p className="font-inria text-2xl md:text-3xl leading-relaxed mb-10 text-[#FAF8F5]/90">
             I built Aviera because I believe that the most significant financial decision of a person's life deserves more than a sales pitch. It deserves a partner.
           </p>
           <p className="font-lejour text-base text-[#D8BFAE] uppercase tracking-widest">Rimma Daminova</p>

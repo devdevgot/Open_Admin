@@ -140,7 +140,7 @@ export default function AboutInvestors() {
       <section className="py-24 border-t border-[#D8BFAE]/20">
         <div className="container mx-auto px-6 lg:px-12 text-center max-w-4xl">
           <div className="font-symphony text-6xl text-[#D8BFAE] mb-8">"</div>
-          <p className="font-inria text-2xl md:text-3xl text-[#3D2716] italic leading-relaxed mb-10">
+          <p className="font-inria text-2xl md:text-3xl text-[#3D2716] leading-relaxed mb-10">
             I have invested in property in London, Singapore, and Dubai. Aviera is the only broker I have worked with that briefed me on the risks before the opportunity. That is rare. That is why I have given them every subsequent transaction.
           </p>
           <p className="font-lejour text-lg text-[#3D2716] uppercase tracking-widest">David Chen</p>

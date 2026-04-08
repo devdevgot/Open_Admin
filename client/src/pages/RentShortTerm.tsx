@@ -167,13 +167,13 @@ export default function RentShortTerm() {
                 <div className="flex justify-between items-start">
                   <h3 className="font-lejour text-base text-[#3D2716] uppercase tracking-wider">{stay.title}</h3>
                   <div className="text-right shrink-0 ml-3">
-                    <p className="font-symphony text-xl text-[#3D2716]">{stay.pricePerNight}</p>
+                    <p className="font-lejour text-xl text-[#3D2716] uppercase tracking-wider">{stay.pricePerNight}</p>
                     <p className="font-inria text-xs text-[#917C63]">per night</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-1.5 text-[#917C63]">
                   <MapPin size={14} />
-                  <span className="font-inria text-sm">{stay.location}</span>
+                  <span className="font-lejour text-xs uppercase tracking-wider">{stay.location}</span>
                 </div>
                 <div className="flex items-center gap-4 pt-3 border-t border-[#D8BFAE]/20">
                   <span className="font-inria text-sm text-[#3D2716]">{stay.beds} Bed{stay.beds > 1 ? "s" : ""}</span>
