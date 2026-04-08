@@ -281,7 +281,7 @@ export default function Buy() {
                       {property.type}
                     </div>
                     <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/75 to-transparent p-5 pt-12">
-                      <p className="font-symphony text-3xl text-[#FAF8F5]" data-testid={`text-price-${property.id}`}>{property.price}</p>
+                      <p className="font-lejour text-2xl text-[#FAF8F5] uppercase tracking-wider" data-testid={`text-price-${property.id}`}>{property.price}</p>
                     </div>
                   </div>
                   {/* Content */}
@@ -293,7 +293,7 @@ export default function Buy() {
                     </h3>
                     <div className="flex items-center space-x-1.5 text-[#917C63]">
                       <MapPin size={14} />
-                      <span className="font-inria text-sm">{property.location}</span>
+                      <span className="font-lejour text-xs uppercase tracking-wider">{property.location}</span>
                     </div>
 
                     <div className="flex items-center gap-5 pt-3 border-t border-[#D8BFAE]/20">

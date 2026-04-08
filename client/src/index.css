@@ -110,6 +110,11 @@
   button {
     border-radius: var(--radius);
   }
+
+  a[class*="font-lejour"][class*="px-"],
+  a[class*="font-inria"][class*="uppercase"][class*="px-"] {
+    border-radius: var(--radius);
+  }
 }
 
 /* Custom scrollbar for luxury feel */

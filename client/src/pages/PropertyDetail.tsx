@@ -138,7 +138,7 @@ export default function PropertyDetail() {
                   </h1>
                   <div className="flex items-center space-x-2 text-[#917C63]">
                     <MapPin size={18} />
-                    <span className="font-inria" data-testid="text-property-location">{property.location}</span>
+                    <span className="font-lejour text-xs uppercase tracking-wider" data-testid="text-property-location">{property.location}</span>
                   </div>
                 </div>
                 <button 
@@ -153,7 +153,7 @@ export default function PropertyDetail() {
                 </button>
               </div>
 
-              <h2 className="font-symphony text-5xl text-[#3D2716]" data-testid="text-property-price">
+              <h2 className="font-lejour text-4xl text-[#3D2716] uppercase tracking-wider" data-testid="text-property-price">
                 {property.price}
               </h2>
             </div>
