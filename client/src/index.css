@@ -23,8 +23,8 @@
   --font-lejour: 'Cormorant Garamond', serif;
   --font-inria: 'Inria Serif', serif;
 
-  --radius-sm: calc(var(--radius) - 4px);
-  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: var(--radius);
+  --radius-md: var(--radius);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
   --color-background: hsl(var(--background));
@@ -105,6 +105,10 @@
 
   .font-symphony {
     @apply font-symphony font-light;
+  }
+
+  button {
+    border-radius: var(--radius);
   }
 }
 

@@ -95,7 +95,7 @@ export default function AboutValues() {
                 <div className="lg:col-span-6 py-10 lg:py-16 px-0 lg:px-12 bg-[#3D2716]/[0.02] flex items-center">
                   <div>
                     <p className="font-lejour text-[10px] text-[#917C63] uppercase tracking-[0.3em] mb-4">In Practice</p>
-                    <p className="font-inria text-base text-[#3D2716]/75 leading-loose italic">"{v.example}"</p>
+                    <p className="font-inria text-base text-[#3D2716]/75 leading-loose">"{v.example}"</p>
                   </div>
                 </div>
               </div>

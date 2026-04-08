@@ -67,7 +67,7 @@ export default function AboutMission() {
                     </div>
                     <p className="font-lejour text-xs text-[#917C63] uppercase tracking-[0.3em]">{m.label}</p>
                   </div>
-                  <h2 className="font-inria italic text-3xl md:text-4xl text-[#3D2716] mb-8 leading-[1.2]">{m.heading}</h2>
+                  <h2 className="font-symphony text-3xl md:text-4xl text-[#3D2716] mb-8 leading-[1.2]">{m.heading}</h2>
                   <p className="font-inria text-lg text-[#3D2716]/70 leading-loose">{m.body}</p>
                 </div>
                 <div className={`hidden lg:block ${idx % 2 !== 0 ? "lg:order-1" : ""}`}>

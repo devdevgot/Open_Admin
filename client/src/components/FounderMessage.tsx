@@ -21,9 +21,12 @@ export default function FounderMessage() {
           
           <div className="w-full lg:w-7/12 order-1 lg:order-2">
             <h2 className="font-lejour text-[#917C63] uppercase tracking-[0.2em] text-[10px] md:text-sm mb-6">A Letter from the Founder</h2>
-            <h3 className="font-inria italic text-3xl md:text-4xl lg:text-5xl text-[#3D2716] leading-tight mb-8 md:mb-10">
-              "True luxury is not defined by the transaction, but by the legal precision and absolute trust that precedes it."
-            </h3>
+            <div className="relative mb-8 md:mb-10">
+              <span className="absolute -top-6 -left-2 font-symphony text-8xl text-[#D8BFAE] leading-none select-none" aria-hidden="true">"</span>
+              <h3 className="font-inria italic text-3xl md:text-4xl lg:text-5xl text-[#3D2716] leading-tight pt-6">
+                True luxury is not defined by the transaction, but by the legal precision and absolute trust that precedes it.
+              </h3>
+            </div>
             <div className="space-y-6 font-inria text-base md:text-lg text-[#3D2716]/80 leading-relaxed max-w-2xl">
               <p>
                 In a market driven by volume, we chose to be driven by values. Aviera Living was founded on the principle that high-net-worth individuals require more than just property access—they require institutional-grade advisory, rigorous due diligence, and absolute transparency.
