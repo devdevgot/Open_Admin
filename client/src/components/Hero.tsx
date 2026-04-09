@@ -21,10 +21,6 @@ export default function Hero() {
             <span className="font-symphony">Redefined</span> by <em>Trust.</em>
           </h1>
           
-          <p className="font-inria text-lg md:text-2xl text-[#FAF8F5]/85 mb-10 md:mb-14 max-w-3xl animate-in slide-in-from-bottom-8 fade-in duration-1000 delay-300 fill-mode-both px-4 md:px-0 leading-relaxed font-normal">
-            Transparency. Legal Precision. Boutique Guidance.
-          </p>
-
           <div className="flex flex-col sm:flex-row gap-4 md:gap-6 w-full sm:w-auto animate-in slide-in-from-bottom-8 fade-in duration-1000 delay-500 fill-mode-both px-4 md:px-0">
             <Link href="/buy" className="text-[#FAF8F5] font-lejour uppercase tracking-widest text-xs md:text-sm px-10 py-5 md:py-4 hover:bg-[#995134] transition-colors border border-[#FAF8F5]/20 text-center bg-[#424d38]">
               Explore Properties
