@@ -23,8 +23,8 @@ export default function FounderMessage() {
             <h2 className="font-lejour text-[#917C63] uppercase tracking-[0.2em] text-[10px] md:text-sm mb-6">A Letter from the Founder</h2>
             <div className="relative mb-8 md:mb-10">
               <span className="absolute -top-6 -left-2 font-symphony text-8xl text-[#D8BFAE] leading-none select-none" aria-hidden="true">"</span>
-              <h3 className="font-lejour italic text-3xl md:text-4xl lg:text-5xl text-[#3D2716] leading-tight pt-6">
-                True luxury is not defined by the transaction, but by the <span className="font-symphony">legal precision</span> and <span className="font-symphony">absolute trust</span> that precedes it.
+              <h3 className="font-lejour italic uppercase text-3xl md:text-4xl lg:text-5xl text-[#3D2716] leading-tight pt-6">
+                True luxury is not defined by the transaction, but by the <span className="font-symphony normal-case">legal precision</span> and <span className="font-symphony normal-case">absolute trust</span> that precedes it.
               </h3>
             </div>
             <div className="space-y-6 font-inria text-base md:text-lg text-[#3D2716]/80 leading-relaxed max-w-2xl">
