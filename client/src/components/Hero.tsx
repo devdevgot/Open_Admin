@@ -18,7 +18,7 @@ export default function Hero() {
           
           <h1 className="font-lejour text-4xl sm:text-5xl md:text-7xl lg:text-[6.5rem] xl:text-8xl text-[#FAF8F5] mb-8 md:mb-10 leading-[1.15] md:leading-[1.08] tracking-tight animate-in slide-in-from-bottom-8 fade-in duration-1000 font-light" style={{letterSpacing: '-0.02em'}}>
             Luxury Real Estate,<br className="hidden md:block" />
-            <span className="font-symphony ml-[15px] mr-[15px]">Redefined</span> by <em>Trust.</em>
+            <span className="font-symphony ml-[15px] mr-[15px]">Redefined</span> by <em className="uppercase not-italic">Trust.</em>
           </h1>
           
           <div className="flex flex-col sm:flex-row gap-4 md:gap-6 w-full sm:w-auto animate-in slide-in-from-bottom-8 fade-in duration-1000 delay-500 fill-mode-both px-4 md:px-0">
