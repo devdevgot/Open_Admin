@@ -4,7 +4,6 @@ export default function BrandPurpose() {
       <div className="container mx-auto px-6 lg:px-12 text-center max-w-4xl">
         <h2 className="font-lejour text-[#D8BFAE] uppercase tracking-widest text-[30px] mb-8">Brand Purpose</h2>
         <div className="relative mb-8">
-          <span className="block font-symphony text-8xl text-[#D8BFAE]/40 leading-none select-none -mb-6" aria-hidden="true">"</span>
           <h3 className="font-lejour uppercase text-3xl md:text-5xl leading-tight">
             To elevate the standard of <span className="font-symphony normal-case">luxury real estate</span> through uncompromising integrity and legal precision.
           </h3>
