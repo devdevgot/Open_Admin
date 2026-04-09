@@ -15,10 +15,10 @@ export default function Footer() {
               <a href="https://www.instagram.com/avieraliving?igsh=MWUwZ25tNjJwaGRycQ==" target="_blank" rel="noopener noreferrer" className="text-[#FAF8F5]/70 hover:text-[#D8BFAE] transition-colors" aria-label="Instagram">
                 <Instagram size={20} />
               </a>
-              <a href="https://www.linkedin.com/company/aviera-living/about/" target="_blank" rel="noopener noreferrer" className="text-[#FAF8F5]/70 hover:text-[#D8BFAE] transition-colors" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/aviera-living/about/" target="_blank" rel="noopener noreferrer" className="text-[#FAF8F5]/70 hover:text-[#D8BFAE] transition-colors border border-[#FAF8F5]/30 rounded-full p-2 flex items-center justify-center" aria-label="LinkedIn">
                 <Linkedin size={20} />
               </a>
-              <a href="https://www.facebook.com/profile.php?id=61586981953546&sk=directory_offers" target="_blank" rel="noopener noreferrer" className="text-[#FAF8F5]/70 hover:text-[#D8BFAE] transition-colors" aria-label="Facebook">
+              <a href="https://www.facebook.com/profile.php?id=61586981953546&sk=directory_offers" target="_blank" rel="noopener noreferrer" className="text-[#FAF8F5]/70 hover:text-[#D8BFAE] transition-colors border border-[#FAF8F5]/30 rounded-full p-2 flex items-center justify-center" aria-label="Facebook">
                 <Facebook size={20} />
               </a>
             </div>
