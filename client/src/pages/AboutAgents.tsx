@@ -21,7 +21,7 @@ export default function AboutAgents() {
           <Link href="/about" className="text-sm font-inria text-[#917C63] uppercase tracking-widest hover:text-[#3D2716] transition-colors mb-8 inline-block" data-testid="link-back">
             ← About Us
           </Link>
-          <p className="font-lejour text-xs text-[#917C63] uppercase tracking-[0.3em] mb-4">The Team</p>
+          <p className="font-lejour text-[30px] text-[#917C63] uppercase tracking-[0.3em] mb-4">The Team</p>
           <h1 className="font-symphony text-5xl md:text-7xl text-[#3D2716] mb-6 leading-[1.1]" data-testid="text-page-title">
             The People<br />Behind Every Deal
           </h1>
