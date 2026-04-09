@@ -92,7 +92,7 @@ export default function AboutAgents() {
         <div className="container mx-auto px-6 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <p className="font-lejour text-xs text-[#D8BFAE] uppercase tracking-[0.3em] mb-4">Careers</p>
+              <p className="font-lejour text-[30px] text-[#D8BFAE] uppercase tracking-[0.3em] mb-4">Careers</p>
               <h2 className="font-symphony text-4xl md:text-5xl mb-6">Join a Team That<br />Does Things Differently</h2>
               <p className="font-inria text-lg text-[#FAF8F5]/70 leading-relaxed mb-10">
                 We are always interested in meeting exceptional real estate professionals who share our values. If you believe that trust and legal precision are as important as sales results, we want to hear from you.
