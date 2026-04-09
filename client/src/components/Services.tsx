@@ -20,8 +20,8 @@ export default function Services() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-16 lg:gap-24 items-center">
           <div>
             <h2 className="font-lejour text-[#917C63] uppercase tracking-[0.2em] text-[30px] mb-6">Our Expertise</h2>
-            <h3 className="font-symphony text-3xl md:text-4xl lg:text-6xl text-[#3D2716] leading-tight mb-10 md:mb-12">
-              Comprehensive<br />Boutique Services.
+            <h3 className="font-lejour uppercase text-3xl md:text-4xl lg:text-6xl text-[#3D2716] leading-tight mb-10 md:mb-12">
+              Comprehensive<br /><span className="font-symphony normal-case">Boutique</span> Services.
             </h3>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-4 md:gap-y-6">
