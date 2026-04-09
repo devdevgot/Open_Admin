@@ -14,7 +14,7 @@ export default function Hero() {
         </div>
 
         <div className="relative z-10 text-center px-6 max-w-5xl mx-auto flex flex-col items-center">
-          <p className="font-lejour text-[#D8BFAE] uppercase tracking-[0.3em] md:text-sm mb-6 md:mb-8 animate-in slide-in-from-bottom-8 fade-in duration-1000 letter-spacing-wide text-[29px]">Boutique Real Estate Advisory</p>
+          <p className="font-lejour text-[#D8BFAE] uppercase tracking-[0.3em] md:text-sm mb-6 md:mb-8 animate-in slide-in-from-bottom-8 fade-in duration-1000 letter-spacing-wide text-[28px]">Boutique Real Estate Advisory</p>
           
           <h1 className="font-lejour text-4xl sm:text-5xl md:text-7xl lg:text-[6.5rem] xl:text-8xl text-[#FAF8F5] mb-8 md:mb-10 leading-[1.15] md:leading-[1.08] tracking-tight animate-in slide-in-from-bottom-8 fade-in duration-1000 font-light" style={{letterSpacing: '-0.02em'}}>
             Luxury Real Estate,<br className="hidden md:block" />
