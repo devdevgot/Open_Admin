@@ -23,7 +23,7 @@ export default function CoreValues() {
       <div className="container mx-auto px-6 lg:px-12">
         <div className="text-center mb-20">
           <h2 className="font-lejour text-[#917C63] uppercase tracking-widest text-[30px] mb-4">Core Values</h2>
-          <h3 className="font-symphony text-4xl lg:text-5xl text-[#3D2716]">The Pillars of Our Practice.</h3>
+          <h3 className="font-lejour uppercase text-4xl lg:text-5xl text-[#3D2716]">The <span className="font-symphony normal-case">Pillars</span> of Our Practice.</h3>
         </div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16 max-w-5xl mx-auto">
