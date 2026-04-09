@@ -12,13 +12,13 @@ export default function Footer() {
               Luxury Real Estate, Redefined by Trust. Legal Precision. Boutique Guidance.
             </p>
             <div className="flex space-x-4">
-              <a href="https://www.instagram.com/avieraliving?igsh=MWUwZ25tNjJwaGRycQ==" target="_blank" rel="noopener noreferrer" className="text-[#FAF8F5]/70 hover:text-[#D8BFAE] transition-colors border border-[#FAF8F5]/30 rounded-lg p-2 flex items-center justify-center" aria-label="Instagram">
+              <a href="https://www.instagram.com/avieraliving?igsh=MWUwZ25tNjJwaGRycQ==" target="_blank" rel="noopener noreferrer" className="text-[#FAF8F5]/70 hover:text-[#D8BFAE] transition-colors border-2 border-[#FAF8F5]/30 rounded-lg p-2 flex items-center justify-center" aria-label="Instagram">
                 <Instagram size={20} />
               </a>
-              <a href="https://www.linkedin.com/company/aviera-living/about/" target="_blank" rel="noopener noreferrer" className="text-[#FAF8F5]/70 hover:text-[#D8BFAE] transition-colors border border-[#FAF8F5]/30 rounded-lg p-2 flex items-center justify-center" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/aviera-living/about/" target="_blank" rel="noopener noreferrer" className="text-[#FAF8F5]/70 hover:text-[#D8BFAE] transition-colors border-2 border-[#FAF8F5]/30 rounded-lg p-2 flex items-center justify-center" aria-label="LinkedIn">
                 <Linkedin size={20} />
               </a>
-              <a href="https://www.facebook.com/profile.php?id=61586981953546&sk=directory_offers" target="_blank" rel="noopener noreferrer" className="text-[#FAF8F5]/70 hover:text-[#D8BFAE] transition-colors border border-[#FAF8F5]/30 rounded-lg p-2 flex items-center justify-center" aria-label="Facebook">
+              <a href="https://www.facebook.com/profile.php?id=61586981953546&sk=directory_offers" target="_blank" rel="noopener noreferrer" className="text-[#FAF8F5]/70 hover:text-[#D8BFAE] transition-colors border-2 border-[#FAF8F5]/30 rounded-lg p-2 flex items-center justify-center" aria-label="Facebook">
                 <Facebook size={20} />
               </a>
             </div>
