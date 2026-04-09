@@ -5,7 +5,7 @@ export default function WhyItMatters() {
     <section className="py-32 bg-[#FAF8F5]">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-4xl mx-auto text-center">
-          <h2 className="font-lejour text-[#917C63] uppercase tracking-[0.2em] text-sm mb-6">Why It Matters</h2>
+          <h2 className="font-lejour text-[#917C63] uppercase tracking-[0.2em] text-[30px] mb-6">Why It Matters</h2>
           <p className="font-symphony text-4xl md:text-5xl text-[#3D2716] leading-[1.15] mb-10">
             In a market defined by complexity, precision is not optional.
           </p>
