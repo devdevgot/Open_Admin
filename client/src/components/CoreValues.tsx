@@ -22,7 +22,7 @@ export default function CoreValues() {
     <section className="py-32 bg-[#D8BFAE]/10">
       <div className="container mx-auto px-6 lg:px-12">
         <div className="text-center mb-20">
-          <h2 className="font-lejour text-[#917C63] uppercase tracking-widest text-sm mb-4">Core Values</h2>
+          <h2 className="font-lejour text-[#917C63] uppercase tracking-widest text-[30px] mb-4">Core Values</h2>
           <h3 className="font-symphony text-4xl lg:text-5xl text-[#3D2716]">The Pillars of Our Practice.</h3>
         </div>
         
