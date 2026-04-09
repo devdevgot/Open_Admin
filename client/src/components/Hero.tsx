@@ -1,6 +1,6 @@
 import { Link } from "wouter";
 
-const heroBg = "/pexels-abbas-mohammed-1990079-3680912_1774271811528.jpg";
+const heroBg = "/hero-dubai-marina.jpg";
 
 export default function Hero() {
   return (
