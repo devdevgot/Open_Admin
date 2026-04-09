@@ -20,7 +20,7 @@ export default function FounderMessage() {
           </div>
           
           <div className="w-full lg:w-7/12 order-1 lg:order-2">
-            <h2 className="font-lejour text-[#917C63] uppercase tracking-[0.2em] text-[10px] md:text-sm mb-6">A Letter from the Founder</h2>
+            <h2 className="font-lejour text-[#917C63] uppercase tracking-[0.2em] text-[30px] mb-6">A Letter from the Founder</h2>
             <div className="relative mb-8 md:mb-10">
               <span className="absolute -top-6 -left-2 font-symphony text-8xl text-[#D8BFAE] leading-none select-none" aria-hidden="true">"</span>
               <h3 className="font-lejour uppercase text-3xl md:text-4xl lg:text-5xl text-[#3D2716] leading-tight pt-6">
