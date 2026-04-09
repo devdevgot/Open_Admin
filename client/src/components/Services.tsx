@@ -27,7 +27,7 @@ export default function Services() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-4 md:gap-y-6">
               {services.map((service, index) => (
                 <div key={index} className="flex items-center space-x-3 group cursor-pointer border-b border-[#3D2716]/10 pb-3 md:pb-4">
-                  <span className="text-[#995134] text-sm shrink-0">•</span>
+                  <span className="text-[#995134] text-2xl font-black shrink-0 leading-none">•</span>
                   <span className="font-inria text-base md:text-lg text-[#3D2716] group-hover:text-[#995134] transition-colors">{service}</span>
                 </div>
               ))}
