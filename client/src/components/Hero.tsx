@@ -22,10 +22,10 @@ export default function Hero() {
           </h1>
           
           <div className="flex flex-col sm:flex-row gap-4 md:gap-6 w-full sm:w-auto animate-in slide-in-from-bottom-8 fade-in duration-1000 delay-500 fill-mode-both px-4 md:px-0">
-            <Link href="/buy" className="text-[#FAF8F5] font-lejour uppercase tracking-widest text-xs md:text-sm px-10 py-5 md:py-4 hover:bg-[#995134] transition-colors border border-[#FAF8F5]/20 text-center bg-[#424d38]">
+            <Link href="/buy" className="text-[#FAF8F5] font-lejour uppercase tracking-widest text-xs md:text-sm px-10 py-5 md:py-4 hover:bg-[#995134] transition-colors border border-[#FAF8F5]/20 text-center bg-[#424d38] rounded-full">
               Explore Properties
             </Link>
-            <Link href="/about/agents" className="bg-transparent text-[#FAF8F5] border border-[#FAF8F5]/40 font-lejour uppercase tracking-widest text-xs md:text-sm px-10 py-5 md:py-4 hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center">
+            <Link href="/about/agents" className="bg-transparent text-[#FAF8F5] border border-[#FAF8F5]/40 font-lejour uppercase tracking-widest text-xs md:text-sm px-10 py-5 md:py-4 hover:bg-[#FAF8F5] hover:text-[#3D2716] transition-colors text-center rounded-full">
               Speak With An Advisor
             </Link>
           </div>
@@ -64,7 +64,7 @@ export default function Hero() {
               </select>
             </div>
           </div>
-          <Link href="/buy" className="bg-[#3D2716] text-[#FAF8F5] p-5 md:p-4 hover:bg-[#995134] transition-colors w-full md:w-auto flex justify-center mt-2 md:mt-0">
+          <Link href="/buy" className="bg-[#3D2716] text-[#FAF8F5] p-5 md:p-4 hover:bg-[#995134] transition-colors w-full md:w-auto flex justify-center mt-2 md:mt-0 rounded-full">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M11 19C15.4183 19 19 15.4183 19 11C19 6.58172 15.4183 3 11 3C6.58172 3 3 6.58172 3 11C3 15.4183 6.58172 19 11 19Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
               <path d="M21 21L16.65 16.65" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
