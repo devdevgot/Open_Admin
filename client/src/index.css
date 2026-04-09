@@ -111,12 +111,6 @@
     border-radius: var(--radius);
   }
 
-  button,
-  a[class*="font-lejour"][class*="px-"],
-  a[class*="font-inria"][class*="uppercase"][class*="px-"] {
-    border-radius: 9999px;
-  }
-
   a[class*="font-lejour"][class*="px-"],
   a[class*="font-inria"][class*="uppercase"][class*="px-"] {
     border-radius: var(--radius);
