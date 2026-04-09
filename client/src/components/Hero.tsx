@@ -16,9 +16,9 @@ export default function Hero() {
         <div className="relative z-10 text-center px-6 max-w-5xl mx-auto flex flex-col items-center">
           <p className="font-lejour text-[#D8BFAE] uppercase tracking-[0.3em] mb-6 md:mb-8 animate-in slide-in-from-bottom-8 fade-in duration-1000 letter-spacing-wide text-[30px]">Boutique Real Estate Advisory</p>
           
-          <h1 className="font-lejour text-4xl sm:text-5xl md:text-7xl lg:text-[6.5rem] xl:text-8xl text-[#FAF8F5] mb-8 md:mb-10 leading-[1.15] md:leading-[1.08] tracking-tight animate-in slide-in-from-bottom-8 fade-in duration-1000 font-light" style={{letterSpacing: '-0.02em'}}>
+          <h1 className="font-lejour uppercase text-4xl sm:text-5xl md:text-7xl lg:text-[6.5rem] xl:text-8xl text-[#FAF8F5] mb-8 md:mb-10 leading-[1.15] md:leading-[1.08] tracking-tight animate-in slide-in-from-bottom-8 fade-in duration-1000 font-light" style={{letterSpacing: '-0.02em'}}>
             Luxury Real Estate,<br className="hidden md:block" />
-            <span className="font-symphony ml-[15px] mr-[15px]">Redefined</span> by <em>Trust.</em>
+            <span className="font-symphony normal-case ml-[15px] mr-[15px]">Redefined</span> by <em>Trust.</em>
           </h1>
           
           <div className="flex flex-col sm:flex-row gap-4 md:gap-6 w-full sm:w-auto animate-in slide-in-from-bottom-8 fade-in duration-1000 delay-500 fill-mode-both px-4 md:px-0">
