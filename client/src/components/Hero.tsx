@@ -10,7 +10,7 @@ export default function Hero() {
           className="absolute inset-0 z-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${heroBg})` }}
         >
-          <div className="absolute inset-0 bg-[#3D2716]/80 mix-blend-multiply"></div>
+          <div className="absolute inset-0 bg-[#3D2716]/50 mix-blend-multiply"></div>
         </div>
 
         <div className="relative z-10 text-center px-6 max-w-5xl mx-auto flex flex-col items-center">
