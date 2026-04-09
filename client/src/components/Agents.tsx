@@ -12,7 +12,7 @@ export default function Agents() {
       <div className="container mx-auto px-6 lg:px-12">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 md:mb-16">
           <div>
-            <h2 className="font-lejour text-[#917C63] uppercase tracking-widest text-xs md:text-sm mb-3">Our People</h2>
+            <h2 className="font-lejour text-[#917C63] uppercase tracking-widest text-[30px] mb-3">Our People</h2>
             <h3 className="font-symphony text-3xl md:text-4xl lg:text-5xl text-[#3D2716]">The Advisors.</h3>
           </div>
           <Link href="/about/agents" className="hidden md:block font-inria uppercase tracking-widest text-xs md:text-sm text-[#3D2716] border-b border-[#3D2716] pb-1 hover:text-[#995134] hover:border-[#995134] transition-colors">
