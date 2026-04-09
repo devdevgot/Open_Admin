@@ -6,8 +6,8 @@ export default function WhyItMatters() {
       <div className="container mx-auto px-6 lg:px-12">
         <div className="max-w-4xl mx-auto text-center">
           <h2 className="font-lejour text-[#917C63] uppercase tracking-[0.2em] text-[30px] mb-6">Why It Matters</h2>
-          <p className="font-symphony text-4xl md:text-5xl text-[#3D2716] leading-[1.15] mb-10">
-            In a market defined by complexity, precision is not optional.
+          <p className="font-lejour uppercase text-4xl md:text-5xl text-[#3D2716] leading-[1.15] mb-10">
+            In a market defined by <span className="font-symphony normal-case">complexity,</span> precision is not optional.
           </p>
           <div className="space-y-6 text-left max-w-3xl mx-auto">
             <p className="font-inria text-lg text-[#3D2716]/70 leading-loose">
