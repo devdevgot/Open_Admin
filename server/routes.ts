@@ -8,11 +8,13 @@ import newsletterRouter from "./routes/newsletter";
 import agentsRouter from "./routes/agents";
 import adminRouter from "./routes/admin";
 import { errorHandler } from "./middleware/errorHandler";
+import { runStartupSeed } from "./startup-seed";
 
 export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
+  await runStartupSeed();
   // Public API
   app.use("/api/properties", propertiesRouter);
   app.use("/api/favorites", favoritesRouter);
