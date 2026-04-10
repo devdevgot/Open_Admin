@@ -1,4 +1,5 @@
 import { drizzle } from "drizzle-orm/node-postgres";
+import { eq } from "drizzle-orm";
 import { blogPosts } from "../../shared/schema";
 
 const db = drizzle(process.env.DATABASE_URL!);
@@ -257,7 +258,8 @@ export const seoArticles = [
 ];
 
 export async function seedBlogArticles() {
-  console.log("Seeding blog articles...");
+  console.log("Seeding SEO blog articles...");
+
   for (const article of seoArticles) {
     try {
       await db.insert(blogPosts).values(article);
@@ -270,7 +272,19 @@ export async function seedBlogArticles() {
       }
     }
   }
-  console.log("Done seeding blog articles.");
+
+  const featuredSlug = "dubai-property-prices-2026-trends-forecast";
+  await db
+    .update(blogPosts)
+    .set({ featured: false })
+    .where(eq(blogPosts.featured, true));
+  await db
+    .update(blogPosts)
+    .set({ featured: true })
+    .where(eq(blogPosts.slug, featuredSlug));
+  console.log(`✓ Featured article set: ${featuredSlug}`);
+
+  console.log("Done seeding SEO blog articles.");
 }
 
 if (process.argv[1] === new URL(import.meta.url).pathname) {

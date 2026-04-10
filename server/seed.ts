@@ -1,5 +1,6 @@
 import { drizzle } from "drizzle-orm/node-postgres";
 import { properties, blogPosts, agents } from "@shared/schema";
+import { seedBlogArticles } from "./seeds/blog-articles.js";
 
 const db = drizzle(process.env.DATABASE_URL!);
 
@@ -409,6 +410,9 @@ async function seed() {
   } else {
     console.log("— Blog posts already seeded, skipping");
   }
+
+  // ─── SEO Blog Articles ───────────────────────────────────────────────────────
+  await seedBlogArticles();
 
   console.log("Seed complete.");
   process.exit(0);
