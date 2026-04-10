@@ -264,8 +264,13 @@ export async function seedBlogArticles() {
     try {
       await db.insert(blogPosts).values(article);
       console.log(`✓ Inserted: ${article.title.substring(0, 60)}...`);
-    } catch (err: any) {
-      if (err.code === "23505") {
+    } catch (err: unknown) {
+      if (
+        typeof err === "object" &&
+        err !== null &&
+        "code" in err &&
+        (err as { code: unknown }).code === "23505"
+      ) {
         console.log(`⚠ Already exists (slug conflict): ${article.slug}`);
       } else {
         throw err;
