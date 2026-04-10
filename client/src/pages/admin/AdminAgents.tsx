@@ -43,6 +43,8 @@ export default function AdminAgents() {
   const [editing, setEditing] = useState<Agent | null>(null);
   const [creating, setCreating] = useState(false);
   const [form, setForm] = useState<Omit<Agent, "id">>(EMPTY);
+  const [rawSpecialties, setRawSpecialties] = useState("");
+  const [rawLanguages, setRawLanguages] = useState("");
   const [uploading, setUploading] = useState(false);
   const [saveError, setSaveError] = useState("");
 
@@ -51,19 +53,25 @@ export default function AdminAgents() {
     queryFn: () => adminFetch("/api/admin/agents").then(r => r.json()),
   });
 
-  const cleanData = (data: typeof form) => ({
-    name: data.name.trim(),
-    role: data.role.trim(),
-    phone: data.phone?.trim() || null,
-    email: data.email?.trim() || null,
-    image: data.image?.trim() || null,
-    bio: data.bio?.trim() || null,
-    specialties: (data.specialties && data.specialties.length > 0) ? data.specialties : null,
-    languages: (data.languages && data.languages.length > 0) ? data.languages : null,
-    transactions: data.transactions ?? 0,
-    yearsExperience: data.yearsExperience ?? 0,
-    sortOrder: data.sortOrder ?? 0,
-  });
+  const parseArr = (raw: string) => raw.split(",").map(s => s.trim()).filter(Boolean);
+
+  const cleanData = (data: typeof form) => {
+    const specs = parseArr(rawSpecialties);
+    const langs = parseArr(rawLanguages);
+    return {
+      name: data.name.trim(),
+      role: data.role.trim(),
+      phone: data.phone?.trim() || null,
+      email: data.email?.trim() || null,
+      image: data.image?.trim() || null,
+      bio: data.bio?.trim() || null,
+      specialties: specs.length > 0 ? specs : null,
+      languages: langs.length > 0 ? langs : null,
+      transactions: data.transactions ?? 0,
+      yearsExperience: data.yearsExperience ?? 0,
+      sortOrder: data.sortOrder ?? 0,
+    };
+  };
 
   const save = useMutation({
     mutationFn: async (data: typeof form) => {
@@ -102,15 +110,28 @@ export default function AdminAgents() {
     setEditing(agent);
     setCreating(false);
     setForm({ ...agent });
+    setRawSpecialties((agent.specialties || []).join(", "));
+    setRawLanguages((agent.languages || []).join(", "));
+    setSaveError("");
   };
 
   const startCreate = () => {
     setCreating(true);
     setEditing(null);
     setForm(EMPTY);
+    setRawSpecialties("");
+    setRawLanguages("");
+    setSaveError("");
   };
 
-  const cancel = () => { setEditing(null); setCreating(false); setForm(EMPTY); setSaveError(""); };
+  const cancel = () => {
+    setEditing(null);
+    setCreating(false);
+    setForm(EMPTY);
+    setRawSpecialties("");
+    setRawLanguages("");
+    setSaveError("");
+  };
 
   const handleImageUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -123,9 +144,6 @@ export default function AdminAgents() {
     finally { setUploading(false); }
   };
 
-  const setArr = (k: "specialties" | "languages", v: string) => {
-    setForm(f => ({ ...f, [k]: v.split(",").map(s => s.trim()).filter(Boolean) }));
-  };
 
   const showForm = creating || !!editing;
 
@@ -171,8 +189,8 @@ export default function AdminAgents() {
                 </div>
               </F>
               <F label="Years Experience"><input type="number" value={form.yearsExperience || ""} onChange={e => setForm(f => ({ ...f, yearsExperience: parseInt(e.target.value) || 0 }))} className={IN} /></F>
-              <F label="Specialties (comma separated)"><input value={(form.specialties || []).join(", ")} onChange={e => setArr("specialties", e.target.value)} className={IN} placeholder="Luxury sales, Off-plan, Rentals" /></F>
-              <F label="Languages (comma separated)"><input value={(form.languages || []).join(", ")} onChange={e => setArr("languages", e.target.value)} className={IN} placeholder="English, Arabic" /></F>
+              <F label="Specialties (comma separated)"><input value={rawSpecialties} onChange={e => setRawSpecialties(e.target.value)} className={IN} placeholder="Luxury sales, Off-plan, Rentals" /></F>
+              <F label="Languages (comma separated)"><input value={rawLanguages} onChange={e => setRawLanguages(e.target.value)} className={IN} placeholder="English, Arabic, Russian" /></F>
               <F label="Bio" className="sm:col-span-2">
                 <textarea value={form.bio || ""} onChange={e => setForm(f => ({ ...f, bio: e.target.value }))} rows={3} className={IN} />
               </F>
