@@ -140,7 +140,7 @@ export default function PrivacyPolicy() {
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-44 pb-16 border-b border-[#D8BFAE]/20">
+      <section className="pt-44 pb-20 border-b border-[#D8BFAE]/20">
         <div className="container mx-auto px-6 lg:px-12">
           <div className="max-w-3xl">
             <p className="font-lejour text-xs text-[#917C63] uppercase tracking-[0.3em] mb-4">Legal</p>
