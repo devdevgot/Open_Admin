@@ -1,3 +1,4 @@
+import { Link } from "wouter";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -140,14 +141,17 @@ export default function PrivacyPolicy() {
       <Navbar />
 
       {/* Hero */}
-      <section className="pt-44 pb-20 border-b border-[#D8BFAE]/20">
+      <section className="pt-44 pb-20 bg-[#3D2716]">
         <div className="container mx-auto px-6 lg:px-12">
+          <Link href="/" className="inline-flex items-center gap-2 font-inria text-xs text-[#FAF8F5]/50 hover:text-[#FAF8F5] transition-colors mb-10 tracking-widest uppercase">
+            <span>←</span> Back to Aviera Living
+          </Link>
           <div className="max-w-3xl">
-            <p className="font-lejour text-xs text-[#917C63] uppercase tracking-[0.3em] mb-4">Legal</p>
-            <h1 className="font-symphony text-5xl md:text-6xl text-[#3D2716] mb-6 leading-[1.05]">
+            <p className="font-lejour text-xs text-[#D8BFAE] uppercase tracking-[0.3em] mb-4">Legal</p>
+            <h1 className="font-symphony text-5xl md:text-6xl text-[#FAF8F5] mb-6 leading-[1.05]">
               Privacy Policy
             </h1>
-            <p className="font-inria text-base text-[#3D2716]/60 leading-relaxed">
+            <p className="font-inria text-base text-[#FAF8F5]/50 leading-relaxed">
               Last updated: April 2026
             </p>
           </div>
