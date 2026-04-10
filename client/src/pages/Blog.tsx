@@ -45,10 +45,6 @@ export default function Blog() {
     ? posts
     : posts.filter(p => p.category === activeCategory);
 
-  const featured = posts.find(p => p.featured);
-  const regular = filtered.filter(p => !p.featured);
-  const showFeatured = activeCategory === "All" && featured;
-
   return (
     <div className="min-h-screen bg-[#FAF8F5]">
       <Navbar />
@@ -77,45 +73,6 @@ export default function Blog() {
 
       {!isLoading && (
         <>
-          {/* Featured Post */}
-          {showFeatured && featured && (
-            <section className="py-16 border-b border-[#D8BFAE]/20">
-              <div className="container mx-auto px-6 lg:px-12">
-                <p className="font-lejour text-xs text-[#917C63] uppercase tracking-[0.3em] mb-8">Featured Article</p>
-                <Link href={`/blog/${featured.id}`} className="grid grid-cols-1 lg:grid-cols-2 gap-0 group" data-testid="card-featured-post">
-                  <div className="relative overflow-hidden aspect-[4/3] lg:aspect-auto">
-                    <img
-                      src={featured.heroImage || "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&h=500&fit=crop"}
-                      alt={featured.title}
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                    />
-                  </div>
-                  <div className="bg-[#3D2716] p-10 md:p-14 flex flex-col justify-center">
-                    <span className={`inline-block px-3 py-1.5 font-inria text-[10px] uppercase tracking-widest mb-6 self-start ${categoryColors[featured.category] || "bg-[#3D2716] text-[#FAF8F5]"}`}>
-                      {featured.category}
-                    </span>
-                    <h2 className="font-symphony text-3xl md:text-4xl text-[#FAF8F5] mb-6 leading-[1.2]">
-                      {featured.title}
-                    </h2>
-                    <p className="font-inria text-base text-[#FAF8F5]/70 leading-relaxed mb-8">
-                      {featured.excerpt}
-                    </p>
-                    <div className="flex items-center justify-between mt-auto">
-                      <div>
-                        <p className="font-lejour text-xs text-[#D8BFAE] uppercase tracking-widest">{featured.authorName}</p>
-                        <p className="font-inria text-xs text-[#FAF8F5]/50 mt-0.5">{formatDate(featured.publishedAt)}</p>
-                      </div>
-                      <div className="flex items-center gap-2 text-[#995134] group-hover:text-[#D8BFAE] transition-colors">
-                        <span className="font-inria text-xs uppercase tracking-widest">Read More</span>
-                        <ArrowRight size={14} />
-                      </div>
-                    </div>
-                  </div>
-                </Link>
-              </div>
-            </section>
-          )}
-
           {/* Filter Bar */}
           <section className="border-b border-[#D8BFAE]/20 bg-white sticky top-20 z-20 shadow-sm">
             <div className="container mx-auto px-6 lg:px-12 py-4">
@@ -144,7 +101,7 @@ export default function Blog() {
 
           {/* Posts Grid */}
           <section className="py-16 container mx-auto px-6 lg:px-12">
-            {regular.length === 0 && !showFeatured ? (
+            {filtered.length === 0 ? (
               <div className="text-center py-20">
                 <p className="font-symphony text-3xl text-[#3D2716] mb-4">No Articles Found</p>
                 <button onClick={() => setActiveCategory("All")} className="font-inria text-[#995134] uppercase tracking-widest hover:text-[#3D2716]">
@@ -153,7 +110,7 @@ export default function Blog() {
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {regular.map((post) => (
+                {filtered.map((post) => (
                   <Link key={post.id} href={`/blog/${post.id}`} className="group block" data-testid={`card-post-${post.id}`}>
                     <div className="relative overflow-hidden aspect-[16/10] mb-5">
                       <img
