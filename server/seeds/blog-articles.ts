@@ -292,6 +292,3 @@ export async function seedBlogArticles() {
   console.log("Done seeding SEO blog articles.");
 }
 
-if (process.argv[1] === new URL(import.meta.url).pathname) {
-  seedBlogArticles().catch(console.error).finally(() => process.exit(0));
-}
