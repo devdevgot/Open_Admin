@@ -1,4 +1,5 @@
 import { Linkedin, Instagram, Facebook } from "lucide-react";
+import { Link } from "wouter";
 
 export default function Footer() {
   return (
@@ -63,8 +64,8 @@ export default function Footer() {
         <div className="pt-8 border-t border-[#FAF8F5]/10 flex flex-col md:flex-row justify-between items-center text-[#FAF8F5]/50 font-inria text-xs">
           <p>&copy; {new Date().getFullYear()} Aviera Living. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
-            <a href="#" className="hover:text-[#FAF8F5] transition-colors">Privacy Policy</a>
-            <a href="#" className="hover:text-[#FAF8F5] transition-colors">Terms of Service</a>
+            <Link href="/privacy-policy" className="hover:text-[#FAF8F5] transition-colors">Privacy Policy</Link>
+            <Link href="/terms-of-service" className="hover:text-[#FAF8F5] transition-colors">Terms of Service</Link>
           </div>
         </div>
       </div>

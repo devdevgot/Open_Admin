@@ -23,6 +23,8 @@ import AboutExperience from "@/pages/AboutExperience";
 import AboutInvestors from "@/pages/AboutInvestors";
 import Blog from "@/pages/Blog";
 import BlogPost from "@/pages/BlogPost";
+import PrivacyPolicy from "@/pages/PrivacyPolicy";
+import TermsOfService from "@/pages/TermsOfService";
 import PropertyDetail from "@/pages/PropertyDetail";
 import AdminLogin from "@/pages/admin/AdminLogin";
 import AdminDashboard from "@/pages/admin/AdminDashboard";
@@ -58,6 +60,8 @@ function Router() {
       <Route path="/blog" component={Blog}/>
       <Route path="/blog/:id" component={BlogPost}/>
       <Route path="/property/:id" component={PropertyDetail}/>
+      <Route path="/privacy-policy" component={PrivacyPolicy}/>
+      <Route path="/terms-of-service" component={TermsOfService}/>
 
       {/* Admin */}
       <Route path="/admin/login" component={AdminLogin}/>
