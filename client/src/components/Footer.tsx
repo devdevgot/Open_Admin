@@ -54,7 +54,7 @@ export default function Footer() {
               <li>Churchill Tower</li>
               <li>Business Bay, Dubai</li>
               <li>Office N 1809, UAE</li>
-              <li className="pt-4"><a href="mailto:advisory@avieraliving.com" className="hover:text-[#FAF8F5] transition-colors">advisory@avieraliving.com</a></li>
+              <li className="pt-4"><a href="mailto:avieraliving@gmail.com" className="hover:text-[#FAF8F5] transition-colors">avieraliving@gmail.com</a></li>
               <li><a href="tel:+971502915941" className="hover:text-[#FAF8F5] transition-colors">+971 50 291 5941</a></li>
             </ul>
           </div>
