@@ -33,7 +33,7 @@ export default function AboutFounder() {
             <img
               src="/IMG_3765_1774274624169.jpeg"
               alt="Rimma Daminova"
-              className="absolute inset-0 w-full h-full translate-x-[50px] object-cover object-[72%_30%] lg:translate-x-0 lg:object-[center_30%]"
+              className="absolute inset-0 w-full h-full translate-x-[50px] translate-y-[18px] scale-125 object-cover object-[72%_30%] lg:translate-x-0 lg:translate-y-0 lg:scale-100 lg:object-[center_30%]"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#3D2716]/40 via-transparent to-transparent lg:bg-gradient-to-r lg:from-transparent lg:to-[#3D2716]/10"></div>
           </div>
