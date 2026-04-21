@@ -3,12 +3,10 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 const timeline = [
-  { year: "2008", event: "Graduated with distinction in Real Estate Law from UCL, London" },
-  { year: "2010", event: "Joined a leading Abu Dhabi family office managing AED 800M in property assets" },
-  { year: "2013", event: "Moved to Dubai; led transactions for Knight Frank's UHNWI division" },
-  { year: "2016", event: "Founded Aviera Living with a vision to redefine the luxury real estate experience in Dubai" },
-  { year: "2019", event: "Aviera closes its first AED 1 billion in total transaction volume" },
-  { year: "2023", event: "Recognised by Arabian Business as one of Dubai's 50 most influential business leaders" },
+  { year: "2013", event: "Graduated in Law" },
+  { year: "2013 – 2016", event: "Started her career in the legal field, building a strong foundation in contracts and client representation" },
+  { year: "2017", event: "Moved into real estate, bringing a legal-first perspective into the industry" },
+  { year: "2024", event: "Founded Aviera Living to create a more transparent, client-focused real estate experience" },
 ];
 
 const principles = [
@@ -65,19 +63,16 @@ export default function AboutFounder() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
             <div>
               <p className="font-lejour text-xs text-[#917C63] uppercase tracking-[0.3em] mb-4">The Journey</p>
-              <h2 className="font-symphony text-4xl text-[#3D2716] mb-8">A Decade Before the Desk</h2>
+              <h2 className="font-symphony text-4xl text-[#3D2716] mb-8">Before the Business, There Was Perspective</h2>
               <div className="space-y-6 font-inria text-base text-[#3D2716]/75 leading-loose">
                 <p>
-                  Sophia Al Nour did not arrive in real estate by accident. Trained as a real estate lawyer at University College London, she spent her early career navigating the legal architecture of high-value transactions before ever setting foot in a show apartment.
+                  Before stepping into real estate, Rimma Daminova began her career in law, graduating in 2013. Working closely with legal structures and contracts early on gave her something many in the industry lack — a clear understanding of what clients are actually signing, and what it truly means for them.
                 </p>
                 <p>
-                  That foundation — built in the legal frameworks of RERA, the nuances of DLD registration, and the complexity of off-plan investment contracts — became the bedrock of everything Aviera Living stands for.
+                  In 2017, she transitioned into real estate and quickly noticed a pattern: people weren't lacking ambition or resources — they were lacking clarity and guidance they could trust. That realization shaped everything that followed.
                 </p>
                 <p>
-                  "I watched too many clients — intelligent, successful people — sign documents they didn't fully understand," she recalls. "I decided that the firm I would build would never allow that to happen."
-                </p>
-                <p>
-                  In 2016, she opened Aviera's first office in DIFC with a team of four. The mandate was simple: fewer clients, deeper service, zero compromise on legal excellence.
+                  By 2024, Rimma founded Aviera Living with a simple but powerful idea — real estate should feel informed, not overwhelming; personal, not transactional. Her approach combines legal insight with genuine care, creating an experience where clients feel confident, understood, and fully in control of their decisions.
                 </p>
               </div>
             </div>
