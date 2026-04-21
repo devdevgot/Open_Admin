@@ -30,6 +30,27 @@ const categoryColors: Record<string, string> = {
   "Lifestyle": "bg-[#D8BFAE] text-[#3D2716]",
 };
 
+const fallbackHeroImages: Record<string, string> = {
+  "how-to-buy-property-in-dubai-2026": "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?w=800&h=500&fit=crop",
+  "best-areas-dubai-real-estate-investment-rental-yields": "https://images.unsplash.com/photo-1518684079-3c830dcef090?w=800&h=500&fit=crop",
+  "how-much-can-you-earn-renting-property-dubai": "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&h=500&fit=crop",
+  "off-plan-property-dubai-benefits-risks-strategies": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&h=500&fit=crop",
+  "dubai-property-prices-2026-trends-forecast": "https://images.unsplash.com/photo-1582672060674-bc2bd808a8b5?w=800&h=500&fit=crop",
+};
+
+const fallbackHeroPool = [
+  "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&h=500&fit=crop",
+  "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=800&h=500&fit=crop",
+  "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=800&h=500&fit=crop",
+  "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=500&fit=crop",
+  "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=500&fit=crop",
+];
+
+function getPostHeroImage(post: BlogPost): string {
+  if (post.heroImage) return post.heroImage;
+  return fallbackHeroImages[post.slug] || fallbackHeroPool[post.id % fallbackHeroPool.length];
+}
+
 function formatDate(iso: string): string {
   return new Date(iso).toLocaleDateString("en-GB", { year: "numeric", month: "long", day: "numeric" });
 }
@@ -114,7 +135,7 @@ export default function Blog() {
                   <Link key={post.id} href={`/blog/${post.id}`} className="group block" data-testid={`card-post-${post.id}`}>
                     <div className="relative overflow-hidden aspect-[16/10] mb-5">
                       <img
-                        src={post.heroImage || "https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&h=500&fit=crop"}
+                        src={getPostHeroImage(post)}
                         alt={post.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                       />
