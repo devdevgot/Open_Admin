@@ -50,8 +50,8 @@ export default function AboutAgents() {
                   </div>
                 )}
                 <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6 pt-16">
-                  <p className="font-symphony text-2xl text-[#FAF8F5]">{agent.name}</p>
-                  <p className="font-lejour text-xs text-[#D8BFAE] uppercase tracking-widest mt-1">{agent.role}</p>
+                  <p className="font-lejour text-2xl text-[#FAF8F5]">{agent.name}</p>
+                  <p className="font-symphony text-sm text-[#D8BFAE] mt-1">{agent.role}</p>
                 </div>
               </div>
               {/* Info */}

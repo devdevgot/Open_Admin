@@ -243,7 +243,7 @@ export default function PropertyDetail() {
                     Contact Agent
                   </p>
                   <p className="font-lejour text-xl text-[#3D2716]" data-testid="text-agent-name">{property.agentName}</p>
-                  <p className="font-inria text-sm text-[#917C63]" data-testid="text-agent-title">{property.agentTitle}</p>
+                  <p className="font-symphony text-sm text-[#917C63]" data-testid="text-agent-title">{property.agentTitle}</p>
                 </div>
 
                 <div className="space-y-2">

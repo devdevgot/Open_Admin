@@ -33,7 +33,7 @@ export default function Agents() {
                 </div>
               )}
               <h4 className="font-lejour text-2xl text-[#3D2716] mb-1">{agent.name}</h4>
-              <p className="font-inria text-sm text-[#917C63] uppercase tracking-widest mb-3">{agent.role}</p>
+              <p className="font-symphony text-sm text-[#917C63] mb-3">{agent.role}</p>
               {agent.languages && agent.languages.length > 0 && (
                 <p className="font-inria text-sm text-[#3D2716]/60 italic">{agent.languages.join(", ")}</p>
               )}
