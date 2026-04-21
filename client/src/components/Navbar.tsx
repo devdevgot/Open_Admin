@@ -302,12 +302,12 @@ export default function Navbar() {
               <span className="font-lejour text-[10px] text-[#917C63] uppercase tracking-[0.2em]">Contact</span>
               <a href="tel:+97140000000" className="font-inria text-lg">+971 4 000 0000</a>
             </div>
-            <button onClick={() => openContactModal({ type: "general" })} className="group relative w-full overflow-hidden bg-[#424D38] text-[#FAF8F5] font-lejour uppercase tracking-widest py-5 text-sm transition-all duration-500 ease-out active:bg-[#3D2716] hover:-translate-y-1 hover:bg-[#3D2716] hover:shadow-[0_18px_45px_rgba(61,39,22,0.28)]" data-testid="button-get-in-touch-mobile">
-              <span className="absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-[#FAF8F5]/25 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full" />
-              <span className="absolute inset-[1px] border border-[#D8BFAE]/0 transition-all duration-500 group-hover:inset-[6px] group-hover:border-[#D8BFAE]/35" />
+            <button onClick={() => openContactModal({ type: "general" })} className="group relative w-full overflow-hidden bg-[#424D38] text-[#FAF8F5] font-lejour uppercase tracking-widest py-5 text-sm shadow-[0_12px_30px_rgba(66,77,56,0.22)] transition-all duration-500 ease-out animate-[mobileCtaPulse_3.2s_ease-in-out_infinite] active:scale-[0.98] active:bg-[#3D2716] hover:-translate-y-1 hover:bg-[#3D2716] hover:shadow-[0_18px_45px_rgba(61,39,22,0.28)]" data-testid="button-get-in-touch-mobile">
+              <span className="absolute inset-0 bg-gradient-to-r from-transparent via-[#FAF8F5]/30 to-transparent animate-[mobileCtaShine_2.6s_ease-in-out_infinite]" />
+              <span className="absolute inset-[6px] border border-[#D8BFAE]/35 animate-[mobileCtaFrame_3.2s_ease-in-out_infinite] transition-all duration-500 group-hover:inset-[4px] group-hover:border-[#D8BFAE]/55" />
               <span className="relative inline-flex items-center justify-center gap-3">
                 Get in Touch
-                <span className="inline-block translate-x-0 opacity-70 transition-all duration-500 group-hover:translate-x-1.5 group-hover:opacity-100">→</span>
+                <span className="inline-block opacity-80 animate-[mobileCtaArrow_1.4s_ease-in-out_infinite] transition-all duration-500 group-hover:translate-x-1.5 group-hover:opacity-100">→</span>
               </span>
             </button>
           </div>
