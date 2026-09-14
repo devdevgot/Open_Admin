@@ -1,29 +1,18 @@
 import type { Express } from "express";
 import { createServer, type Server } from "http";
-import propertiesRouter from "./routes/properties";
-import favoritesRouter from "./routes/favorites";
-import blogRouter from "./routes/blog";
-import inquiriesRouter from "./routes/inquiries";
-import newsletterRouter from "./routes/newsletter";
-import agentsRouter from "./routes/agents";
 import adminRouter from "./routes/admin";
+import publicRouter from "./routes/public";
+import { corsMiddleware } from "./middleware/cors";
 import { errorHandler } from "./middleware/errorHandler";
-import { runStartupSeed } from "./startup-seed";
 
 export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
-  await runStartupSeed();
-  // Public API
-  app.use("/api/properties", propertiesRouter);
-  app.use("/api/favorites", favoritesRouter);
-  app.use("/api/blog", blogRouter);
-  app.use("/api/inquiries", inquiriesRouter);
-  app.use("/api/newsletter", newsletterRouter);
-  app.use("/api/agents", agentsRouter);
+  // Public API for connected frontends (headless CMS + form submissions)
+  app.use("/api", corsMiddleware, publicRouter);
 
-  // Admin API
+  // Admin API + UI backend
   app.use("/api/admin", adminRouter);
 
   app.use(errorHandler as any);

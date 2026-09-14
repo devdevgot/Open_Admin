@@ -1,4 +1,4 @@
-const TOKEN_KEY = "aviera_admin_token";
+const TOKEN_KEY = "connect_admin_token";
 
 export function getAdminToken(): string {
   return localStorage.getItem(TOKEN_KEY) || "";

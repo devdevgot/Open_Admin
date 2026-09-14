@@ -6,8 +6,13 @@ import { storage } from "../storage";
 import { requireAdmin, generateAdminToken, revokeAdminToken, validateAdminToken } from "../middleware/adminAuth";
 import { propertyInsertSchema, blogPostInsertSchema, agentInsertSchema, inquiryInsertSchema } from "@shared/schema";
 import { AppError } from "../middleware/errorHandler";
+import { getPublicAdminConfig } from "../../admin.config";
 
 const router = Router();
+
+router.get("/config", (_req, res) => {
+  res.json(getPublicAdminConfig());
+});
 
 // ─── Uploads setup ────────────────────────────────────────────────────────────
 
@@ -34,7 +39,7 @@ const upload = multer({
 router.post("/login", (req, res) => {
   const { username, password } = req.body;
   const ADMIN_USER = process.env.ADMIN_USERNAME || "admin";
-  const ADMIN_PASS = process.env.ADMIN_PASSWORD || "Aviera2026!";
+  const ADMIN_PASS = process.env.ADMIN_PASSWORD || "changeme";
 
   if (username === ADMIN_USER && password === ADMIN_PASS) {
     req.session.admin = true;
