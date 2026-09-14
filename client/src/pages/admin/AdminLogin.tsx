@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useLocation } from "wouter";
 import { setAdminToken } from "@/lib/adminAuth";
+import { adminConfig, apiUrl } from "@/config/admin";
 
 export default function AdminLogin() {
   const [, navigate] = useLocation();
@@ -13,7 +14,7 @@ export default function AdminLogin() {
     setError("");
     setLoading(true);
     try {
-      const res = await fetch("/api/admin/login", {
+      const res = await fetch(apiUrl("/api/admin/login"), {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
@@ -35,18 +36,18 @@ export default function AdminLogin() {
   };
 
   return (
-    <div className="min-h-screen bg-[#1C1008] flex items-center justify-center p-4">
+    <div className="min-h-screen bg-slate-900 flex items-center justify-center p-4">
       <div className="w-full max-w-sm">
-        {/* Logo */}
         <div className="text-center mb-10">
           <p className="text-[10px] text-white/30 uppercase tracking-[0.4em] font-mono mb-3">Admin Panel</p>
-          <div className="flex items-baseline gap-2 justify-center">
-            <span className="text-3xl font-bold text-white uppercase tracking-widest" style={{ fontFamily: "serif" }}>Aviera</span>
-            <span className="text-2xl text-amber-400 italic" style={{ fontFamily: "serif" }}>Living</span>
+          <div className="flex flex-col items-center gap-1">
+            <span className="text-3xl font-bold text-white tracking-wide">{adminConfig.appName}</span>
+            {adminConfig.appTagline && (
+              <span className="text-sm text-slate-400">{adminConfig.appTagline}</span>
+            )}
           </div>
         </div>
 
-        {/* Form */}
         <div className="bg-white rounded-lg p-8 shadow-2xl">
           <h2 className="text-lg font-semibold text-gray-900 mb-6">Sign in to Admin</h2>
 
@@ -62,7 +63,7 @@ export default function AdminLogin() {
                 placeholder="admin"
                 required
                 data-testid="input-username"
-                className="w-full border border-gray-200 rounded-md px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-transparent"
+                className="w-full border border-gray-200 rounded-md px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-slate-600 focus:border-transparent"
               />
             </div>
             <div>
@@ -76,7 +77,7 @@ export default function AdminLogin() {
                 placeholder="••••••••"
                 required
                 data-testid="input-password"
-                className="w-full border border-gray-200 rounded-md px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-amber-600 focus:border-transparent"
+                className="w-full border border-gray-200 rounded-md px-4 py-3 text-sm text-gray-900 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-slate-600 focus:border-transparent"
               />
             </div>
 
@@ -90,7 +91,7 @@ export default function AdminLogin() {
               type="submit"
               disabled={loading}
               data-testid="button-login"
-              className="w-full bg-[#1C1008] text-white py-3 rounded-md text-sm font-semibold hover:bg-amber-800 transition-colors disabled:opacity-60 mt-2"
+              className="w-full bg-slate-900 text-white py-3 rounded-md text-sm font-semibold hover:bg-slate-800 transition-colors disabled:opacity-60 mt-2"
             >
               {loading ? "Signing in..." : "Sign In"}
             </button>
@@ -98,7 +99,7 @@ export default function AdminLogin() {
         </div>
 
         <p className="text-center text-xs text-white/20 mt-6">
-          Aviera Living © {new Date().getFullYear()}
+          {adminConfig.appName} © {new Date().getFullYear()}
         </p>
       </div>
     </div>

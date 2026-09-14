@@ -337,7 +337,7 @@ export default function AdminInquiries() {
 
                         <div className="ml-auto flex items-center gap-3">
                           <a
-                            href={`mailto:${inq.email}?subject=Re: Your Aviera Living Enquiry`}
+                            href={`mailto:${inq.email}?subject=Re: Your enquiry`}
                             className="flex items-center gap-1.5 text-xs text-blue-600 hover:text-blue-800 transition-colors"
                             data-testid={`button-reply-${inq.id}`}
                           >

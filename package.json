@@ -1,6 +1,7 @@
 {
-  "name": "rest-express",
+  "name": "open-admin",
   "version": "1.0.0",
+  "description": "Open-source admin panel with React UI and Express API for properties, blog, inquiries, and team management",
   "type": "module",
   "license": "MIT",
   "scripts": {

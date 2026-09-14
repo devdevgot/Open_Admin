@@ -1,4 +1,6 @@
-const TOKEN_KEY = "aviera_admin_token";
+import { apiUrl } from "@/config/admin";
+
+const TOKEN_KEY = "open_admin_token";
 
 export function getAdminToken(): string {
   return localStorage.getItem(TOKEN_KEY) || "";
@@ -30,7 +32,7 @@ export async function adminFetch(url: string, options: RequestInit = {}): Promis
   const token = getAdminToken();
   if (token) headers["Authorization"] = `Bearer ${token}`;
 
-  const res = await fetch(url, {
+  const res = await fetch(apiUrl(url), {
     credentials: "include",
     ...options,
     headers: {

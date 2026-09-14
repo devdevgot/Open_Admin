@@ -1,11 +1,11 @@
-import { pgTable, text, integer, varchar, timestamp, boolean } from "drizzle-orm/pg-core";
+import { pgTable, text, integer, serial, varchar, timestamp, boolean } from "drizzle-orm/pg-core";
 import { createInsertSchema } from "drizzle-zod";
 import { z } from "zod";
 
 // ─── Properties ───────────────────────────────────────────────────────────────
 
 export const properties = pgTable("properties", {
-  id: integer().primaryKey().generatedAlwaysAsIdentity(),
+  id: serial("id").primaryKey(),
   title: varchar({ length: 255 }).notNull(),
   description: text().notNull(),
   price: varchar({ length: 50 }).notNull(),
@@ -23,10 +23,10 @@ export const properties = pgTable("properties", {
   images: text().array().notNull(),
   features: text().array().notNull(),
   amenities: text().notNull(),
-  agentName: varchar("agent_name", { length: 255 }).notNull().default("Marcus Thorne"),
-  agentTitle: varchar("agent_title", { length: 255 }).notNull().default("Director of Private Office"),
-  agentPhone: varchar("agent_phone", { length: 50 }).notNull().default("+971 4 000 0000"),
-  agentEmail: varchar("agent_email", { length: 255 }).notNull().default("marcus@avieraliving.com"),
+  agentName: varchar("agent_name", { length: 255 }).notNull().default(""),
+  agentTitle: varchar("agent_title", { length: 255 }).notNull().default(""),
+  agentPhone: varchar("agent_phone", { length: 50 }).notNull().default(""),
+  agentEmail: varchar("agent_email", { length: 255 }).notNull().default(""),
   createdAt: timestamp("created_at").defaultNow(),
 });
 
@@ -37,7 +37,7 @@ export type PropertyInsert = z.infer<typeof propertyInsertSchema>;
 // ─── Favorites ────────────────────────────────────────────────────────────────
 
 export const favorites = pgTable("favorites", {
-  id: integer().primaryKey().generatedAlwaysAsIdentity(),
+  id: serial("id").primaryKey(),
   propertyId: integer("property_id").references(() => properties.id, { onDelete: "cascade" }).notNull(),
   createdAt: timestamp("created_at").defaultNow(),
 });
@@ -49,7 +49,7 @@ export type FavoriteInsert = z.infer<typeof favoriteInsertSchema>;
 // ─── Blog Posts ───────────────────────────────────────────────────────────────
 
 export const blogPosts = pgTable("blog_posts", {
-  id: integer().primaryKey().generatedAlwaysAsIdentity(),
+  id: serial("id").primaryKey(),
   slug: varchar({ length: 255 }).notNull().unique(),
   title: varchar({ length: 500 }).notNull(),
   subtitle: text(),
@@ -73,7 +73,7 @@ export type BlogPostInsert = z.infer<typeof blogPostInsertSchema>;
 // ─── Inquiries ────────────────────────────────────────────────────────────────
 
 export const inquiries = pgTable("inquiries", {
-  id: integer().primaryKey().generatedAlwaysAsIdentity(),
+  id: serial("id").primaryKey(),
   name: varchar({ length: 255 }).notNull(),
   email: varchar({ length: 255 }).notNull(),
   phone: varchar({ length: 50 }),
@@ -91,7 +91,7 @@ export type InquiryInsert = z.infer<typeof inquiryInsertSchema>;
 // ─── Newsletter Subscribers ───────────────────────────────────────────────────
 
 export const newsletterSubscribers = pgTable("newsletter_subscribers", {
-  id: integer().primaryKey().generatedAlwaysAsIdentity(),
+  id: serial("id").primaryKey(),
   email: varchar({ length: 255 }).notNull().unique(),
   name: varchar({ length: 255 }),
   createdAt: timestamp("created_at").defaultNow(),
@@ -104,7 +104,7 @@ export type NewsletterInsert = z.infer<typeof newsletterInsertSchema>;
 // ─── Agents ───────────────────────────────────────────────────────────────────
 
 export const agents = pgTable("agents", {
-  id: integer().primaryKey().generatedAlwaysAsIdentity(),
+  id: serial("id").primaryKey(),
   name: varchar({ length: 255 }).notNull(),
   role: varchar({ length: 255 }).notNull(),
   phone: varchar({ length: 50 }),

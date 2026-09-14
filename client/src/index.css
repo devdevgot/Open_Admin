@@ -3,26 +3,7 @@
 
 @custom-variant dark (&:is(.dark *));
 
-@font-face {
-  font-family: 'Symphony';
-  src: url('/fonts/SymphonyPro-Regular.otf') format('opentype'),
-       url('/fonts/Symphony-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-style: normal;
-}
-
 @theme inline {
-  --color-cacao: #3D2716;
-  --color-forest: #424D38;
-  --color-stone: #D8BFAE;
-  --color-terra: #995134;
-  --color-sand: #917C63;
-  --color-pearl: #FAF8F5;
-
-  --font-symphony: 'Symphony', serif;
-  --font-lejour: 'Cormorant Garamond', serif;
-  --font-inria: 'Inria Serif', serif;
-
   --radius-sm: var(--radius);
   --radius-md: var(--radius);
   --radius-lg: var(--radius);
@@ -49,46 +30,26 @@
 }
 
 :root {
-  /* HSL Values for standard variables */
-  /* Pearl */
-  --background: 36 33% 97%; 
-  /* Cacao */
-  --foreground: 26 47% 16%;
-  
-  /* Stone */
-  --card: 24 35% 76%;
-  --card-foreground: 26 47% 16%;
-  
-  /* Pearl */
-  --popover: 36 33% 97%;
-  --popover-foreground: 26 47% 16%;
-  
-  /* Cacao */
-  --primary: 26 47% 16%;
-  --primary-foreground: 36 33% 97%;
-  
-  /* Stone */
-  --secondary: 24 35% 76%;
-  --secondary-foreground: 26 47% 16%;
-  
-  /* Sand */
-  --muted: 32 19% 48%;
-  --muted-foreground: 36 33% 97%;
-  
-  /* Terra Cotta */
-  --accent: 17 49% 40%;
-  --accent-foreground: 36 33% 97%;
-  
-  /* Destructive */
+  --background: 0 0% 100%;
+  --foreground: 222 47% 11%;
+  --card: 0 0% 100%;
+  --card-foreground: 222 47% 11%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 222 47% 11%;
+  --primary: 222 47% 11%;
+  --primary-foreground: 210 40% 98%;
+  --secondary: 210 40% 96%;
+  --secondary-foreground: 222 47% 11%;
+  --muted: 210 40% 96%;
+  --muted-foreground: 215 16% 47%;
+  --accent: 210 40% 96%;
+  --accent-foreground: 222 47% 11%;
   --destructive: 0 84% 60%;
   --destructive-foreground: 0 0% 98%;
-
-  /* Stone */
-  --border: 24 35% 76%;
-  --input: 24 35% 76%;
-  --ring: 26 47% 16%;
-
-  --radius: 0.25rem;
+  --border: 214 32% 91%;
+  --input: 214 32% 91%;
+  --ring: 222 47% 11%;
+  --radius: 0.375rem;
 }
 
 @layer base {
@@ -96,77 +57,6 @@
     @apply border-border;
   }
   body {
-    @apply font-inria antialiased bg-background text-foreground;
-  }
-  
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-lejour font-medium tracking-wide;
-  }
-
-  .font-symphony {
-    @apply font-symphony font-light;
-  }
-
-  button {
-    border-radius: 9999px;
-  }
-
-  a[class*="font-lejour"][class*="px-"],
-  a[class*="font-inria"][class*="uppercase"][class*="px-"] {
-    border-radius: 9999px;
-  }
-}
-
-/* Custom scrollbar for luxury feel */
-::-webkit-scrollbar {
-  width: 8px;
-}
-::-webkit-scrollbar-track {
-  background: var(--color-pearl);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--color-stone);
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--color-sand);
-}
-
-@keyframes mobileCtaPulse {
-  0%, 100% {
-    transform: translateY(0);
-    box-shadow: 0 12px 30px rgba(66, 77, 56, 0.22);
-  }
-  50% {
-    transform: translateY(-4px);
-    box-shadow: 0 18px 45px rgba(61, 39, 22, 0.3);
-  }
-}
-
-@keyframes mobileCtaShine {
-  0% {
-    transform: translateX(-120%);
-  }
-  45%, 100% {
-    transform: translateX(120%);
-  }
-}
-
-@keyframes mobileCtaFrame {
-  0%, 100% {
-    inset: 7px;
-    opacity: 0.3;
-  }
-  50% {
-    inset: 5px;
-    opacity: 0.75;
-  }
-}
-
-@keyframes mobileCtaArrow {
-  0%, 100% {
-    transform: translateX(0);
-  }
-  50% {
-    transform: translateX(6px);
+    @apply antialiased bg-background text-foreground;
   }
 }

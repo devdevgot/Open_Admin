@@ -34,7 +34,7 @@ const upload = multer({
 router.post("/login", (req, res) => {
   const { username, password } = req.body;
   const ADMIN_USER = process.env.ADMIN_USERNAME || "admin";
-  const ADMIN_PASS = process.env.ADMIN_PASSWORD || "Aviera2026!";
+  const ADMIN_PASS = process.env.ADMIN_PASSWORD || "admin";
 
   if (username === ADMIN_USER && password === ADMIN_PASS) {
     req.session.admin = true;

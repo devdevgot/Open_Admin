@@ -20,12 +20,26 @@ declare module "http" {
 const MemStoreSession = MemoryStore(session);
 
 app.use(session({
-  secret: process.env.SESSION_SECRET || "aviera-admin-secret-2026-xyz",
+  secret: process.env.SESSION_SECRET || "open-admin-dev-secret-change-me",
   resave: false,
   saveUninitialized: false,
   cookie: { secure: false, maxAge: 24 * 60 * 60 * 1000 },
   store: new MemStoreSession({ checkPeriod: 86400000 }),
 }));
+
+// ─── CORS (for external frontend integration) ─────────────────────────────────
+
+const corsOrigin = process.env.CORS_ORIGIN;
+if (corsOrigin) {
+  app.use((req, res, next) => {
+    res.header("Access-Control-Allow-Origin", corsOrigin);
+    res.header("Access-Control-Allow-Credentials", "true");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Authorization");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE, OPTIONS");
+    if (req.method === "OPTIONS") return res.sendStatus(204);
+    next();
+  });
+}
 
 // ─── Static uploads ───────────────────────────────────────────────────────────
 
