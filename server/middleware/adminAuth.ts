@@ -7,7 +7,7 @@ declare module "express-session" {
   }
 }
 
-const TOKEN_SECRET = process.env.TOKEN_SECRET || "aviera-token-secret-2026-xyz";
+const TOKEN_SECRET = process.env.TOKEN_SECRET || "connect-admin-token-secret";
 
 export function generateAdminToken(username: string, password: string): string {
   return crypto
@@ -18,7 +18,7 @@ export function generateAdminToken(username: string, password: string): string {
 
 export function validateAdminToken(token: string): boolean {
   const ADMIN_USER = process.env.ADMIN_USERNAME || "admin";
-  const ADMIN_PASS = process.env.ADMIN_PASSWORD || "Aviera2026!";
+  const ADMIN_PASS = process.env.ADMIN_PASSWORD || "changeme";
   const expected = generateAdminToken(ADMIN_USER, ADMIN_PASS);
   try {
     return (

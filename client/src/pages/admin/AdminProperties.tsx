@@ -51,7 +51,7 @@ export default function AdminProperties() {
             <h2 className="text-2xl font-bold text-gray-900">Properties</h2>
             <p className="text-sm text-gray-500 mt-1">{properties.length} listings</p>
           </div>
-          <Link href="/admin/properties/new">
+          <Link href="/admin/catalog/new">
             <button className="flex items-center gap-2 bg-[#1C1008] text-white px-4 py-2.5 rounded-md text-sm font-medium hover:bg-amber-800 transition-colors" data-testid="button-new-property">
               <Plus size={16} />
               Add Property
@@ -65,7 +65,7 @@ export default function AdminProperties() {
           <div className="text-center py-20 bg-white rounded-lg border border-gray-200">
             <Building2 size={40} className="text-gray-300 mx-auto mb-3" />
             <p className="text-gray-500 mb-4">No properties yet</p>
-            <Link href="/admin/properties/new">
+            <Link href="/admin/catalog/new">
               <button className="bg-[#1C1008] text-white px-5 py-2.5 rounded-md text-sm font-medium hover:bg-amber-800 transition-colors">
                 Add First Property
               </button>
@@ -101,7 +101,7 @@ export default function AdminProperties() {
                   </div>
                 </div>
                 <div className="flex items-center gap-2 shrink-0">
-                  <Link href={`/admin/properties/${prop.id}`}>
+                  <Link href={`/admin/catalog/${prop.id}`}>
                     <button className="p-2 text-gray-400 hover:text-amber-700 hover:bg-amber-50 rounded-md transition-colors" data-testid={`button-edit-property-${prop.id}`}>
                       <Pencil size={15} />
                     </button>

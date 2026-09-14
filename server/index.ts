@@ -20,7 +20,7 @@ declare module "http" {
 const MemStoreSession = MemoryStore(session);
 
 app.use(session({
-  secret: process.env.SESSION_SECRET || "aviera-admin-secret-2026-xyz",
+  secret: process.env.SESSION_SECRET || "connect-admin-session-secret",
   resave: false,
   saveUninitialized: false,
   cookie: { secure: false, maxAge: 24 * 60 * 60 * 1000 },

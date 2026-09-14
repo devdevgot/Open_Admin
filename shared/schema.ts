@@ -23,10 +23,10 @@ export const properties = pgTable("properties", {
   images: text().array().notNull(),
   features: text().array().notNull(),
   amenities: text().notNull(),
-  agentName: varchar("agent_name", { length: 255 }).notNull().default("Marcus Thorne"),
-  agentTitle: varchar("agent_title", { length: 255 }).notNull().default("Director of Private Office"),
-  agentPhone: varchar("agent_phone", { length: 50 }).notNull().default("+971 4 000 0000"),
-  agentEmail: varchar("agent_email", { length: 255 }).notNull().default("marcus@avieraliving.com"),
+  agentName: varchar("agent_name", { length: 255 }).notNull().default(""),
+  agentTitle: varchar("agent_title", { length: 255 }).notNull().default(""),
+  agentPhone: varchar("agent_phone", { length: 50 }).notNull().default(""),
+  agentEmail: varchar("agent_email", { length: 255 }).notNull().default(""),
   createdAt: timestamp("created_at").defaultNow(),
 });
 

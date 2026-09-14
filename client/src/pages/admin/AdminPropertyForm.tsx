@@ -117,7 +117,7 @@ export default function AdminPropertyForm() {
         const d = await res.json();
         throw new Error(d.message || "Save failed");
       }
-      navigate("/admin/properties");
+      navigate("/admin/catalog");
     } catch (err: any) {
       setError(err.message || "Save failed. Please check all required fields.");
     } finally {
@@ -139,7 +139,7 @@ export default function AdminPropertyForm() {
     <AdminLayout>
       <div className="max-w-3xl">
         <div className="flex items-center gap-3 mb-6">
-          <button onClick={() => navigate("/admin/properties")} className="p-2 text-gray-400 hover:text-gray-700 rounded-md hover:bg-gray-100">
+          <button onClick={() => navigate("/admin/catalog")} className="p-2 text-gray-400 hover:text-gray-700 rounded-md hover:bg-gray-100">
             <ArrowLeft size={18} />
           </button>
           <h2 className="text-2xl font-bold text-gray-900">
@@ -290,7 +290,7 @@ export default function AdminPropertyForm() {
               {saving && <Loader2 size={14} className="animate-spin" />}
               {saving ? "Saving..." : isNew ? "Create Property" : "Save Changes"}
             </button>
-            <button type="button" onClick={() => navigate("/admin/properties")} className="px-5 py-3 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
+            <button type="button" onClick={() => navigate("/admin/catalog")} className="px-5 py-3 text-sm font-medium text-gray-600 hover:text-gray-900 transition-colors">
               Cancel
             </button>
           </div>
